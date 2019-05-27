@@ -13,4 +13,24 @@ export class Story1Component implements OnInit {
   ngOnInit() {
   }
 
+
+  sortByTitle() {
+
+  }
+
+  sortByPriority() {
+
+  }
+
+  sortByReporter() {
+
+  }
+
+  sortByDate() {
+
+  }
+
+  sortByStatus() {
+
+  }
 }

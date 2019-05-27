@@ -10,26 +10,6 @@ export class Story1ServiceService {
 
 getData(){
 
-}
 
-sortByTitle() {
-
-}
-
-sortByPriority() {
-
-}
-
-sortByReporter() {
-
-}
-
-sortByDate() {
-
-}
-
-sortByStatus() {
-
-}
 
 
