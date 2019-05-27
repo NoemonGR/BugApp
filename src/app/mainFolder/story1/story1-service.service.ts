@@ -8,6 +8,10 @@ export class Story1ServiceService {
   constructor() { }
 }
 
+getData(){
+
+}
+
 sortByTitle() {
 
 }
