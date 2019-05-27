@@ -6,9 +6,12 @@ import { Injectable } from '@angular/core';
 export class Story1ServiceService {
 
   constructor() { }
-}
 
-getData(){
+
+  getData() {
+
+  }
+}
 
 
 
