@@ -31,40 +31,4 @@ export class Story1Component implements OnInit {
 
 
   }
-//       sortByPriority() {
-//         this.story1ServiceService.getBugsSorted().subscribe((data) => {
-//           this.BugsSorted = data;
-//         });
-//     }
-
-//     sortyByReporter() {
-// // tslint:disable-next-line: only-arrow-functions
-//       return this.Bugs.sort(function(a, b) {
-//         if (a.title < b.title) { return -1; }
-//         if (a.title > b.title) { return 1; }
-//         return 0;
-//     });
-
-//     }
-
-//     sortyBycreatedAt() {
-// // tslint:disable-next-line: only-arrow-functions
-//       return this.Bugs.sort(function(a, b) {
-//         if (a.title < b.title) { return -1; }
-//         if (a.title > b.title) { return 1; }
-//         return 0;
-//     });
-
-//     }
-
-//     sortyByStatus() {
-// // tslint:disable-next-line: only-arrow-functions
-//       return this.Bugs.sort(function(a, b) {
-//         if (a.title < b.title) { return -1; }
-//         if (a.title > b.title) { return 1; }
-//         return 0;
-//     });
-
-//     }
-
   }
