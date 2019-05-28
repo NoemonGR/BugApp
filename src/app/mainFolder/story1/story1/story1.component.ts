@@ -11,6 +11,7 @@ export class Story1Component implements OnInit {
   Bugs: bug[];
   BugsSortedPriorityDesc: bug[];
   BugsSortedPriorityAsc: bug[];
+  tempBugs: bug[];
 
   constructor(private story1ServiceService: Story1ServiceService) { }
 
@@ -28,7 +29,12 @@ export class Story1Component implements OnInit {
     this.story1ServiceService.getBugsSortedPriorityAsc().subscribe((data) => {
       this.BugsSortedPriorityAsc = data;
     });
+  }
 
+  sortByPriority() {
+    this.story1ServiceService.getBugsSortedPriorityAsc().subscribe((data) => {
+      this.tempBugs = data;
+  });
 
   }
-  }
+}

@@ -1,70 +1,22 @@
-<span title="Click to sort by case">
-
-  <table>
-    <tr>
-      <th>
-        <button data-ng-click="sortyByTitle()">Title</button>
-      </th>
-      <th>
-        <button data-ng-click="sortByPriority()">Priority</button>
-      </th>
-      <th>
-          <button data-ng-click="sortByKey(Bugs, key)">Reporter</button>
-      </th>
-      <th>
-        <button data-ng-click="sortByKey(Bugs, '')">Date Created</button>
-      </th>
-      <th>
-        <button data-ng-click="sortByKey(Bugs, '')">Status</button>
-      </th>
-
-    </tr>
-  </table>
-</span>
-
-<br/>
 
 <div>
-<label> KANONIKA </label>
-  <ul>
-    <li *ngFor="let i of Bugs">
-    title: {{i.title}} <br/>
-    priority: {{i.priority}}<br/>
-    reporter: {{i.reporter}}<br/>
-    created at :{{i.createdAt}}<br/>
-    status: {{i.status}}<br/>
+<table>
+  <tr>
+    <th><button data-ng-click="sortyByTitle()">Title</button></th>
+    <th><button data-ng-click="sortByPriority()">Priority</button></th>
+    <th><button data-ng-click="sortByKey(Bugs, key)">Reporter</button></th>
+    <th><button data-ng-click="sortByKey(Bugs, '')">Date Created</button></th>
+    <th><button data-ng-click="sortByKey(Bugs, '')">Status</button></th>
+  </tr>
 
-    </li>
-    </ul>
+  <tr  *ngFor="let i of Bugs ">
+  <th>{{i.title}}</th>
+  <th>{{i.priority}}</th>
+  <th>{{i.reporter}}</th>
+  <th>{{i.createdAt}}</th>
+  <th>{{i.status}}</th>
+</tr>
+</table>
 
 </div>
 
-<div>
-  <label> SORTARISMENA ME PRIORITY DISC </label>
-    <ul>
-      <li *ngFor="let i of BugsSortedPriorityDesc">
-      title: {{i.title}} <br/>
-      priority: {{i.priority}}<br/>
-      reporter: {{i.reporter}}<br/>
-      created at :{{i.createdAt}}<br/>
-      status: {{i.status}}<br/>
-
-      </li>
-      </ul>
-
-  </div>
-
-  <div>
-    <label> SORTARISMENA ME PRIORITY ASC </label>
-      <ul>
-        <li *ngFor="let i of BugsSortedPriorityAsc">
-        title: {{i.title}} <br/>
-        priority: {{i.priority}}<br/>
-        reporter: {{i.reporter}}<br/>
-        created at :{{i.createdAt}}<br/>
-        status: {{i.status}}<br/>
-
-        </li>
-        </ul>
-
-    </div>
