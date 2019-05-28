@@ -11,11 +11,13 @@ export class Story1Component implements OnInit {
   Bugs: bug[];
   constructor(private story1ServiceService: Story1ServiceService) { }
 
+  bugs: Array <any> ;
+
   ngOnInit() {
     this.story1ServiceService.getBugs().subscribe((data) => {
       this.Bugs = data;
     });
-  }
+
 
 
   sortByTitle() {
@@ -37,4 +39,5 @@ export class Story1Component implements OnInit {
   sortByStatus() {
 
   }
+
 }
