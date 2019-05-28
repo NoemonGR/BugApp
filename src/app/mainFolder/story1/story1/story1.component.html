@@ -3,19 +3,19 @@
   <table>
     <tr>
       <th>
-        <button data-ng-click="sortyByTitle()">Title</button>
+        <button data-ng-click="sortyByTitle('title')">Title</button>
       </th>
       <th>
-        <button data-ng-click="sortByPriority()">Priority</button>
+        <button data-ng-click="sortByPriority('priority')">Priority</button>
       </th>
       <th>
-          <button data-ng-click="sortByKey(Bugs, key)">Reporter</button>
+          <button data-ng-click="sortByKey('reporter')">Reporter</button>
       </th>
       <th>
-        <button data-ng-click="sortByKey(Bugs, '')">Date Created</button>
+        <button data-ng-click="sortByKey('createdAt')">Date Created</button>
       </th>
       <th>
-        <button data-ng-click="sortByKey(Bugs, '')">Status</button>
+        <button data-ng-click="sortByKey('status')">Status</button>
       </th>
 
     </tr>
