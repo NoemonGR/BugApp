@@ -3,16 +3,16 @@
   <table>
     <tr>
       <th>
-        <button onclick="sortBykey(bugs,'title')">Title</button>
+        <button onclick="sortBykey(Bugs,'title')">Title</button>
       </th>
       <th>
-        <button onclick="sortByKey(bugs, key)">Priority</button>
+        <button onclick="sortByKey(Bugs, key)">Priority</button>
       </th>
       <th>
-          <button onclick="sortByKey(bugs, key)">Reporter</button>
+          <button onclick="sortByKey(Bugs, key)">Reporter</button>
       </th>
       <th>
-        <button onclick="sortByKey(bugs, '')">Date Created</button>
+        <button onclick="sortByKey(Bugs, '')">Date Created</button>
       </th>
       <th>
           <button onclick="sortByKey()">Priority</button>
@@ -26,7 +26,7 @@
 <div>
 
   <ul>
-    <li *ngFor="let i of bugs">
+    <li *ngFor="let i of Bugs">
     title: {{i.title}} <br/>
     priority: {{i.priority}}<br/>
     reporter: {{i.reporter}}<br/>
