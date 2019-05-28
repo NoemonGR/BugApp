@@ -21,24 +21,12 @@ export class Story1Component implements OnInit {
   }
 
 
-  sortByTitle() {
+  sortByKey(bugs, key) {
+    return bugs.sort((a, b) => {
+        const x = a[key]; const y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
 
-  }
-
-  sortByPriority() {
-
-  }
-
-  sortByReporter() {
-
-  }
-
-  sortByDate() {
-
-  }
-
-  sortByStatus() {
-
-  }
 
 }
