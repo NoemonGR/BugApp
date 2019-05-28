@@ -56,7 +56,6 @@ export class Story1ServiceService {
     return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc');
   }
 
-
 }
 
 

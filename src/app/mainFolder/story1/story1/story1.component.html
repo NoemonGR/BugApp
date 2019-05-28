@@ -1,16 +1,14 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet">
 
-
->>>>>>> f59d98b19d1583fdda43de9fa3c743287c0ca4c5
 <div>
 <table>
   <tr>
-    <th><button data-ng-click="sortyByTitle()">Title</button></th>
-    <th><button data-ng-click="sortByPriority()">Priority</button></th>
-    <th><button data-ng-click="sortByKey(Bugs, key)">Reporter</button></th>
-    <th><button data-ng-click="sortByKey(Bugs, '')">Date Created</button></th>
-    <th><button data-ng-click="sortByKey(Bugs, '')">Status</button></th>
+    <th><button (click)="sortByTitle()">Title</button></th>
+    <th><button (click)="sortByPriority()">Priority</button></th>
+    <th><button (click)="sortByReporter()">Reporter</button></th>
+    <th><button>Date Created</button></th>
+    <th><button (click)="sortByStatus()">Status</button></th>
   </tr>
 
   <tr  *ngFor="let i of Bugs ">

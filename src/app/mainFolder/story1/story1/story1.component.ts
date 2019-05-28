@@ -9,32 +9,39 @@ import { bug } from 'src/app/mainFolder/story1/story1.model';
 })
 export class Story1Component implements OnInit {
   Bugs: bug[];
-  BugsSortedPriorityDesc: bug[];
-  BugsSortedPriorityAsc: bug[];
-  tempBugs: bug[];
 
   constructor(private story1ServiceService: Story1ServiceService) { }
-
 
 
   ngOnInit() {
     this.story1ServiceService.getBugs().subscribe((data) => {
       this.Bugs = data;
     });
-
-    this.story1ServiceService.getBugsSortedPriorityDesc().subscribe((data) => {
-      this.BugsSortedPriorityDesc = data;
-    });
-
-    this.story1ServiceService.getBugsSortedPriorityAsc().subscribe((data) => {
-      this.BugsSortedPriorityAsc = data;
-    });
   }
+
 
   sortByPriority() {
     this.story1ServiceService.getBugsSortedPriorityAsc().subscribe((data) => {
-      this.tempBugs = data;
-  });
-
+      this.Bugs = data;
+    });
   }
+
+  sortByReporter() {
+    this.story1ServiceService.getBugsSortedReporterAsc().subscribe((data) => {
+      this.Bugs = data;
+    });
+  }
+
+  sortByStatus() {
+    this.story1ServiceService.getBugsSortedStatusAsc().subscribe((data) => {
+      this.Bugs = data;
+    });
+  }
+
+  sortByTitle() {
+    this.story1ServiceService.getBugsSortedTitleAsc().subscribe((data) => {
+      this.Bugs = data;
+    });
+  }
+
 }
