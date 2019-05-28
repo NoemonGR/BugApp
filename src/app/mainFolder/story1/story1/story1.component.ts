@@ -9,7 +9,8 @@ import { bug } from 'src/app/mainFolder/story1/story1.model';
 })
 export class Story1Component implements OnInit {
   Bugs: bug[];
-  BugsSorted: bug[];
+  BugsSortedPriorityDesc: bug[];
+  BugsSortedPriorityAsc: bug[];
 
   constructor(private story1ServiceService: Story1ServiceService) { }
 
@@ -20,8 +21,12 @@ export class Story1Component implements OnInit {
       this.Bugs = data;
     });
 
-    this.story1ServiceService.getBugsSorted().subscribe((data) => {
-      this.BugsSorted = data;
+    this.story1ServiceService.getBugsSortedPriorityDesc().subscribe((data) => {
+      this.BugsSortedPriorityDesc = data;
+    });
+
+    this.story1ServiceService.getBugsSortedPriorityAsc().subscribe((data) => {
+      this.BugsSortedPriorityAsc = data;
     });
 
 

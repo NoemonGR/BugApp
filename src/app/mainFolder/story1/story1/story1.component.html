@@ -40,9 +40,9 @@
 </div>
 
 <div>
-  <label> SORTARISMENA </label>
+  <label> SORTARISMENA ME PRIORITY DISC </label>
     <ul>
-      <li *ngFor="let i of BugsSorted">
+      <li *ngFor="let i of BugsSortedPriorityDesc">
       title: {{i.title}} <br/>
       priority: {{i.priority}}<br/>
       reporter: {{i.reporter}}<br/>
@@ -53,3 +53,18 @@
       </ul>
 
   </div>
+
+  <div>
+    <label> SORTARISMENA ME PRIORITY ASC </label>
+      <ul>
+        <li *ngFor="let i of BugsSortedPriorityAsc">
+        title: {{i.title}} <br/>
+        priority: {{i.priority}}<br/>
+        reporter: {{i.reporter}}<br/>
+        created at :{{i.createdAt}}<br/>
+        status: {{i.status}}<br/>
+
+        </li>
+        </ul>
+
+    </div>
