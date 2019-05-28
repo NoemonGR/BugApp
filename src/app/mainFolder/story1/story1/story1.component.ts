@@ -20,12 +20,22 @@ export class Story1Component implements OnInit {
 
 
   }
-    sortByKey(Bugs, key) {
-      return Bugs.sort((a, b) => {
-        const x = a[key]; const y = b[key];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-      });
+      sortByPriority() {
+      return this.Bugs.sort((a, b) => a.priority - b.priority
+      );
     }
+
+    sortyByTitle() {
+// tslint:disable-next-line: only-arrow-functions
+      return this.Bugs.sort(function(a, b) {
+        if (a.title < b.title) { return -1; }
+        if (a.title > b.title) { return 1; }
+        return 0;
+    });
+
+    }
+
+
 
 
   }

@@ -1,3 +1,4 @@
+// tslint:disable-next-line: class-name
 export interface bug {
     id: string;
     title: string;

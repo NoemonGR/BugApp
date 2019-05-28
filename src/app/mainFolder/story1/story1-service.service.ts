@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { bug } from 'src/app/story1.model';
+import { bug } from 'src/app/mainFolder/story1/story1.model';
 
 
 @Injectable({
