@@ -9,6 +9,8 @@ import { bug } from 'src/app/mainFolder/story1/story1.model';
 })
 export class Story1Component implements OnInit {
   Bugs: bug[];
+  BugsSorted: bug[];
+
   constructor(private story1ServiceService: Story1ServiceService) { }
 
 
@@ -19,19 +21,19 @@ export class Story1Component implements OnInit {
     });
 
     this.story1ServiceService.getBugsSorted().subscribe((data) => {
-      this.Bugs = data;
+      this.BugsSorted = data;
     });
-
-
 
 
   }
       sortByPriority() {
-      return this.Bugs.sort((a, b) => a.priority - b.priority
-      );
+        this.story1ServiceService.getBugsSorted().subscribe((data) => {
+          this.BugsSorted = data;
+        });
     }
 
     sortyByReporter() {
+// tslint:disable-next-line: only-arrow-functions
       return this.Bugs.sort(function(a, b) {
         if (a.title < b.title) { return -1; }
         if (a.title > b.title) { return 1; }
@@ -41,6 +43,7 @@ export class Story1Component implements OnInit {
     }
 
     sortyBycreatedAt() {
+// tslint:disable-next-line: only-arrow-functions
       return this.Bugs.sort(function(a, b) {
         if (a.title < b.title) { return -1; }
         if (a.title > b.title) { return 1; }
@@ -50,6 +53,7 @@ export class Story1Component implements OnInit {
     }
 
     sortyByStatus() {
+// tslint:disable-next-line: only-arrow-functions
       return this.Bugs.sort(function(a, b) {
         if (a.title < b.title) { return -1; }
         if (a.title > b.title) { return 1; }

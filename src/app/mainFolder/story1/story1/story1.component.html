@@ -25,7 +25,7 @@
 <br/>
 
 <div>
-
+<label> KANONIKA </label>
   <ul>
     <li *ngFor="let i of Bugs">
     title: {{i.title}} <br/>
@@ -38,3 +38,18 @@
     </ul>
 
 </div>
+
+<div>
+  <label> SORTARISMENA </label>
+    <ul>
+      <li *ngFor="let i of BugsSorted">
+      title: {{i.title}} <br/>
+      priority: {{i.priority}}<br/>
+      reporter: {{i.reporter}}<br/>
+      created at :{{i.createdAt}}<br/>
+      status: {{i.status}}<br/>
+
+      </li>
+      </ul>
+
+  </div>
