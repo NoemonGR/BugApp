@@ -13,8 +13,14 @@ export class Story1ServiceService {
 
 
   getBugs(): Observable<bug[]> {
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs');
+    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs',);
   }
+
+  getBugsSorted(): Observable<bug[]> {
+    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs',);
+  }
+  
+  
 }
 
 

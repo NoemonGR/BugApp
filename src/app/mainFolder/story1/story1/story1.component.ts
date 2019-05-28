@@ -18,6 +18,12 @@ export class Story1Component implements OnInit {
       this.Bugs = data;
     });
 
+    this.story1ServiceService.getBugsSorted().subscribe((data) => {
+      this.Bugs = data;
+    });
+
+
+
 
   }
       sortByPriority() {
@@ -25,8 +31,7 @@ export class Story1Component implements OnInit {
       );
     }
 
-    sortyByTitle() {
-// tslint:disable-next-line: only-arrow-functions
+    sortyByReporter() {
       return this.Bugs.sort(function(a, b) {
         if (a.title < b.title) { return -1; }
         if (a.title > b.title) { return 1; }
@@ -35,7 +40,22 @@ export class Story1Component implements OnInit {
 
     }
 
+    sortyBycreatedAt() {
+      return this.Bugs.sort(function(a, b) {
+        if (a.title < b.title) { return -1; }
+        if (a.title > b.title) { return 1; }
+        return 0;
+    });
 
+    }
 
+    sortyByStatus() {
+      return this.Bugs.sort(function(a, b) {
+        if (a.title < b.title) { return -1; }
+        if (a.title > b.title) { return 1; }
+        return 0;
+    });
+
+    }
 
   }
