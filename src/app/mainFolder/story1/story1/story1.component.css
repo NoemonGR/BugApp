@@ -1,0 +1,16 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+table, div {
+    font-size: 18px;
+    margin: 10px;
+  }
+  
+  table {
+    border: 2px solid black;
+  }
+  
+  th {
+    padding: 5px 15px;
+  }
+  
