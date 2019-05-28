@@ -25,6 +25,16 @@
 
 <div>
 
-  {{bugs.values}}
+  <ul>
+    <li *ngFor="let i of bugs">
+    id : {{i.id}} <br/>
+    title: {{i.title}} <br/>
+    priority: {{i.priority}}<br/>
+    reporter: {{i.reporter}}<br/>
+    status: {{i.status}}<br/>
+    updated at: {{i.updatedAt}}<br/>
+    created at :{{i.createdAt}}<br/>
+    </li>
+    </ul>
 
 </div>

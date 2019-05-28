@@ -11,7 +11,7 @@ export class Story1ServiceService {
 
 
   getData(): Observable <any>  {
-      return this.http.get('https://www.getpostman.com/collections/dc605714e9fa28277e82');
+      return this.http.get('https://bug-report-system-server.herokuapp.com/bugs');
   }
 }
 
