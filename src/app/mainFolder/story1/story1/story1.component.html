@@ -1,30 +1,33 @@
 <html>
   <head>
-<link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
 
-<table class="table table-hover table-dark">
-    <thead>
-      <tr>
-        <th><button (click)="sortByTitle()"><span>Title</span></button></th>
-        <th><button (click)="sortByPriority()"><span>Priority</span></button></th>
-        <th><button (click)="sortByReporter()"><span>Reporter</span></button></th>
-        <th><button><span>Date Created</span></button></th>
-        <th><button (click)="sortByStatus()"><span>Status</span></button></th>
-      </tr>
-      </thead>
+  <div class="container">
+      <div class="full-height">
+    <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th><button (click)="sortByTitle()"><span>Title</span></button></th>
+            <th><button (click)="sortByPriority()"><span>Priority</span></button></th>
+            <th><button (click)="sortByReporter()"><span>Reporter</span></button></th>
+            <th><button><span>Date Created</span></button></th>
+            <th><button (click)="sortByStatus()"><span>Status</span></button></th>
+          </tr>
+          </thead>
 
-        <tr  *ngFor="let i of Bugs ">
-        <th>{{i.title}}</th>
-        <th>{{i.priority}}</th>
-        <th>{{i.reporter}}</th>
-        <th>{{i.createdAt}}</th>
-        <th>{{i.status}}</th>
-      </tr>
-</table>
-
+            <tr  *ngFor="let i of Bugs ">
+            <th>{{i.title}}</th>
+            <th>{{i.priority}}</th>
+            <th>{{i.reporter}}</th>
+            <th>{{i.createdAt}}</th>
+            <th>{{i.status}}</th>
+          </tr>
+    </table>
+    </div>
+  </div>  
 </body>
 </html>

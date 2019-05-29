@@ -1,6 +1,17 @@
+body {
+  padding-bottom: 241px;
+  background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
+  font-family: 'Baloo Bhai', cursive;
+}
+
+.container {
+  padding-top: 160px;
+}
+
 button {
   background-color: #A9A9A9	;
-  border-radius: 8px;
+  border-radius: 4px;
+  line-height: 32px;
   outline:0;
   border: none;
   display: inline-block;
@@ -10,6 +21,7 @@ button {
   cursor: pointer;
   text-decoration: none;
   outline: none;
+  margin-top: 10px;
 }
 
 button:hover {background-color: #003c66}
