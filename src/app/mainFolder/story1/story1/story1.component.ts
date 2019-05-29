@@ -86,7 +86,7 @@ export class Story1Component implements OnInit {
         this.Bugs = data;
       });
       this.statusButtonStatus = 'asc';
-    } else {
+    } else if (this.statusButtonStatus === 'asc') {
       this.story1ServiceService.getBugsSortedStatusDesc().subscribe((data) => {
         this.Bugs = data;
       });
