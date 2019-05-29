@@ -1,11 +1,12 @@
 body {
-  padding-bottom: 241px;
+  height: 100vh;
   background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
   font-family: 'Baloo Bhai', cursive;
 }
 
 .container {
   padding-top: 160px;
+  height: 100vh;
 }
 
 button {
