@@ -21,8 +21,7 @@ button {
   font-size: 22px;
   padding: 5px 15px;
   cursor: pointer;
-  text-decoration: none;
-  outline: none;
+  display: inline-block;
   margin-top: 10px;
 }
 
@@ -33,5 +32,13 @@ button:active {
   transform: translateY(4px);
 }
 
+table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
 
+th, td {
+  padding: 1em;
+}
 
