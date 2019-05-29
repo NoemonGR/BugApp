@@ -1,19 +1,22 @@
-/* body{
-    background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
-    font-family: 'Roboto', sans-serif;
+button {
+  background-color: #A9A9A9	;
+  border-radius: 8px;
+  outline:0;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 22px;
+  padding: 5px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 9px #999;
 }
 
-table, div {
-    font-size: 18px;
-    margin: 10px;
-  }
-  
-table {
-    border: 3px solid black;
-  }
-  
-th {
-    padding: 5px 15px;
-  }
-  
-   */
+button:hover {background-color: #003c66}
+
+button:active {
+  background-color: #005a99;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
