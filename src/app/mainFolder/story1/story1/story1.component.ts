@@ -10,6 +10,7 @@ import { bug } from 'src/app/mainFolder/story1/story1.model';
 export class Story1Component implements OnInit {
   Bugs: bug[];
 
+  // variables for checking the sort status of each button
   titleButtonStatus = 'desc';
   priorityButtonStatus = 'desc';
   reporterButtonStatus = 'desc';
@@ -18,13 +19,15 @@ export class Story1Component implements OnInit {
 
   constructor(private story1ServiceService: Story1ServiceService) { }
 
-
+// on Init get data to Arraey of Bugs and display them
   ngOnInit() {
     this.story1ServiceService.getBugs().subscribe((data) => {
       this.Bugs = data;
     });
   }
 
+  // Get data sorted by title Asc or Desc depending on the previous
+  // value of the sort Status  varaiable of the button
   sortByTitle() {
     if (this.titleButtonStatus === 'desc') {
       this.story1ServiceService.getBugsSortedTitleAsc().subscribe((data) => {
@@ -40,6 +43,9 @@ export class Story1Component implements OnInit {
 
   }
 
+  // Get data sorted by priority Asc or Desc depending on the previous
+  // value of the sort Status  varaiable of the button
+
   sortByPriority() {
     if (this.priorityButtonStatus === 'desc') {
       this.story1ServiceService.getBugsSortedPriorityAsc().subscribe((data) => {
@@ -54,6 +60,9 @@ export class Story1Component implements OnInit {
     }
   }
 
+  // Get data sorted by Reporter Asc or Desc depending on the previous
+  // value of the sort Status  varaiable of the button
+
   sortByReporter() {
     if (this.reporterButtonStatus === 'desc') {
       this.story1ServiceService.getBugsSortedReporterAsc().subscribe((data) => {
@@ -67,6 +76,9 @@ export class Story1Component implements OnInit {
       this.reporterButtonStatus = 'desc';
     }
   }
+
+  // Get data sorted by Status Asc or Desc depending on the previous
+  // value of the sort Status  varaiable of the button
 
   sortByStatus() {
     if (this.statusButtonStatus === 'desc') {

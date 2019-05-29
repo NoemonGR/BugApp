@@ -11,49 +11,58 @@ export class Story1ServiceService {
 
   constructor(private http: HttpClient) { }
 
+// Get the data without sort and put them on the private virable http and return it
 
-  getBugs(): Observable<bug[]> {
+getBugs(): Observable<bug[]> {
     return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs');
   }
 
+  // Get the data sorted by priority (desc) and put them on the private virable http and return it
+
   getBugsSortedPriorityDesc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
     return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=priority,desc');
   }
 
+  // Get the data sorted by title (desc) and put them on the private virable http and return it
+
   getBugsSortedTitleDesc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=title,desc');
+        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=title,desc');
   }
+
+// Get the data sorted by status (desc) and put them on the private virable http and return it
 
   getBugsSortedStatusDesc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=status,desc');
+       return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=status,desc');
   }
+
+  // Get the data sorted by reporter (desc) and put them on the private virable http and return it
 
   getBugsSortedReporterDesc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,desc');
+        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,desc');
   }
+
+  // Get the data sorted by priority (asc) and put them on the private virable http and return it
 
   getBugsSortedPriorityAsc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=priority,asc');
+        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=priority,asc');
   }
+
+  // Get the data sorted by title (asc) and put them on the private virable http and return it
 
   getBugsSortedTitleAsc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=title,asc');
+        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=title,asc');
   }
+
+  // Get the data sorted by status (asc) and put them on the private virable http and return it
 
   getBugsSortedStatusAsc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=status,asc');
+        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=status,asc');
   }
 
+  // Get the data sorted by reporter (asc) and put them on the private virable http and return it
+
   getBugsSortedReporterAsc(): Observable<bug[]> {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc');
+        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc');
   }
 
 }
