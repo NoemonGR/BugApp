@@ -1,30 +1,30 @@
-html, body {
+/* html, body {
   min-height: 100%;
   -webkit-background-size: 100%;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-body {background-size: cover;}
+} */
+/*
+body {background-size: cover;} */
 
 
 body {
   margin: 0;
   background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
   font-family: 'Baloo Bhai', cursive;
-  background-image: url("backroundImage.jpg");
-  height: 100%;
+  background-image: url("Image.jpg");
+  height: 100 vh;
 }
 
 h1 {
   text-align: center;
-  padding-top: 40px;
   color : white;
+  padding-top:2%;
 }
 
 .container {
-  padding-top: 50px;
+  padding: 2%;
 }
 
 button {
@@ -54,12 +54,14 @@ table {
   border-radius: 1em;
   overflow: hidden;
   font-size : 16px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
 }
 
-th, td {
+/* th, td {
   padding: 1em;
-}
+} */
 
 #DateCreatedButton{
   color: black;
@@ -75,4 +77,5 @@ th, td {
   margin-top: 10px;
   pointer-events: none;
 }
+
 
