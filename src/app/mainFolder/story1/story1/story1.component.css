@@ -5,6 +5,7 @@ body {
   background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
   font-family: 'Baloo Bhai', cursive;
   background-image: url("backroundImage.jpg");
+  height: 100%;
 }
 
 h1 {
@@ -66,3 +67,4 @@ th, td {
   margin-top: 10px;
   pointer-events: none;
 }
+
