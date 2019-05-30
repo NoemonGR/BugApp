@@ -8,13 +8,12 @@ html, body {
 
 body {background-size: cover;}
 
+
 body {
   margin: 0;
   background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
   font-family: 'Baloo Bhai', cursive;
   background-image: url("backroundImage.jpg");
-  /* background-repeat: repeat; */
-   background-attachment: fixed;
 }
 
 h1 {
@@ -53,9 +52,25 @@ table {
   border-collapse: collapse;
   border-radius: 1em;
   overflow: hidden;
+  font-size : 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 th, td {
   padding: 1em;
 }
 
+#DateCreatedButton{
+  color: black;
+  background-color: #A9A9A9;
+  border-radius: 4px;
+  line-height: 32px;
+  outline:0;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 22px;
+  padding: 5px 15px;
+  margin-top: 10px;
+  pointer-events: none;
+}
