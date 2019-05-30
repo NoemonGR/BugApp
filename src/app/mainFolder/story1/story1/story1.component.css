@@ -1,5 +1,15 @@
+html, body {
+  min-height: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {background-size: cover;}
+
 body {
-  height: 100vh;
+  margin: 0;
   background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
   font-family: 'Baloo Bhai', cursive;
   background-image: url("backroundImage.jpg");
@@ -15,7 +25,6 @@ h1 {
 
 .container {
   padding-top: 50px;
-  height: 80vh;
 }
 
 button {
