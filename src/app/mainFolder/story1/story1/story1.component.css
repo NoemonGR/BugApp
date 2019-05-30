@@ -2,11 +2,15 @@ body {
   height: 100vh;
   background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
   font-family: 'Baloo Bhai', cursive;
+  background-image: url("backroundImage.jpg");
+  /* background-repeat: repeat; */
+   background-attachment: fixed;
 }
 
 h1 {
   text-align: center;
   padding-top: 40px;
+  color : white;
 }
 
 .container {
