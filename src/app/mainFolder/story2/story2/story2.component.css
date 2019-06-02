@@ -1,0 +1,29 @@
+body {
+  background-image: url("Image.jpg");
+}
+
+button {
+  background-color: #A9A9A9	;
+  border-radius: 4px;
+  line-height: 32px;
+  outline:0;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 22px;
+  padding: 5px 15px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+button:hover {background-color: #003c66}
+
+button:active {
+  background-color: #005a99;
+  transform: translateY(4px);
+}
+
+label {
+  color: white;
+}

@@ -78,4 +78,8 @@ table {
   pointer-events: none;
 }
 
+#ReportBugDiv{
+  text-align: center;
+}
+
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Story1ServiceService } from '../story1-service.service';
 import { bug } from 'src/app/mainFolder/story1/story1.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-story1',
@@ -17,7 +18,7 @@ export class Story1Component implements OnInit {
   statusButtonStatus = 'desc';
 
 
-  constructor(private story1ServiceService: Story1ServiceService) { }
+  constructor(private story1ServiceService: Story1ServiceService, private router: Router) { }
 
 // on Init get data to Arraey of Bugs and display them
   ngOnInit() {
@@ -92,6 +93,10 @@ export class Story1Component implements OnInit {
       });
       this.statusButtonStatus = 'desc';
     }
+  }
+
+  goToEditPage() {
+    this.router.navigate(['editPage']);
   }
 
 
