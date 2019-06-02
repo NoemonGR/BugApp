@@ -30,6 +30,7 @@
           </thead>
 
             <tr  *ngFor="let i of Bugs ">
+              <th> <button (click) = "goToEditPage()"> Edit Bug</button></th>
             <th>{{i.title}}</th>
             <th>{{i.priority}}</th>
             <th>{{i.reporter}}</th>
