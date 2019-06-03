@@ -65,8 +65,8 @@ getBugs(): Observable<bug[]> {
         return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc');
   }
 
-  createBugs(newBug: bug) {
-      this.http.post<bug[]>('https://bug-report-system-server.herokuapp.com/bugs' , newBug).subscribe(responseData => {
+  createBugs(newB: bug) {
+      this.http.post<bug[]>('https://bug-report-system-server.herokuapp.com/bugs' , newB).subscribe(responseData => {
         console.log(responseData);
       });
     }

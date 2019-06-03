@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; 
+import { Story1ServiceService } from '../../story1/story1-service.service';
+import { bug } from '../../models/story1.model';
 
 @Component({
   selector: 'app-story2',
@@ -8,13 +9,24 @@ import { Router } from '@angular/router';
 })
 export class Story2Component implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private story1ServiceService: Story1ServiceService) { }
 
   ngOnInit() {
   }
 
-  goToMainPage() {
-  this.router.navigate(['']);
-}
+  submitForm(formValue) {
+    const dateTimeCreated = new Date();
+
+    const newB: bug = {
+      title: formValue.bugTitle,
+      description: formValue.bugDescription,
+      priority: formValue.bugPriority,
+      reporter: formValue.bugReporter,
+      createdAt: dateTimeCreated.toString(),
+      status: formValue.bugStatus
+    };
+    console.log(newB);
+    this.story1ServiceService.createBugs(newB);
+  }
 
 }
