@@ -22,9 +22,22 @@
     </div>
 
     <div>
+        <label for="reporter">Reporter</label>
+        <select id="reporter" name="reporter" [(ngModel)]="reporter" >
+          <option *ngFor="let rep of reporters" [ngValue]="rep.id">{{rep.name}}</option>
+        </select>
+      </div>
+
+      <div>
+          <label for="status">Status</label>
+          <select id="status" name="status" [(ngModel)]="status" >
+            <option *ngFor="let sta of statuses" [ngValue]="sta.id">{{sta.name}}</option>
+          </select>
+        </div>
+
+    <div>
       <button type="submit">Add Bug </button>
     </div>
   <!-- </form> -->
-
 
 </body>
