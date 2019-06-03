@@ -5,13 +5,41 @@
 
   <form>
     <div>
-      <label>Bug Title  :</label>
+      <label>Bug Title</label>
       <input type="text" title= "model.title" ngModel>
     </div>
     <div>
-      <label>Bug Description </label>
+      <label>Bug Description</label>
       <input type="text" description= "model.description" ngModel>
     </div>
+
+    <div>
+      <label>Priority</label>
+      <select>
+      <option>Minor</option>
+      <option>Major</option>
+      <option>Critical</option>
+      </select>
+    </div>
+
+    <div>
+        <label>Reporter</label>
+        <select>
+        <option>QA</option>
+        <option>PO</option>
+        <option>DEV</option>
+        </select>
+      </div>
+
+      <div>
+          <label>Status</label>
+          <select>
+          <option>Ready for test</option>
+          <option>Done</option>
+          <option>Rejected</option>
+          </select>
+        </div>
+
     <div>
       <button type="submit">Add Bug </button>
     </div>
