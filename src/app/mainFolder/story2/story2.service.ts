@@ -19,4 +19,10 @@ export class Story2Service {
     });
   }
 
+  // get a Bug with specific id
+
+  getBugWithId(id): Observable<bug> {
+    return this.http.get<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
+  }
+
 }

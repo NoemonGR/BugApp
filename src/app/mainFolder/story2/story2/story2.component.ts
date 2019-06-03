@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { bug } from '../../models/story1.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Story2Service } from '../story2.service';
 import { NgForm } from '@angular/forms';
+// import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { NgForm } from '@angular/forms';
 export class Story2Component implements OnInit {
 
   constructor(private story2Service: Story2Service,
-    private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
 
 
   // create a model type bug to use in form
@@ -34,8 +36,22 @@ export class Story2Component implements OnInit {
 
   // a temporary new bug to post type bug
   newBug: bug;
+  editBug: bug ;
 
   ngOnInit() {
+    // get the id from the link in a const aBug and then get the bug with this id
+    const aBugId = this.route.snapshot.params.bugId;
+     console.log(aBugId);
+    // this.story2Service.getBugWithId(aBugId).subscribe((wantedBug) => {
+    //   this.editBug = wantedBug;
+    // });
+    // console.log(this.editBug.title);
+    // console.log(this.editBug.priority);
+    // console.log(this.editBug.reporter);
+    // console.log(this.editBug.status);
+    // console.log(this.editBug.id);
+    // console.log(this.editBug.createdAt);
+
   }
 
   // function that takes the form and put the info of the form to the model type bug
@@ -69,5 +85,10 @@ export class Story2Component implements OnInit {
   goToMainPage() {
     this.router.navigate(['']);
   }
+
+displayBugInEditPage() {
+
+
+}
 
 }
