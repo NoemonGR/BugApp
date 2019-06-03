@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; 
+import { Priority } from "src/app/mainFolder/story2/story2/priority.model";
 
 @Component({
   selector: 'app-story2',
@@ -9,6 +9,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class Story2Component implements OnInit {
 
+  priorities: Priority[] = [
+    {id: 1, name: 'QA'},
+    {id: 2, name: 'PO'},
+    {id: 3, name: 'DEV'}
+  ];
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -17,7 +22,5 @@ export class Story2Component implements OnInit {
   goToMainPage() {
   this.router.navigate(['']);
 }
-
-
 
 }
