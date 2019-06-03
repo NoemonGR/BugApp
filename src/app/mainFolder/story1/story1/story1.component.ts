@@ -100,6 +100,8 @@ export class Story1Component implements OnInit {
     this.router.navigate(['editPage']);
   }
 
+  goToEditPageWithBug(aBug: bug) {
 
+  }
 
 }

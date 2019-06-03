@@ -14,4 +14,6 @@ export class Story2Service {
     this.http.post<bug[]>('https://bug-report-system-server.herokuapp.com/bugs', newB);
   }
 
+
+
 }
