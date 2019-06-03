@@ -18,7 +18,8 @@ export class Story1Component implements OnInit {
   statusButtonStatus = 'desc';
 
 
-  constructor(private story1ServiceService: Story1ServiceService, private router: Router) { }
+  constructor(private story1ServiceService: Story1ServiceService,
+              private router: Router) { }
 
 // on Init get data to Arraey of Bugs and display them
   ngOnInit() {

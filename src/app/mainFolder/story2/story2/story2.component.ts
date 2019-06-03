@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Story1ServiceService } from '../../story1/story1-service.service';
 import { bug } from '../../models/story1.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-story2',
@@ -9,7 +10,22 @@ import { bug } from '../../models/story1.model';
 })
 export class Story2Component implements OnInit {
 
-  constructor(private story1ServiceService: Story1ServiceService) { }
+  constructor(private story1ServiceService: Story1ServiceService,
+              private router: Router) { }
+
+
+
+  model = {
+    bugTitle : '',
+    bugDescription: '',
+    bugPriority: '',
+    bugReporter: '',
+    bugStatus: ''
+  };
+
+  priorities = ['Minor', 'Major', 'Critical'];
+  reporters = ['QA', 'PO', 'DEV'];
+  statuses = ['Ready for test', 'Done', 'Rejected'];
 
   ngOnInit() {
   }
@@ -25,8 +41,12 @@ export class Story2Component implements OnInit {
       createdAt: dateTimeCreated.toString(),
       status: formValue.bugStatus
     };
+
     console.log(newB);
     this.story1ServiceService.createBugs(newB);
   }
 
+  goToMainPage() {
+  this.router.navigate(['']);
+}
 }

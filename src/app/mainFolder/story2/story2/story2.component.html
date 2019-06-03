@@ -2,42 +2,55 @@
 
 
   <button (click)="goToMainPage()"> Go Back </button>
-<!-- Exw to form tag se comment giati mou kanei error sto ngmodel!!! -->
-  <!-- <form> -->
+
+   <form #form = "ngForm">
     <div>
       <label>Bug Title</label>
-      <input type="text" title= "model.title" ngModel>
+      <input type="text"
+      #bugTitle= "ngModel"
+      name = "bugTitle"
+      [ngModel]= "model.bugTitle" >
     </div>
 
     <div>
       <label>Bug Description</label>
-      <input type="text" description= "model.description" ngModel>
+      <input type="text"
+      #bugDescription= "ngModel"
+      name = "bugDescription"
+      [ngModel]= "model.bugDescription">
     </div>
 
     <div>
       <label for="priority">Priority</label>
-      <select id="priority" name="priority" [(ngModel)]="priority" >
-        <option *ngFor="let pri of priorities" [ngValue]="pri.id">{{name}}</option>
+      <select id="priority"
+      #bugPriority= "ngModel"
+      name = "bugPriority"
+      [ngModel]= "model.bugPriority" >
+        <option *ngFor="let pri of priorities">{{pri}}</option>
       </select>
     </div>
 
     <div>
         <label for="reporter">Reporter</label>
-        <select id="reporter" name="reporter" [(ngModel)]="reporter" >
-          <option *ngFor="let rep of reporters" [ngValue]="rep.id">{{name}}</option>
+        <select #bugReporter= "ngModel"
+        name = "bugReporter"
+        [ngModel]= "model.bugReporter" >
+          <option *ngFor="let rep of reporters" >{{rep}}</option>
         </select>
       </div>
 
       <div>
           <label for="status">Status</label>
-          <select id="status" name="status" [(ngModel)]="status" >
-            <option *ngFor="let sta of statuses" [ngValue]="sta.id">{{name}}</option>
+          <select  #bugStatus= "ngModel"
+          name = "bugStatus"
+          [ngModel]= "model.bugStatus"  >
+            <option *ngFor="let sta of statuses">{{sta}}</option>
           </select>
         </div>
 
     <div>
       <button type="submit">Add Bug </button>
     </div>
-  <!-- </form> -->
+   </form>
 
 </body>
