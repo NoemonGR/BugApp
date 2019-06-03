@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class Story2Component implements OnInit {
 
   constructor(private story2Service: Story2Service,
-              private router: Router) { }
+    private router: Router) { }
 
 
 
