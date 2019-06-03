@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { bug } from 'src/app/mainFolder/story1/story1.model';
+import { bug } from 'src/app/mainFolder/models/story1.model';
 
 
 @Injectable({
@@ -65,7 +65,15 @@ getBugs(): Observable<bug[]> {
         return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc');
   }
 
+  createBugs(newBug: bug) {
+      this.http.post<bug[]>('https://bug-report-system-server.herokuapp.com/bugs' , newBug).subscribe(responseData => {
+        console.log(responseData);
+      });
+    }
+
 }
+
+
 
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Story1ServiceService } from '../story1-service.service';
-import { bug } from 'src/app/mainFolder/story1/story1.model';
+import { bug } from 'src/app/mainFolder/models/story1.model';
 import { Router } from '@angular/router';
 
 @Component({
