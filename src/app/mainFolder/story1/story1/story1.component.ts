@@ -123,12 +123,8 @@ export class Story1Component implements OnInit {
 
   // navigate to edit page and get the bug id that depends on the button id of the row
   goToEditPageWithBug(buttonId: number) {
-
-  this.router.navigate(['editPage']);
-  const bugSelectedForEdit = this.Bugs[buttonId] ;
-  console.log(bugSelectedForEdit.id);
-  console.log(bugSelectedForEdit.title);
-
+  const bugId = this.Bugs[buttonId].id ;
+  this.router.navigate(['editPage', bugId]);
   }
 
 }
