@@ -30,12 +30,12 @@
           </thead>
 
             <tr  *ngFor="let i of Bugs ">
-              <th> <button id = "editBugButtons" (click) = "goToEditPage()"> Edit Bug</button></th>
             <th>{{i.title}}</th>
             <th>{{i.priority}}</th>
             <th>{{i.reporter}}</th>
             <th>{{i.createdAt | date}}</th>
             <th>{{i.status}}</th>
+            <td><button type="button" >Edit</button></td>
           </tr>
     </table>
     </div>
