@@ -1,44 +1,46 @@
 <html>
-  <head>
 
-        <!--meta tags-->
-        <meta charset="UTF-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<head>
 
-      <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+  <!--meta tags-->
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
 
-<h1>Bug Reporting System</h1>
+  <h1>Bug Reporting System</h1>
 
-<div id= "ReportBugDiv"> <button (click) = "goToEditPage()">Report a Bug</button></div>
+  <div id="ReportBugDiv"> <button (click)="goToEditPage()">Report a Bug</button></div>
 
   <div class="container">
-      <div class="row justify-content-md-center">
-    <table class="table table-hover table-dark">
+    <div class="row justify-content-md-center">
+      <table class="table table-hover table-dark">
         <thead>
           <tr>
             <th><button (click)="sortByTitle()"><span>Title</span></button></th>
             <th><button (click)="sortByPriority()"><span>Priority</span></button></th>
             <th><button (click)="sortByReporter()"><span>Reporter</span></button></th>
-            <th><button id= DateCreatedButton ><span>Date Created</span></button></th>
+            <th><button id=DateCreatedButton><span>Date Created</span></button></th>
             <th><button (click)="sortByStatus()"><span>Status</span></button></th>
           </tr>
-          </thead>
+        </thead>
 
-            <tr  *ngFor="let i of Bugs ">
-            <th>{{i.title}}</th>
-            <th>{{i.priority}}</th>
-            <th>{{i.reporter}}</th>
-            <th>{{i.createdAt | date}}</th>
-            <th>{{i.status}}</th>
-            <td><button type="button" id= i.title  (click)="goToEditPage()">Edit</button></td>
-          </tr>
-    </table>
+        <tr *ngFor="let i of Bugs; let tempBug = index ">
+          <th>{{i.title}}</th>
+          <th>{{i.priority}}</th>
+          <th>{{i.reporter}}</th>
+          <th>{{i.createdAt | date}}</th>
+          <th>{{i.status}}</th>
+          <td><button type="button" id = "{{tempBug}}" (click)="goToEditPageWithBug(tempBug)">Edit</button></td>
+        </tr>
+      </table>
     </div>
   </div>
 </body>
+
 </html>

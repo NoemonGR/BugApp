@@ -100,7 +100,15 @@ export class Story1Component implements OnInit {
     this.router.navigate(['editPage']);
   }
 
-  goToEditPageWithBug(aBug: bug) {
+  goToEditPageWithBug(buttonId) {
+  this.router.navigate(['editPage']);
+  const bugSelectedForEdit = this.Bugs[buttonId] ;
+  console.log(bugSelectedForEdit.title);
+  console.log(bugSelectedForEdit.priority);
+  console.log(bugSelectedForEdit.reporter);
+  console.log(bugSelectedForEdit.status);
+  console.log(bugSelectedForEdit.description);
+  console.log(bugSelectedForEdit.createdAt);
 
   }
 
