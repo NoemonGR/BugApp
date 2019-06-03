@@ -1,9 +1,9 @@
 // tslint:disable-next-line: class-name
 export interface bug {
-    title: string;
+    title: string ;
     description: string;
-    priority: number;
+    priority: string;
     reporter: string;
     status: string;
-    createdAt: string;
+    createdAt: Date;
 }

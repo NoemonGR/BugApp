@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Story1ServiceService } from '../../story1/story1-service.service';
 import { bug } from '../../models/story1.model';
 import { Router } from '@angular/router';
+import { Story2Service } from '../story2.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-story2',
@@ -10,43 +12,49 @@ import { Router } from '@angular/router';
 })
 export class Story2Component implements OnInit {
 
-  constructor(private story1ServiceService: Story1ServiceService,
+  constructor(private story2Service: Story2Service,
               private router: Router) { }
 
 
 
-  model = {
-    bugTitle : '',
-    bugDescription: '',
-    bugPriority: '',
-    bugReporter: '',
-    bugStatus: ''
+  model: bug = {
+    title: '',
+    description: '',
+    priority: '',
+    reporter: '',
+    status: '',
+    createdAt: new Date()
   };
 
   priorities = ['Minor', 'Major', 'Critical'];
   reporters = ['QA', 'PO', 'DEV'];
   statuses = ['Ready for test', 'Done', 'Rejected'];
 
+  newBug: bug;
+
   ngOnInit() {
   }
 
-  // submitForm(formValue) {
-  //   const dateTimeCreated = new Date();
+  addBug(form: NgForm) {
 
-  //   const newB: bug = {
-  //     title: formValue.bugTitle,
-  //     description: formValue.bugDescription,
-  //     priority: formValue.bugPriority,
-  //     reporter: formValue.bugReporter,
-  //     createdAt: dateTimeCreated.toString(),
-  //     status: formValue.bugStatus
-  //   };
+    this.model.title = form.value.bugTitle;
+    this.model.description = form.value.bugDescription;
+    this.model.reporter = form.value.bugReporter;
+    this.model.status = form.value.bugStatus;
+    this.model.priority = form.value.bugPriority;
 
-  //   console.log(newB);
-  //   this.story1ServiceService.createBugs(newB);
-  // }
+
+    console.log(this.model);
+
+    this.story2Service.createBugs(this.model);
+
+
+  }
 
   goToMainPage() {
-  this.router.navigate(['']);
-}
+    this.router.navigate(['']);
+  }
+
+
+
 }
