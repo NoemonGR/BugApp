@@ -2,7 +2,7 @@
 export interface bug {
     title: string ;
     description: string;
-    priority: string;
+    priority: number;
     reporter: string;
     status: string;
     createdAt: Date;

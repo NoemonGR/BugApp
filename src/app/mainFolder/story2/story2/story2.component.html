@@ -32,7 +32,7 @@
       name = "bugPriority"
       [ngModel]= "model.priority"
       required>
-        <option *ngFor="let pri of priorities">{{pri}}</option>
+        <option  *ngFor="let pri of priorities">{{pri}}</option>
       </select>
       <span *ngIf="bugPriority.invalid && bugPriority.dirty">Field is Required</span>
     </div>
