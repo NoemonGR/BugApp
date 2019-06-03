@@ -30,21 +30,21 @@ export class Story2Component implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(formValue) {
-    const dateTimeCreated = new Date();
+  // submitForm(formValue) {
+  //   const dateTimeCreated = new Date();
 
-    const newB: bug = {
-      title: formValue.bugTitle,
-      description: formValue.bugDescription,
-      priority: formValue.bugPriority,
-      reporter: formValue.bugReporter,
-      createdAt: dateTimeCreated.toString(),
-      status: formValue.bugStatus
-    };
+  //   const newB: bug = {
+  //     title: formValue.bugTitle,
+  //     description: formValue.bugDescription,
+  //     priority: formValue.bugPriority,
+  //     reporter: formValue.bugReporter,
+  //     createdAt: dateTimeCreated.toString(),
+  //     status: formValue.bugStatus
+  //   };
 
-    console.log(newB);
-    this.story1ServiceService.createBugs(newB);
-  }
+  //   console.log(newB);
+  //   this.story1ServiceService.createBugs(newB);
+  // }
 
   goToMainPage() {
   this.router.navigate(['']);
