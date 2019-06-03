@@ -40,6 +40,10 @@ getBugs(): Observable<bug[]> {
   getBugsSortedReporterDesc(): Observable<bug[]> {
         return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,desc');
   }
+// Get the data sorted by Date (desc) and put them on the private virable http and return it
+  getBugsSortedDateDesc(): Observable<bug[]> {
+    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=createdAt,desc');
+  }
 
   // Get the data sorted by priority (asc) and put them on the private virable http and return it
 
@@ -64,6 +68,14 @@ getBugs(): Observable<bug[]> {
   getBugsSortedReporterAsc(): Observable<bug[]> {
         return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc');
   }
+
+  // Get the data sorted by status (asc) and put them on the private virable http and return it
+
+  getBugsSortedDateAsc(): Observable<bug[]> {
+    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=createdAt,asc');
+}
+
+
 
 }
 

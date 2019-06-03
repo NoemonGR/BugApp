@@ -11,12 +11,12 @@ export class Story2Service {
 
   constructor(private http: HttpClient) { }
 
-  createBugs(newBug: bug) {
-    this.http.post<bug[]>('https://bug-report-system-server.herokuapp.com/bugs', newBug);
-  }
 
-  getBugById(id): Observable<bug> {
-      return this.http.get<bug>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc' + '/' + id);
+  // function that takes as input a bug and post it to the server
+  createBugs(newBug: bug) {
+    this.http.post<bug>('https://bug-report-system-server.herokuapp.com/bugs', newBug).subscribe(responseData => {
+      console.log(responseData);
+    });
   }
 
 }

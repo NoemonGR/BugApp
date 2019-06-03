@@ -16,25 +16,29 @@ export class Story2Component implements OnInit {
     private router: Router) { }
 
 
-
+  // create a model type bug to use in form
   model: bug = {
     title: '',
     description: '',
     priority: 0,
     reporter: '',
     status: '',
-    createdAt: new Date()
+    createdAt: new Date(),
+    id: ''
   };
 
+  // create the values to display in form
   priorities = ['Minor', 'Major', 'Critical'];
   reporters = ['QA', 'PO', 'DEV'];
   statuses = ['Ready for test', 'Done', 'Rejected'];
 
+  // a temporary new bug to post type bug
   newBug: bug;
 
   ngOnInit() {
   }
 
+  // function that takes the form and put the info of the form to the model type bug
   addBug(form: NgForm) {
 
     if (form.valid) {
@@ -53,8 +57,7 @@ export class Story2Component implements OnInit {
         this.model.priority = 1;
       }
 
-      console.log(this.model);
-
+      // post the  new bug using a function form the story2 service
       this.story2Service.createBugs(this.model);
 
     }
@@ -62,11 +65,9 @@ export class Story2Component implements OnInit {
 
 
   }
-
+  // function that navigates you to the home page
   goToMainPage() {
     this.router.navigate(['']);
   }
-
-
 
 }

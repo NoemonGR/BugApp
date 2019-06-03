@@ -3,6 +3,7 @@ import { Story1ServiceService } from '../story1-service.service';
 import { bug } from 'src/app/mainFolder/models/story1.model';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-story1',
   templateUrl: './story1.component.html',
@@ -16,10 +17,12 @@ export class Story1Component implements OnInit {
   priorityButtonStatus = 'desc';
   reporterButtonStatus = 'desc';
   statusButtonStatus = 'desc';
+  dateButtonStatus = 'desc' ;
 
 
   constructor(private story1ServiceService: Story1ServiceService,
-              private router: Router) { }
+              private router: Router
+              ) { }
 
 // on Init get data to Arraey of Bugs and display them
   ngOnInit() {
@@ -96,19 +99,35 @@ export class Story1Component implements OnInit {
     }
   }
 
+  // Get data sorted by Dat Asc or Desc depending on the previous
+  // value of the sort Status  varaiable of the button
+
+  sortByDate() {
+    if (this.dateButtonStatus === 'desc') {
+      this.story1ServiceService.getBugsSortedDateAsc().subscribe((data) => {
+        this.Bugs = data;
+      });
+      this.dateButtonStatus = 'asc';
+    } else {
+      this.story1ServiceService.getBugsSortedDateDesc().subscribe((data) => {
+        this.Bugs = data;
+      });
+      this.dateButtonStatus = 'desc';
+    }
+  }
+
+ // navigate to edit page
   goToEditPage() {
     this.router.navigate(['editPage']);
   }
 
-  goToEditPageWithBug(buttonId) {
+  // navigate to edit page and get the bug id that depends on the button id of the row
+  goToEditPageWithBug(buttonId: number) {
+
   this.router.navigate(['editPage']);
   const bugSelectedForEdit = this.Bugs[buttonId] ;
+  console.log(bugSelectedForEdit.id);
   console.log(bugSelectedForEdit.title);
-  console.log(bugSelectedForEdit.priority);
-  console.log(bugSelectedForEdit.reporter);
-  console.log(bugSelectedForEdit.status);
-  console.log(bugSelectedForEdit.description);
-  console.log(bugSelectedForEdit.createdAt);
 
   }
 
