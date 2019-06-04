@@ -25,4 +25,11 @@ export class Story2Service {
     return this.http.get<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
   }
 
+  updateBug(updateBug: bug, id) {
+    this.http.put<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id, updateBug ).subscribe(responseData => {
+      console.log(responseData);
+  }) ;
+}
+
+
 }

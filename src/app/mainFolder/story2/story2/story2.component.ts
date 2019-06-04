@@ -35,7 +35,7 @@ export class Story2Component implements OnInit {
   reporters = ['QA', 'PO', 'DEV'];
   statuses = ['Ready for test', 'Done', 'Rejected'];
 
-  // a temporary new bug to post type bug
+  // a temporary new bug to post (type bug) and an edit bug to uptade
   newBug: bug;
   editBug: bug ;
 
@@ -43,16 +43,16 @@ export class Story2Component implements OnInit {
 // get the id from the link in a const aBug and then get the bug with this id
   ngOnInit() {
     // const that shows what was the previous page
-    const whatIsthePreviousPage = this.route.snapshot.params.bugId;
-    if (whatIsthePreviousPage !== undefined ) {
+     const whatIsthePreviousPage = this.route.snapshot.params.bugId;
+     if (whatIsthePreviousPage !== undefined ) {
     const aBugId = this.route.snapshot.params.bugId;
     this.story2Service.getBugWithId(aBugId).subscribe((wantedBug) => {
     this.editBug = wantedBug;
     this.displayBugInEditPage(this.editBug);
      });
-
+    }
      }
-  }
+
 
 
   // function that takes the form and put the info of the form to the model type bug
@@ -74,6 +74,7 @@ export class Story2Component implements OnInit {
         this.model.priority = '1';
       }
 
+      console.log(this.newBug.title);
       this.newBug.title = this.model.title;
       this.newBug.description = this.model.description;
       this.newBug.id = this.model.id ;
@@ -91,10 +92,14 @@ export class Story2Component implements OnInit {
         this.newBug.priority = 1 ;
       }
 
-
-
       // post the  new bug using a function form the story2 service
+      // const whatIsthePreviousPage = this.route.snapshot.params.bugId;
+      // const bugId = this.route.snapshot.params.bugId;
+      // if ( whatIsthePreviousPage === undefined) {
       this.story2Service.createBugs(this.newBug);
+      // } else {
+      //   this.story2Service.updateBug(this.newBug, bugId );
+      // }
 
     }
 
@@ -108,6 +113,7 @@ export class Story2Component implements OnInit {
 
   // display the editBug in the form
 displayBugInEditPage(editBug) {
+
  this.model.title = editBug.title;
  this.model.description = editBug.description;
  this.model.reporter = editBug.reporter;
