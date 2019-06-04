@@ -2,7 +2,9 @@
 
 
   <button (click)="goToMainPage()"> Go Back </button>
+  <br/>
 
+  <!-- Add a Bug or Edit Form -->
    <form #form = "ngForm" >
     <div>
       <label>Bug Title</label>
@@ -60,8 +62,49 @@
         </div>
 
     <div>
-      <button type="submit" (click)= "addBug(form)">Add Bug </button>
+      <button type="submit" (click)= "addBug(form)"> Submit </button>
+      <span *ngIf ="(form.invalid)"> All fields are required </span>
     </div>
    </form>
 
+   <!-- if we are on edit page then show the comment form -->
+   <div *ngIf="aBugId">
+
+    <!-- the list to show the comments -->
+      <div>
+
+
+      </div>
+
+      <!-- the comments form -->
+    <form #CommentForm = "ngForm" >
+      <div>
+        <label>Write your comment here</label>
+        <input type="text"
+        #commentText= "ngModel"
+        name = "commentText"
+        [ngModel]= "commentModel.comment"
+        required
+        minlength="5" >
+        <span *ngIf="commentText.invalid && commentText.dirty">Field is Required with at least 5 characters</span>
+      </div>
+      <div>
+        <label>Name of Reporter</label>
+        <input type="text"
+        #commentReporter= "ngModel"
+        name = "commentReporter"
+        [ngModel]= "commentModel.reporter"
+        required
+        minlength="5">
+        <span *ngIf="commentReporter.invalid && commentReporter.dirty">Field is Required with at least 5 characters</span>
+      </div>
+      <div>
+          <button type="submit" (click)= "addComment(CommentForm)"> Submit </button>
+          <span *ngIf ="(CommentForm.invalid)"> All fields are required </span>
+      </div>
+
+      </form>
+
+   </div>
+  "
 </body>

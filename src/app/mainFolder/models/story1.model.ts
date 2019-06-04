@@ -7,4 +7,10 @@ export interface bug {
     createdAt: Date;
     status: string;
     id: string;
-}
+    comment?: [{
+      id: string;
+      reporter: string;
+      description: string;
+    }];
+
+  }

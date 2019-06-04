@@ -3,6 +3,7 @@ import { bug } from '../../models/story1.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Story2Service } from '../story2.service';
 import { NgForm } from '@angular/forms';
+import { Comment } from '@angular/compiler';
 // import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 // import { Observable } from 'rxjs';
 
@@ -19,7 +20,7 @@ export class Story2Component implements OnInit {
               private route: ActivatedRoute) { }
 
 
-  // create a model type bug to use in form
+  // create a model to use in the edit/create bug form
   model = {
     title: '',
     description: '',
@@ -30,12 +31,20 @@ export class Story2Component implements OnInit {
     id: ''
   };
 
-  // create the values to display in form
+  // create a model to use in comments form
+
+  commentModel = {
+    comment: '',
+    reporter: ''
+  };
+
+
+  // create the values to display in edit/create bug form
   priorities = ['Minor', 'Major', 'Critical'];
   reporters = ['QA', 'PO', 'DEV'];
   statuses = ['Ready for test', 'Done', 'Rejected'];
 
-  // a temporary new bug to post (type bug) and an edit bug to uptade
+  // a temporary new bug to post (type bug)
   newBug: bug = {
     title: '',
     description: '',
@@ -46,16 +55,35 @@ export class Story2Component implements OnInit {
     createdAt: new Date()
 
   };
-  editBug: bug;
 
+  // an temporary editBug to update
+  editBug: bug;
+  commentBug: bug = {
+    title: '',
+    description: '',
+    reporter: '',
+    priority: 0,
+    status: '',
+    id: '',
+    createdAt: new Date(),
+    comment: [{
+      id: '',
+      reporter: '',
+      description: ''
+    }]
+  };
+  // a temp for holding the id of a Bug
+  aBugId;
 
   // get the id from the link in a const aBug and then get the bug with this id
+  // and if you are on edit page then call the display function to show the bug
+  // in the existing fields in edit/create  bug form
   ngOnInit() {
     // const that shows what was the previous page
     const whatIsthePreviousPage = this.route.snapshot.params.bugId;
     if (whatIsthePreviousPage !== undefined) {
-      const aBugId = this.route.snapshot.params.bugId;
-      this.story2Service.getBugWithId(aBugId).subscribe((wantedBug) => {
+     this.aBugId = this.route.snapshot.params.bugId;
+     this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
         this.editBug = wantedBug;
         this.displayBugInEditPage(this.editBug);
       });
@@ -64,7 +92,7 @@ export class Story2Component implements OnInit {
 
 
 
-  // function that takes the form and put the info of the form to the model type bug
+  // function that takes the form and put the info of the form to the model
   addBug(form: NgForm) {
 
     if (form.valid) {
@@ -83,7 +111,7 @@ export class Story2Component implements OnInit {
         this.model.priority = '1';
       }
 
-
+      // put the info of the model in the newBug temp and then post this newBug
       this.newBug.title = this.model.title;
       this.newBug.description = this.model.description;
       this.newBug.id = this.model.id;
@@ -101,7 +129,7 @@ export class Story2Component implements OnInit {
         this.newBug.priority = 1;
       }
 
-      // post or put a bug
+      // post or put a bug depending on which page we are
       const whatIsthePreviousPage = this.route.snapshot.params.bugId;
       const bugId = this.route.snapshot.params.bugId;
       // if we are on Report a bug page then create new bug
@@ -112,9 +140,12 @@ export class Story2Component implements OnInit {
         this.story2Service.updateBug(this.newBug, bugId);
       }
 
+      // navigate to home Page
+      this.goToMainPage();
+
     }
 
-    this.goToMainPage();
+
 
   }
 
@@ -123,7 +154,7 @@ export class Story2Component implements OnInit {
     this.router.navigate(['']);
   }
 
-  // display the editBug in the form
+  // display the bug you want to edit  in the form fields
   displayBugInEditPage(editBug) {
 
     this.model.title = editBug.title;
@@ -141,20 +172,24 @@ export class Story2Component implements OnInit {
     }
 
   }
+// ---------------- form about comments --------------------------
 
-  // comment story 4??
+addComment(commentForm: NgForm) {
 
-  // submitComment() {
+  if (commentForm.valid) {
 
-  //   const newComment: Comment = {
-  //     reporter: commentReporter,
-  //     description: commentDescription
-  //   };
+    this.commentModel.comment = commentForm.value.commentText;
+    this.commentModel.reporter = commentForm.value.commentReporter;
+    this.aBugId = this.route.snapshot.params.bugId;
+    this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
+      this.commentBug = wantedBug;
+    });
 
-  //   this.bugs.comments.push(newComment);
+    // this.commentBug && this.commentBug.comment ? this.commentBug.comment.id
+    // ((this.commentBug || {}).comment|| {}).id;
 
-  //   this.bugService.updateBug(this.bugs, this.id);
-  //     this.router.navigate(['bugs', this.id]);
-  // }
+}
+
+}
 
 }
