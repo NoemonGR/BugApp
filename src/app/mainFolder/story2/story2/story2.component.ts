@@ -91,4 +91,19 @@ displayBugInEditPage() {
 
 }
 
+// comment story 4??
+
+// submitComment() {
+
+//   const newComment: Comment = {
+//     reporter: commentReporter,
+//     description: commentDescription
+//   };
+
+//   this.bugs.comments.push(newComment);
+
+//   this.bugService.updateBug(this.bugs, this.id);
+//     this.router.navigate(['bugs', this.id]);
+// }
+
 }
