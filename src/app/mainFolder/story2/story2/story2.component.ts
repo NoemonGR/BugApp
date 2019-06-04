@@ -101,11 +101,13 @@ export class Story2Component implements OnInit {
         this.newBug.priority = 1;
       }
 
-      // post the  new bug using a function form the story2 service
+      // post or put a bug
       const whatIsthePreviousPage = this.route.snapshot.params.bugId;
       const bugId = this.route.snapshot.params.bugId;
+      // if we are on Report a bug page then create new bug
       if (whatIsthePreviousPage === undefined) {
         this.story2Service.createBugs(this.newBug);
+        // if we are on Edit a bug page then update the current bug
       } else {
         this.story2Service.updateBug(this.newBug, bugId);
       }
