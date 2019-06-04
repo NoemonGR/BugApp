@@ -36,7 +36,16 @@ export class Story2Component implements OnInit {
   statuses = ['Ready for test', 'Done', 'Rejected'];
 
   // a temporary new bug to post (type bug) and an edit bug to uptade
-  newBug: bug;
+  newBug: bug = {
+    title: '',
+    description: '',
+    reporter: '',
+    priority: 0,
+    status: '',
+    id: '',
+    createdAt: new Date()
+
+  };
   editBug: bug ;
 
 
@@ -74,7 +83,7 @@ export class Story2Component implements OnInit {
         this.model.priority = '1';
       }
 
-      console.log(this.newBug.title);
+
       this.newBug.title = this.model.title;
       this.newBug.description = this.model.description;
       this.newBug.id = this.model.id ;
