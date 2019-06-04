@@ -3,6 +3,7 @@ import { bug } from '../../models/story1.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Story2Service } from '../story2.service';
 import { NgForm } from '@angular/forms';
+// import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 // import { Observable } from 'rxjs';
 
 
@@ -19,10 +20,10 @@ export class Story2Component implements OnInit {
 
 
   // create a model type bug to use in form
-  model: bug = {
+  model = {
     title: '',
     description: '',
-    priority: 0,
+    priority: '' ,
     reporter: '',
     status: '',
     createdAt: new Date(),
@@ -38,21 +39,21 @@ export class Story2Component implements OnInit {
   newBug: bug;
   editBug: bug ;
 
-  ngOnInit() {
-    // get the id from the link in a const aBug and then get the bug with this id
-    const aBugId = this.route.snapshot.params.bugId;
-     console.log(aBugId);
-    // this.story2Service.getBugWithId(aBugId).subscribe((wantedBug) => {
-    //   this.editBug = wantedBug;
-    // });
-    // console.log(this.editBug.title);
-    // console.log(this.editBug.priority);
-    // console.log(this.editBug.reporter);
-    // console.log(this.editBug.status);
-    // console.log(this.editBug.id);
-    // console.log(this.editBug.createdAt);
 
+// get the id from the link in a const aBug and then get the bug with this id
+  ngOnInit() {
+    // const that shows what was the previous page
+    const whatIsthePreviousPage = this.route.snapshot.params.bugId;
+    if (whatIsthePreviousPage !== undefined ) {
+    const aBugId = this.route.snapshot.params.bugId;
+    this.story2Service.getBugWithId(aBugId).subscribe((wantedBug) => {
+    this.editBug = wantedBug;
+    this.displayBugInEditPage(this.editBug);
+     });
+
+     }
   }
+
 
   // function that takes the form and put the info of the form to the model type bug
   addBug(form: NgForm) {
@@ -64,17 +65,36 @@ export class Story2Component implements OnInit {
       this.model.reporter = form.value.bugReporter;
       this.model.status = form.value.bugStatus;
       if (form.value.bugPriority === 'Minor') {
-        this.model.priority = 3;
+        this.model.priority = '3';
       }
       if (form.value.bugPriority === 'Major') {
-        this.model.priority = 2;
+        this.model.priority = '2';
       }
       if (form.value.bugPriority === 'Critical') {
-        this.model.priority = 1;
+        this.model.priority = '1';
       }
 
+      this.newBug.title = this.model.title;
+      this.newBug.description = this.model.description;
+      this.newBug.id = this.model.id ;
+      this.newBug.reporter = this.model.reporter;
+      this.newBug.status = this.model.status;
+      this.newBug.createdAt = this.model.createdAt;
+
+      if (this.model.priority === '3') {
+        this.newBug.priority = 3;
+      }
+      if (this.model.priority === 'Major') {
+        this.newBug.priority = 2 ;
+      }
+      if (this.model.priority === 'Critical') {
+        this.newBug.priority = 1 ;
+      }
+
+
+
       // post the  new bug using a function form the story2 service
-      this.story2Service.createBugs(this.model);
+      this.story2Service.createBugs(this.newBug);
 
     }
 
@@ -86,8 +106,21 @@ export class Story2Component implements OnInit {
     this.router.navigate(['']);
   }
 
-displayBugInEditPage() {
-
+  // display the editBug in the form
+displayBugInEditPage(editBug) {
+ this.model.title = editBug.title;
+ this.model.description = editBug.description;
+ this.model.reporter = editBug.reporter;
+ this.model.status = editBug.status;
+ if ( editBug.priority === 1) {
+   this.model.priority = this.priorities[2];
+  }
+ if ( editBug.priority === 2) {
+    this.model.priority = this.priorities[1];
+   }
+ if ( editBug.priority === 3) {
+    this.model.priority = this.priorities[0];
+   }
 
 }
 
