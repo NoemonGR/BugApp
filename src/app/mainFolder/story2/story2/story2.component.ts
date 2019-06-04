@@ -23,7 +23,7 @@ export class Story2Component implements OnInit {
   model = {
     title: '',
     description: '',
-    priority: '' ,
+    priority: '',
     reporter: '',
     status: '',
     createdAt: new Date(),
@@ -46,21 +46,21 @@ export class Story2Component implements OnInit {
     createdAt: new Date()
 
   };
-  editBug: bug ;
+  editBug: bug;
 
 
-// get the id from the link in a const aBug and then get the bug with this id
+  // get the id from the link in a const aBug and then get the bug with this id
   ngOnInit() {
     // const that shows what was the previous page
-     const whatIsthePreviousPage = this.route.snapshot.params.bugId;
-     if (whatIsthePreviousPage !== undefined ) {
-    const aBugId = this.route.snapshot.params.bugId;
-    this.story2Service.getBugWithId(aBugId).subscribe((wantedBug) => {
-    this.editBug = wantedBug;
-    this.displayBugInEditPage(this.editBug);
-     });
+    const whatIsthePreviousPage = this.route.snapshot.params.bugId;
+    if (whatIsthePreviousPage !== undefined) {
+      const aBugId = this.route.snapshot.params.bugId;
+      this.story2Service.getBugWithId(aBugId).subscribe((wantedBug) => {
+        this.editBug = wantedBug;
+        this.displayBugInEditPage(this.editBug);
+      });
     }
-     }
+  }
 
 
 
@@ -86,7 +86,7 @@ export class Story2Component implements OnInit {
 
       this.newBug.title = this.model.title;
       this.newBug.description = this.model.description;
-      this.newBug.id = this.model.id ;
+      this.newBug.id = this.model.id;
       this.newBug.reporter = this.model.reporter;
       this.newBug.status = this.model.status;
       this.newBug.createdAt = this.model.createdAt;
@@ -95,63 +95,64 @@ export class Story2Component implements OnInit {
         this.newBug.priority = 3;
       }
       if (this.model.priority === 'Major') {
-        this.newBug.priority = 2 ;
+        this.newBug.priority = 2;
       }
       if (this.model.priority === 'Critical') {
-        this.newBug.priority = 1 ;
+        this.newBug.priority = 1;
       }
 
       // post the  new bug using a function form the story2 service
-      // const whatIsthePreviousPage = this.route.snapshot.params.bugId;
-      // const bugId = this.route.snapshot.params.bugId;
-      // if ( whatIsthePreviousPage === undefined) {
-      this.story2Service.createBugs(this.newBug);
-      // } else {
-      //   this.story2Service.updateBug(this.newBug, bugId );
-      // }
+      const whatIsthePreviousPage = this.route.snapshot.params.bugId;
+      const bugId = this.route.snapshot.params.bugId;
+      if (whatIsthePreviousPage === undefined) {
+        this.story2Service.createBugs(this.newBug);
+      } else {
+        this.story2Service.updateBug(this.newBug, bugId);
+      }
 
     }
 
-
+    this.goToMainPage();
 
   }
+
   // function that navigates you to the home page
   goToMainPage() {
     this.router.navigate(['']);
   }
 
   // display the editBug in the form
-displayBugInEditPage(editBug) {
+  displayBugInEditPage(editBug) {
 
- this.model.title = editBug.title;
- this.model.description = editBug.description;
- this.model.reporter = editBug.reporter;
- this.model.status = editBug.status;
- if ( editBug.priority === 1) {
-   this.model.priority = this.priorities[2];
+    this.model.title = editBug.title;
+    this.model.description = editBug.description;
+    this.model.reporter = editBug.reporter;
+    this.model.status = editBug.status;
+    if (editBug.priority === 1) {
+      this.model.priority = this.priorities[2];
+    }
+    if (editBug.priority === 2) {
+      this.model.priority = this.priorities[1];
+    }
+    if (editBug.priority === 3) {
+      this.model.priority = this.priorities[0];
+    }
+
   }
- if ( editBug.priority === 2) {
-    this.model.priority = this.priorities[1];
-   }
- if ( editBug.priority === 3) {
-    this.model.priority = this.priorities[0];
-   }
 
-}
+  // comment story 4??
 
-// comment story 4??
+  // submitComment() {
 
-// submitComment() {
+  //   const newComment: Comment = {
+  //     reporter: commentReporter,
+  //     description: commentDescription
+  //   };
 
-//   const newComment: Comment = {
-//     reporter: commentReporter,
-//     description: commentDescription
-//   };
+  //   this.bugs.comments.push(newComment);
 
-//   this.bugs.comments.push(newComment);
-
-//   this.bugService.updateBug(this.bugs, this.id);
-//     this.router.navigate(['bugs', this.id]);
-// }
+  //   this.bugService.updateBug(this.bugs, this.id);
+  //     this.router.navigate(['bugs', this.id]);
+  // }
 
 }
