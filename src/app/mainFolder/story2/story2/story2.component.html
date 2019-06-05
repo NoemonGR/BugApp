@@ -13,7 +13,8 @@
       name="bugTitle"
       [ngModel]="model.title"
       required
-      minlength="1">
+      minlength="1"
+      autocomplete="off">
       <span *ngIf="bugTitle.invalid && bugTitle.dirty">Field is Required</span>
     </div>
 
@@ -24,7 +25,8 @@
       name="bugDescription"
       [ngModel]="model.description"
       required
-      minlength="5">
+      minlength="5"
+      autocomplete="off">
       <span *ngIf="bugDescription.invalid && bugDescription.dirty">Field is Required with at least 5 characters</span>
     </div>
 
@@ -92,7 +94,8 @@
         name="commentText"
         [ngModel]="commentModel.description"
         required
-        minlength="5">
+        minlength="5"
+        autocomplete="off">
         <span *ngIf="commentText.invalid && commentText.dirty">Field is Required with at least 5 characters</span>
       </div>
       <div>
@@ -102,7 +105,8 @@
         name="commentReporter"
         [ngModel]="commentModel.reporter"
         required
-         minlength="5">
+         minlength="5"
+         autocomplete="off">
         <span *ngIf="commentReporter.invalid && commentReporter.dirty">Field is Required with at least 5
           characters</span>
       </div>

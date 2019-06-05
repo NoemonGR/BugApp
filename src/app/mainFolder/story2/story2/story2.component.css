@@ -33,14 +33,18 @@ button:active {
 }
 
 label {
-  color: white;
+  color: black;
+  font-family: 'Baloo Bhai', cursive;
+  font-size: 22px;
 }
 
 span {
-  color: white;
+  color: red;
+  font-family: 'Baloo Bhai', cursive;
+  font-size: 22px;
 }
 
 div {
   padding: 10px;
-  color: white;
+  color: black;
 }
