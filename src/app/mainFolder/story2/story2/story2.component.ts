@@ -59,7 +59,9 @@ export class Story2Component implements OnInit {
 
   // a temporary editBug to update
   editBug: bug;
+  // commentBug: bug;
 
+// a temporary comment bug to update
   commentBug: bug = {
     title: '',
     description: '',
@@ -77,21 +79,6 @@ export class Story2Component implements OnInit {
 
   list;
 
-  // a temporary comment bug to update
-  // commentBug: bug = {
-  //   title: '',
-  //   description: '',
-  //   reporter: '',
-  //   priority: 0,
-  //   status: '',
-  //   id: '',
-  //   createdAt: new Date(),
-  //   comment: [{
-  //     id: '',
-  //     reporter: '',
-  //     description: ''
-  //   }]
-  // };
   // a temp for holding the id of a Bug
   aBugId;
 
@@ -204,13 +191,11 @@ addComment(commentForm: NgForm) {
     this.commentModel.id = this.aBugId;
     console.log(this.commentModel);
     this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
-      this.commentBug = wantedBug;
-    });
-
-    // this.commentBug.comment.push(this.commentModel);
+    this.commentBug = wantedBug;
     console.log(this.commentBug);
+    // this.commentBug.comment.push(this.commentModel);
     // this.story2Service.updateBug(this.commentBug, this.aBugId);
-
+    });
 
     // this.commentModel.description = '';
     // this.commentModel.reporter = '';
