@@ -25,6 +25,7 @@ button {
   font-size: 22px;
   cursor: pointer;
   display: inline-block;
+  top: 50%;
 }
 
 button:hover {background-color: #003c66}
