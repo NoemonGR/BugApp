@@ -2,27 +2,27 @@
 
 
   <button (click)="goToMainPage()"> Go Back </button>
-  <br/>
+  <br />
 
   <!-- Add a Bug or Edit Form -->
-   <form #form = "ngForm" >
+  <form #form="ngForm">
     <div>
       <label>Bug Title</label>
       <input type="text"
-      #bugTitle= "ngModel"
-      name = "bugTitle"
-      [ngModel]= "model.title"
+      #bugTitle="ngModel"
+      name="bugTitle"
+      [ngModel]="model.title"
       required
-      minlength="1" >
+      minlength="1">
       <span *ngIf="bugTitle.invalid && bugTitle.dirty">Field is Required</span>
     </div>
 
     <div>
       <label>Bug Description</label>
       <input type="text"
-      #bugDescription= "ngModel"
-      name = "bugDescription"
-      [ngModel]= "model.description"
+      #bugDescription="ngModel"
+      name="bugDescription"
+      [ngModel]="model.description"
       required
       minlength="5">
       <span *ngIf="bugDescription.invalid && bugDescription.dirty">Field is Required with at least 5 characters</span>
@@ -30,81 +30,89 @@
 
     <div>
       <label for="priority">Priority</label>
-      <select #bugPriority= "ngModel"
-      name = "bugPriority"
-      [ngModel]= "model.priority"
+      <select
+      #bugPriority="ngModel"
+      name="bugPriority"
+      [ngModel]="model.priority"
       required>
-        <option  *ngFor="let pri of priorities">{{pri}}</option>
+        <option *ngFor="let pri of priorities">{{pri}}</option>
       </select>
       <span *ngIf="bugPriority.invalid && bugPriority.dirty">Field is Required</span>
     </div>
 
     <div>
-        <label for="reporter">Reporter</label>
-        <select #bugReporter= "ngModel"
-        name = "bugReporter"
-        [ngModel]= "model.reporter"
-        required>
-          <option *ngFor="let rep of reporters" >{{rep}}</option>
-        </select>
-        <span *ngIf="bugReporter.invalid && bugReporter.dirty">Field is Required</span>
-      </div>
-
-      <div>
-          <label for="status">Status</label>
-          <select  #bugStatus= "ngModel"
-          name = "bugStatus"
-          [ngModel]= "model.status"
-          required>
-            <option *ngFor="let sta of statuses">{{sta}}</option>
-          </select>
-          <span *ngIf="bugStatus.invalid && bugStatus.dirty">Field is Required</span>
-        </div>
+      <label for="reporter">Reporter</label>
+      <select
+      #bugReporter="ngModel"
+      name="bugReporter"
+      [ngModel]="model.reporter"
+      required>
+        <option *ngFor="let rep of reporters">{{rep}}</option>
+      </select>
+      <span *ngIf="bugReporter.invalid && bugReporter.dirty">Field is Required</span>
+    </div>
 
     <div>
-      <button type="submit" (click)= "addBug(form)"> Submit </button>
-      <span *ngIf ="(form.invalid)"> All fields are required </span>
+      <label for="status">Status</label>
+      <select
+      #bugStatus="ngModel"
+      name="bugStatus"
+      [ngModel]="model.status"
+      required>
+        <option *ngFor="let sta of statuses">{{sta}}</option>
+      </select>
+      <span *ngIf="bugStatus.invalid && bugStatus.dirty">Field is Required</span>
     </div>
-   </form>
 
-   <!-- if we are on edit page then show the comment form -->
-   <div *ngIf="aBugId">
+    <div>
+      <button (click)="addBug(form)"> Submit </button>
+      <span *ngIf="(form.invalid)"> All fields are required </span>
+    </div>
+  </form>
+
+  <!-- if we are on edit page then show the comment form -->
+  <div *ngIf="aBugId">
 
     <!-- the list to show the comments -->
-      <div>
 
+    <!-- <ul >
+      <li *ngFor=" let i of list">
+        id: {{i.id}} <br />
+        reporter: {{i.reporter}} <br />
+        description: {{i.description}} <br />
+      </li>
+    </ul> -->
 
-      </div>
-
-      <!-- the comments form -->
-    <form #CommentForm = "ngForm" >
+    <!-- the comments form -->
+    <form #CommentForm="ngForm">
       <div>
         <label>Write your comment here</label>
         <input type="text"
-        #commentText= "ngModel"
-        name = "commentText"
-        [ngModel]= "commentModel.comment"
+        #commentText="ngModel"
+        name="commentText"
+        [ngModel]="commentModel.description"
         required
-        minlength="5" >
+        minlength="5">
         <span *ngIf="commentText.invalid && commentText.dirty">Field is Required with at least 5 characters</span>
       </div>
       <div>
         <label>Name of Reporter</label>
         <input type="text"
-        #commentReporter= "ngModel"
-        name = "commentReporter"
-        [ngModel]= "commentModel.reporter"
+        #commentReporter="ngModel"
+        name="commentReporter"
+        [ngModel]="commentModel.reporter"
         required
-        minlength="5">
-        <span *ngIf="commentReporter.invalid && commentReporter.dirty">Field is Required with at least 5 characters</span>
+         minlength="5">
+        <span *ngIf="commentReporter.invalid && commentReporter.dirty">Field is Required with at least 5
+          characters</span>
       </div>
       <div>
-          <button type="submit" (click)= "addComment(CommentForm)"> Submit </button>
-          <span *ngIf ="(CommentForm.invalid)"> All fields are required </span>
+        <button (click)="addComment(CommentForm)"> Submit </button>
+        <span *ngIf="(CommentForm.invalid)"> All fields are required </span>
       </div>
 
-      </form>
+    </form>
 
-   </div>
+  </div>
   "
 </body>
