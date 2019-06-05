@@ -1,30 +1,11 @@
-/* html, body {
-  min-height: 100%;
-  -webkit-background-size: 100%;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
-/*
-body {background-size: cover;} */
-
-
 body {
-  margin: 0;
-  background: linear-gradient(to right, rgb(21, 108, 201), rgb(121, 184, 235));
+  background: linear-gradient(to right, rgb( 192, 192, 196), rgb(242, 242, 243));
   font-family: 'Baloo Bhai', cursive;
-  background-image: url("Image.jpg");
-  height: 100 vh;
 }
 
 h1 {
   text-align: center;
   color : white;
-  padding-top:2%;
-}
-
-.container {
-  padding: 2%;
 }
 
 button {
@@ -36,10 +17,8 @@ button {
   display: inline-block;
   text-align: center;
   font-size: 22px;
-  padding: 5px 15px;
   cursor: pointer;
   display: inline-block;
-  margin-top: 10px;
 }
 
 button:hover {background-color: #003c66}
@@ -55,13 +34,7 @@ table {
   overflow: hidden;
   font-size : 16px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-
 }
-
-/* th, td {
-  padding: 1em;
-} */
 
 #DateCreatedButton{
   color: black;
@@ -73,8 +46,6 @@ table {
   display: inline-block;
   text-align: center;
   font-size: 22px;
-  padding: 5px 15px;
-  margin-top: 10px;
   pointer-events: none;
 }
 
