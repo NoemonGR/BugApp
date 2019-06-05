@@ -1,5 +1,13 @@
 body {
-  background-image: url("Image.jpg");
+  background: linear-gradient(to bottom, rgb( 192, 192, 196), rgb(255,255,255));
+  font-family: 'Baloo Bhai', cursive;
+}
+input {
+  width: 100%;
+}
+
+select {
+  width: 100%
 }
 
 button {

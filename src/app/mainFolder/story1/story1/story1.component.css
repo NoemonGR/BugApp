@@ -1,14 +1,20 @@
 body {
-  background: linear-gradient(to right, rgb( 192, 192, 196), rgb(242, 242, 243));
+  background: linear-gradient(to bottom, rgb( 192, 192, 196), rgb(255,255,255));
   font-family: 'Baloo Bhai', cursive;
 }
 
 h1 {
+  padding-top: 10px;
   text-align: center;
   color : white;
 }
 
+.container {
+  padding-top: 40px;
+}
+
 button {
+  font-family: 'Baloo Bhai', cursive;
   background-color: #A9A9A9	;
   border-radius: 4px;
   line-height: 32px;
@@ -50,7 +56,13 @@ table {
 }
 
 #ReportBugDiv{
+  padding-top: 10px;
   text-align: center;
+}
+
+#bugRep{
+  width: 150px;
+  height: 50px;
 }
 
 #editBugButtons{
