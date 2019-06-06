@@ -34,7 +34,6 @@ export class Story2Component implements OnInit {
   // create a model to use in comments form
 
   commentModel = {
-    id: '',
     reporter: '',
     description: ''
   };
@@ -59,6 +58,7 @@ export class Story2Component implements OnInit {
 
   // a temporary editBug to update
   editBug: bug;
+  commentBug: bug;
 
   // a temp for holding the id of a Bug
   aBugId;
@@ -172,20 +172,21 @@ export class Story2Component implements OnInit {
       this.aBugId = this.route.snapshot.params.bugId;
       this.commentModel.description = commentForm.value.commentText;
       this.commentModel.reporter = commentForm.value.commentReporter;
-      this.commentModel.id = this.aBugId;
-      // if  there are already comments in a Bug push one more
-      if (this.editBug.comments) {
-        this.editBug.comments.push(this.commentModel);
-        // if this is the first comment of a Bug then create one
-      } else {
-        this.editBug.comments = [this.commentModel];
-      }
+      this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
+        this.commentBug = wantedBug;
+        if (this.commentBug.comments) {
+          // if  there are already comments in a Bug push one more
+          this.commentBug.comments.push(this.commentModel);
+          // if this is the first comment of a Bug then create one
+        } else {
+          this.commentBug.comments = [this.commentModel];
+        }
+        // uptade the Bug with the new comment on server
+        this.story2Service.updateBug(this.commentBug, this.aBugId);
 
-      console.log(this.editBug);
-      // uptade the Bug with the new comment on server
-      this.story2Service.updateBug(this.editBug, this.aBugId);
+        commentForm.resetForm();
 
-      commentForm.resetForm() ;
+      });
 
 
     }

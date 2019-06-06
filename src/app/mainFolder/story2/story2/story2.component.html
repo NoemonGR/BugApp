@@ -78,15 +78,14 @@
     <!-- the list to show the comments -->
 
     <ul>
-      <li *ngFor=" let i of editBug?.comments;" >
-        <!-- id: {{i?._id}} <br /> -->
+      <li *ngFor=" let i of commentBug?.comments;" >
         reporter: {{i?.reporter}} <br />
         description: {{i?.description}} <br />
       </li>
     </ul>
 
     <!-- the comments form -->
-    <form #CommentForm="ngForm">
+    <form #CommentForm="ngForm" >
       <div id="comment">
         <label>Write your comment here</label>
         <input type="text"
@@ -111,7 +110,7 @@
           characters</span>
       </div>
       <div>
-        <button (click)="addComment(CommentForm)"> Submit </button>
+        <button (click)="addComment(CommentForm) "> Submit </button>
         <span *ngIf="(CommentForm.invalid)"> All fields are required </span>
       </div>
 

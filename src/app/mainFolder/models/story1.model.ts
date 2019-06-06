@@ -8,7 +8,6 @@ export interface bug {
     status: string;
     id: string;
     comments?: [{
-      id: string;
       reporter: string;
       description: string;
     }];
