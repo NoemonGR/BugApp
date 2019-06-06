@@ -77,13 +77,13 @@
 
     <!-- the list to show the comments -->
 
-    <!-- <ul >
-      <li *ngFor=" let i of list">
-        id: {{i.id}} <br />
-        reporter: {{i.reporter}} <br />
-        description: {{i.description}} <br />
+    <ul>
+      <li *ngFor=" let i of editBug?.comments;" >
+        <!-- id: {{i?._id}} <br /> -->
+        reporter: {{i?.reporter}} <br />
+        description: {{i?.description}} <br />
       </li>
-    </ul> -->
+    </ul>
 
     <!-- the comments form -->
     <form #CommentForm="ngForm">
@@ -117,11 +117,11 @@
 
     </form>
 
-  
+
 
   </div>
 
-  
+
   </div>
-  
+
 </body>

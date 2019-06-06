@@ -3,7 +3,7 @@ import { bug } from '../../models/story1.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Story2Service } from '../story2.service';
 import { NgForm } from '@angular/forms';
-import { Comment } from '@angular/compiler';
+// import { Comment } from '@angular/compiler';
 // import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 // import { Observable } from 'rxjs';
 
@@ -16,8 +16,8 @@ import { Comment } from '@angular/compiler';
 export class Story2Component implements OnInit {
 
   constructor(private story2Service: Story2Service,
-              private router: Router,
-              private route: ActivatedRoute) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
 
   // create a model to use in the edit/create bug form
@@ -59,25 +59,6 @@ export class Story2Component implements OnInit {
 
   // a temporary editBug to update
   editBug: bug;
-  // commentBug: bug;
-
-// a temporary comment bug to update
-  commentBug: bug = {
-    title: '',
-    description: '',
-    reporter: '',
-    priority: 0,
-    status: '',
-    id: '',
-    createdAt: new Date(),
-    comment: [{
-      id: '',
-      reporter: '',
-      description: ''
-    }]
-  };
-
-  list;
 
   // a temp for holding the id of a Bug
   aBugId;
@@ -89,8 +70,8 @@ export class Story2Component implements OnInit {
     // const that shows what was the previous page
     const whatIsthePreviousPage = this.route.snapshot.params.bugId;
     if (whatIsthePreviousPage !== undefined) {
-     this.aBugId = this.route.snapshot.params.bugId;
-     this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
+      this.aBugId = this.route.snapshot.params.bugId;
+      this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
         this.editBug = wantedBug;
         this.displayBugInEditPage(this.editBug);
       });
@@ -104,10 +85,12 @@ export class Story2Component implements OnInit {
 
     if (form.valid) {
 
+      // take the values of the form and put them in the model which is connected with the form
       this.model.title = form.value.bugTitle;
       this.model.description = form.value.bugDescription;
       this.model.reporter = form.value.bugReporter;
       this.model.status = form.value.bugStatus;
+      // connect the values minor-major-critical with numbers of priority
       if (form.value.bugPriority === 'Minor') {
         this.model.priority = '3';
       }
@@ -179,30 +162,34 @@ export class Story2Component implements OnInit {
     }
 
   }
-// ---------------- form about comments --------------------------
+  // ---------------- form about comments --------------------------
 
-addComment(commentForm: NgForm) {
+  addComment(commentForm: NgForm) {
 
-  if (commentForm.valid) {
+    if (commentForm.valid) {
 
-    this.aBugId = this.route.snapshot.params.bugId;
-    this.commentModel.description = commentForm.value.commentText;
-    this.commentModel.reporter = commentForm.value.commentReporter;
-    this.commentModel.id = this.aBugId;
-    console.log(this.commentModel);
-    this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
-    this.commentBug = wantedBug;
-    console.log(this.commentBug);
-    // this.commentBug.comment.push(this.commentModel);
-    // this.story2Service.updateBug(this.commentBug, this.aBugId);
-    });
+      // take the values of the form and put them in the model which is connected with the form
+      this.aBugId = this.route.snapshot.params.bugId;
+      this.commentModel.description = commentForm.value.commentText;
+      this.commentModel.reporter = commentForm.value.commentReporter;
+      this.commentModel.id = this.aBugId;
+      // if  there are already comments in a Bug push one more
+      if (this.editBug.comments) {
+        this.editBug.comments.push(this.commentModel);
+        // if this is the first comment of a Bug then create one
+      } else {
+        this.editBug.comments = [this.commentModel];
+      }
 
-    // this.commentModel.description = '';
-    // this.commentModel.reporter = '';
+      console.log(this.editBug);
+      // uptade the Bug with the new comment on server
+      this.story2Service.updateBug(this.editBug, this.aBugId);
+
+      commentForm.resetForm() ;
 
 
-}
+    }
 
-}
+  }
 
 }
