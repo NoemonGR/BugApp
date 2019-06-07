@@ -2,12 +2,24 @@ body {
   background: linear-gradient(to bottom, rgb( 192, 192, 196), rgb(255,255,255));
   font-family: 'Baloo Bhai', cursive;
 }
+
+h1 {
+  padding-top: 10px;
+  text-align: center;
+  color : white;
+}
+
 input {
+  position: relative;
   width: 100%;
 }
 
 select {
   width: 100%
+}
+
+.subbut {
+ margin-top: -75px;
 }
 
 button {
@@ -22,7 +34,6 @@ button {
   padding: 5px 15px;
   cursor: pointer;
   display: inline-block;
-  margin-top: 10px;
 }
 
 button:hover {background-color: #003c66}
@@ -33,6 +44,7 @@ button:active {
 }
 
 label {
+  margin-top: 20px;
   color: black;
   font-family: 'Baloo Bhai', cursive;
   font-size: 22px;
@@ -51,4 +63,8 @@ div {
 
 #comment {
   padding-top: 40px;
+}
+
+.col2 {
+  margin-top: 44px;
 }

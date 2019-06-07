@@ -1,5 +1,28 @@
+<html>
+
+<head>
+
+  <!--meta tags-->
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+
+
 <body>
+
+    <h1>Bug Reporting System</h1>
+
   <div class="container">
+
+    <div class="row">
+
+      <div class="col">
 
   <button (click)="goToMainPage()"> Go Back </button>
   <br />
@@ -7,7 +30,7 @@
   <!-- Add a Bug or Edit Form -->
   <form #form="ngForm">
     <div>
-      <label>Bug Title</label>
+      <label class="tit">Bug Title</label>
       <input type="text"
       #bugTitle="ngModel"
       name="bugTitle"
@@ -19,7 +42,7 @@
     </div>
 
     <div>
-      <label>Bug Description</label>
+      <label class="des">Bug Description</label>
       <input type="text"
       #bugDescription="ngModel"
       name="bugDescription"
@@ -29,6 +52,14 @@
       autocomplete="off">
       <span *ngIf="bugDescription.invalid && bugDescription.dirty">Field is Required with at least 5 characters</span>
     </div>
+
+      </form>
+
+      </div>
+
+      <form>
+
+        <div class="col2">
 
     <div>
       <label for="priority">Priority</label>
@@ -66,11 +97,19 @@
       <span *ngIf="bugStatus.invalid && bugStatus.dirty">Field is Required</span>
     </div>
 
-    <div>
+        </div>
+
+      </form>
+    </div>
+    <form>
+
+    <div class="subbut">
       <button (click)="addBug(form)"> Submit </button>
       <span *ngIf="(form.invalid)"> All fields are required </span>
     </div>
   </form>
+
+  
 
   <!-- if we are on edit page then show the comment form -->
   <div *ngIf="aBugId">
@@ -116,11 +155,11 @@
 
     </form>
 
-
-
   </div>
+
 
 
   </div>
 
 </body>
+</html>
