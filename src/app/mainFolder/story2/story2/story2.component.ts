@@ -56,7 +56,7 @@ export class Story2Component implements OnInit {
 
   };
 
-  // a temporary editBug to update
+  // a temporary editBug to update and a commentBug
   editBug: bug;
   commentBug: bug;
 
