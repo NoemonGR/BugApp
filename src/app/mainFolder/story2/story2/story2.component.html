@@ -22,13 +22,15 @@
 
     <div class="row">
 
-      <div class="col">
+        <form #form="ngForm">
+
+
 
   <button (click)="goToMainPage()"> Go Back </button>
   <br />
 
   <!-- Add a Bug or Edit Form -->
-  <form #form="ngForm">
+
     <div>
       <label class="tit">Bug Title</label>
       <input type="text"
@@ -53,13 +55,9 @@
       <span *ngIf="bugDescription.invalid && bugDescription.dirty">Field is Required with at least 5 characters</span>
     </div>
 
-      </form>
 
-      </div>
+    <div class=testme>
 
-      <form>
-
-        <div class="col2">
 
     <div>
       <label for="priority">Priority</label>
@@ -97,19 +95,20 @@
       <span *ngIf="bugStatus.invalid && bugStatus.dirty">Field is Required</span>
     </div>
 
-        </div>
 
-      </form>
     </div>
-    <form>
 
-    <div class="subbut">
+
+    <div>
       <button (click)="addBug(form)"> Submit </button>
       <span *ngIf="(form.invalid)"> All fields are required </span>
     </div>
   </form>
 
-  
+      </div>
+  </div>
+
+
 
   <!-- if we are on edit page then show the comment form -->
   <div *ngIf="aBugId">
@@ -159,7 +158,7 @@
 
 
 
-  </div>
+
 
 </body>
 </html>
