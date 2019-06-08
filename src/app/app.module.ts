@@ -10,10 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { NavigationModule } from './mainFolder/navigation/navigation.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {useHash: false}),
