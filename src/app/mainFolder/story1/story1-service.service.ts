@@ -19,63 +19,14 @@ getBugs(): Observable<bug[]> {
 
   // Get the data sorted by priority (desc) and put them on the private virable http and return it
 
-  getBugsSortedPriorityDesc(): Observable<bug[]> {
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=priority,desc');
+  getBugsSorted(DescOrAsc: string, OrderByWhat: string): Observable<bug[]> {
+    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort='+OrderByWhat+','+DescOrAsc);
   }
 
-  // Get the data sorted by title (desc) and put them on the private virable http and return it
 
-  getBugsSortedTitleDesc(): Observable<bug[]> {
-        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=title,desc');
-  }
-
-// Get the data sorted by status (desc) and put them on the private virable http and return it
-
-  getBugsSortedStatusDesc(): Observable<bug[]> {
-       return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=status,desc');
-  }
-
-  // Get the data sorted by reporter (desc) and put them on the private virable http and return it
-
-  getBugsSortedReporterDesc(): Observable<bug[]> {
-        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,desc');
-  }
-// Get the data sorted by Date (desc) and put them on the private virable http and return it
-  getBugsSortedDateDesc(): Observable<bug[]> {
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=createdAt,desc');
-  }
-
-  // Get the data sorted by priority (asc) and put them on the private virable http and return it
-
-  getBugsSortedPriorityAsc(): Observable<bug[]> {
-        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=priority,asc');
-  }
-
-  // Get the data sorted by title (asc) and put them on the private virable http and return it
-
-  getBugsSortedTitleAsc(): Observable<bug[]> {
-        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=title,asc');
-  }
-
-  // Get the data sorted by status (asc) and put them on the private virable http and return it
-
-  getBugsSortedStatusAsc(): Observable<bug[]> {
-        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=status,asc');
-  }
-
-  // Get the data sorted by reporter (asc) and put them on the private virable http and return it
-
-  getBugsSortedReporterAsc(): Observable<bug[]> {
-        return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=reporter,asc');
-  }
-
-  // Get the data sorted by status (asc) and put them on the private virable http and return it
-
-  getBugsSortedDateAsc(): Observable<bug[]> {
-    return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=createdAt,asc');
+getBugsInNextPage(page: number, OrderByWhat: string, DescOrAsc: string ): Observable<bug[]> {
+  return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort='+OrderByWhat+','+DescOrAsc+'&page='+page);
 }
-
-
 
 }
 

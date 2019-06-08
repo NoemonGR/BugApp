@@ -24,7 +24,7 @@ export class Story2Service {
   getBugWithId(id): Observable<bug> {
     return this.http.get<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
   }
-
+// TODO : without subscribe 
   updateBug(updateBug: bug, id) {
     this.http.put<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id, updateBug ).subscribe(responseData => {
       console.log(responseData);
