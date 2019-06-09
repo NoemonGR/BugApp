@@ -20,10 +20,12 @@ export class Story1Component implements OnInit {
   dateButtonStatus = 'desc' ;
 
   // // variable for the page number of the server we are in
-  page = 0 ;
+  pageNext = 0 ;
+  pagePrev = 0 ;
 
   // variable of what is the current sorting of the page
   sortingPageStatus : string = 'title';
+  // variable of if the sorting is asc or desc
   ascOrDesc: string = 'asc';
 
   
@@ -153,12 +155,13 @@ export class Story1Component implements OnInit {
     if(this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus} ;
     if(this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus} ;
     
-    if(this.page >= 1){
-    this.story1ServiceService.getBugsInNextPage(this.page,this.sortingPageStatus, ascOrDesc).subscribe((data) => {
+    if(this.pagePrev >= 1){
+    this.story1ServiceService.getBugsInNextPage(this.pagePrev,this.sortingPageStatus, ascOrDesc).subscribe((data) => {
       this.Bugs = data;
       
     });
-    this.page -=1 ;
+    this.pageNext = this.pagePrev +1;
+    this.pagePrev -=1 ;
 
   }
   }
@@ -174,11 +177,13 @@ export class Story1Component implements OnInit {
     if(this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus} ;
     if(this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus} ;
 
-    this.story1ServiceService.getBugsInNextPage(this.page, this.sortingPageStatus, ascOrDesc).subscribe((data) => {
+    this.story1ServiceService.getBugsInNextPage(this.pageNext, this.sortingPageStatus, ascOrDesc).subscribe((data) => {
       this.Bugs = data;
       
     });
-    this.page +=1 ;
+    this.pagePrev = this.pageNext -1;
+    this.pageNext +=1 ;
+   
   }
 
 }

@@ -112,10 +112,10 @@ export class Story2Component implements OnInit {
       if (this.model.priority === '3') {
         this.newBug.priority = 3;
       }
-      if (this.model.priority === 'Major') {
+      if (this.model.priority === '2') {
         this.newBug.priority = 2;
       }
-      if (this.model.priority === 'Critical') {
+      if (this.model.priority === '1') {
         this.newBug.priority = 1;
       }
 
