@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Story1ServiceService } from '../story1-service.service';
 import { bug } from 'src/app/mainFolder/models/story1.model';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms'; 
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -22,16 +22,16 @@ export class Story1Component implements OnInit {
   statusButtonStatus = 'desc';
   dateButtonStatus = 'desc' ;
 
-  // search model 
+  // search model
 
   searchModel = {
    title: '',
    priority: 0,
    status: '',
    reporter : ''
-  }
+  };
 
-  //create the values to display in search bug form
+  // create the values to display in search bug form
   priorities = ['Minor', 'Major', 'Critical'];
   reporters = ['QA', 'PO', 'DEV'];
   statuses = ['Ready for test', 'Done', 'Rejected'];

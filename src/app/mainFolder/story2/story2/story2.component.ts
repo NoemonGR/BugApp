@@ -28,7 +28,6 @@ export class Story2Component implements OnInit {
     createdAt: new Date(),
     id: ''
   };
-  
 
   // create a model to use in comments form
 
