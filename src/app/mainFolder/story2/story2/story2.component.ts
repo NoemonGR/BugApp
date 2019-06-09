@@ -3,9 +3,7 @@ import { bug } from '../../models/story1.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Story2Service } from '../story2.service';
 import { NgForm } from '@angular/forms';
-// import { Comment } from '@angular/compiler';
-// import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
-// import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -30,6 +28,7 @@ export class Story2Component implements OnInit {
     createdAt: new Date(),
     id: ''
   };
+  
 
   // create a model to use in comments form
 

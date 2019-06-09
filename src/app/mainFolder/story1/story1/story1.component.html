@@ -2,7 +2,6 @@
 
 <head>
 
-  <!--meta tags-->
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -21,13 +20,46 @@
 
   <div class="container">
     <div class="row justify-content-md-center">
+      <form #searchForm="ngForm">
+        <table>
+          <tr>
+            <th>
+              <label>Title Search </label>
+              <input type="text" #searchTitle="ngModel" name="searchTitle" [ngModel]="searchModel.title"
+                autocomplete="off">
+            </th>
+            <th>
+              <label> Priority Search </label>
+              <select placeholder="select " type="text" #searchPriority="ngModel" name="searchPriority" [ngModel]="searchModel.priority"
+                autocomplete="off">
+                
+                <option *ngFor="let pri of priorities">{{pri}}</option>
+              </select>
+            </th>
+            <th>
+              <label> Reporter Search </label>
+              <select type="text" #searchReporter="ngModel" name="searchReporter" [ngModel]="searchModel.reporter">
+                <option *ngFor="let rep of reporters">{{rep}}</option>
+              </select>
+            </th>
+            <th>
+              <label> Status Search </label>
+              <select type="text" #searchStatus="ngModel" name="searchStatus" [ngModel]="searchModel.status">
+                <option *ngFor="let stat of statuses">{{stat}}</option>
+              </select>
+            </th>
+
+          </tr>
+        </table>
+      </form>
+
       <table class="table table-hover table-dark" cellspacing="0" width="100%">
         <thead>
           <tr>
             <th><button (click)="sortByTitle()"><span>Title</span></button></th>
             <th><button (click)="sortByPriority()"><span>Priority</span></button></th>
             <th><button (click)="sortByReporter()"><span>Reporter</span></button></th>
-            <th><button (click)="sortByDate()"><span>Date Created</span></button></th> 
+            <th><button (click)="sortByDate()"><span>Date Created</span></button></th>
             <th><button (click)="sortByStatus()"><span>Status</span></button></th>
           </tr>
         </thead>
@@ -38,18 +70,20 @@
           <th>{{i.reporter}}</th>
           <th>{{i.createdAt | date}}</th>
           <th>{{i.status}}</th>
-          <td><button type="button" id = "{{tempBug}}" (click)="goToEditPageWithBug(tempBug)">Edit</button></td>
+          <td><button type="button" id="{{tempBug}}" (click)="goToEditPageWithBug(tempBug)">Edit</button></td>
         </tr>
         <tr>
-            <th></th> <th></th>
+          <th></th>
+          <th></th>
           <th>
             <button (click)="goToPreviousPage()">prev</button>
           </th>
-           
-            <th>
-              <button (click)="goToNextPage()">next</button>
-            </th>
-            <th></th> <th></th>
+
+          <th>
+            <button (click)="goToNextPage()">next</button>
+          </th>
+          <th></th>
+          <th></th>
         </tr>
       </table>
     </div>
