@@ -66,6 +66,7 @@
       name="bugPriority"
       [ngModel]="model.priority"
       required>
+      <option hidden="" disabled="disabled" selected="selected" value="">Select...</option>
         <option *ngFor="let pri of priorities">{{pri}}</option>
       </select>
       <span *ngIf="bugPriority.invalid && bugPriority.dirty">Field is Required</span>
@@ -78,6 +79,7 @@
       name="bugReporter"
       [ngModel]="model.reporter"
       required>
+      <option hidden="" disabled="disabled" selected="selected" value="">Select...</option>
         <option *ngFor="let rep of reporters">{{rep}}</option>
       </select>
       <span *ngIf="bugReporter.invalid && bugReporter.dirty">Field is Required</span>
@@ -90,6 +92,7 @@
       name="bugStatus"
       [ngModel]="model.status"
       required>
+      <option hidden="" disabled="disabled" selected="selected" value="">Select...</option>
         <option *ngFor="let sta of statuses">{{sta}}</option>
       </select>
       <span *ngIf="bugStatus.invalid && bugStatus.dirty">Field is Required</span>

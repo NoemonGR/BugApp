@@ -9,6 +9,10 @@ h1 {
   color : white;
 }
 
+#selectMe {
+  color: red;
+}
+
 
 input {
   width: 100%;

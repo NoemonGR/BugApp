@@ -24,11 +24,11 @@ export class Story1Component implements OnInit {
   pagePrev = 1 ;
 
   // variable of what is the current sorting of the page
-  sortingPageStatus : string = 'title';
+  sortingPageStatus = 'title';
   // variable of if the sorting is asc or desc
-  ascOrDesc: string = 'asc';
+  ascOrDesc = 'asc';
 
-  
+
 
   constructor(private story1ServiceService: Story1ServiceService,
               private router: Router
@@ -51,13 +51,13 @@ export class Story1Component implements OnInit {
       this.titleButtonStatus = 'asc';
 
     } else {
-      this.story1ServiceService.getBugsSorted('desc','title').subscribe((data) => {
+      this.story1ServiceService.getBugsSorted('desc', 'title').subscribe((data) => {
         this.Bugs = data;
       });
       this.titleButtonStatus = 'desc';
     }
-      this.sortingPageStatus= 'title';
-      this.pageNext=this.pagePrev=1;
+    this.sortingPageStatus = 'title';
+    this.pageNext = this.pagePrev = 1;
   }
 
   // Get data sorted by priority Asc or Desc depending on the previous
@@ -77,7 +77,7 @@ export class Story1Component implements OnInit {
     }
 
     this.sortingPageStatus = 'priority';
-    this.pageNext=this.pagePrev=1;
+    this.pageNext = this.pagePrev = 1;
   }
 
   // Get data sorted by Reporter Asc or Desc depending on the previous
@@ -85,19 +85,19 @@ export class Story1Component implements OnInit {
 
   sortByReporter() {
     if (this.reporterButtonStatus === 'desc') {
-      this.story1ServiceService.getBugsSorted('asc','reporter').subscribe((data) => {
+      this.story1ServiceService.getBugsSorted('asc', 'reporter').subscribe((data) => {
         this.Bugs = data;
       });
       this.reporterButtonStatus = 'asc';
     } else {
-      this.story1ServiceService.getBugsSorted('desc','reporter').subscribe((data) => {
+      this.story1ServiceService.getBugsSorted('desc', 'reporter').subscribe((data) => {
         this.Bugs = data;
       });
       this.reporterButtonStatus = 'desc';
     }
 
     this.sortingPageStatus = 'reporter';
-    this.pageNext=this.pagePrev=1;
+    this.pageNext = this.pagePrev = 1;
   }
 
   // Get data sorted by Status Asc or Desc depending on the previous
@@ -105,18 +105,18 @@ export class Story1Component implements OnInit {
 
   sortByStatus() {
     if (this.statusButtonStatus === 'desc') {
-      this.story1ServiceService.getBugsSorted('asc','status').subscribe((data) => {
+      this.story1ServiceService.getBugsSorted('asc', 'status').subscribe((data) => {
         this.Bugs = data;
       });
       this.statusButtonStatus = 'asc';
     } else if (this.statusButtonStatus === 'asc') {
-      this.story1ServiceService.getBugsSorted('desc','status').subscribe((data) => {
+      this.story1ServiceService.getBugsSorted('desc', 'status').subscribe((data) => {
         this.Bugs = data;
       });
       this.statusButtonStatus = 'desc';
     }
-    this.sortingPageStatus= 'status';
-    this.pageNext=this.pagePrev=1;
+    this.sortingPageStatus = 'status';
+    this.pageNext = this.pagePrev = 1;
   }
 
   // Get data sorted by Dat Asc or Desc depending on the previous
@@ -124,18 +124,18 @@ export class Story1Component implements OnInit {
 
   sortByDate() {
     if (this.dateButtonStatus === 'desc') {
-      this.story1ServiceService.getBugsSorted('asc','createdAt').subscribe((data) => {
+      this.story1ServiceService.getBugsSorted('asc', 'createdAt').subscribe((data) => {
         this.Bugs = data;
       });
       this.dateButtonStatus = 'asc';
     } else {
-      this.story1ServiceService.getBugsSorted('desc','createdAt').subscribe((data) => {
+      this.story1ServiceService.getBugsSorted('desc', 'createdAt').subscribe((data) => {
         this.Bugs = data;
       });
       this.dateButtonStatus = 'desc';
     }
-    this.sortingPageStatus= 'createdAt';
-    this.pageNext=this.pagePrev=1;
+    this.sortingPageStatus = 'createdAt';
+    this.pageNext = this.pagePrev = 1;
   }
 
  // navigate to edit page
@@ -151,46 +151,46 @@ export class Story1Component implements OnInit {
 
   // show on the list the previous 10 bugs on the server which are on next page
 
-  goToPreviousPage(){
-    let ascOrDesc: string; 
+  goToPreviousPage() {
+    let ascOrDesc: string;
 
-    if(this.sortingPageStatus === 'title') {ascOrDesc = this.titleButtonStatus} ;
-    if(this.sortingPageStatus === 'priority') {ascOrDesc = this.priorityButtonStatus} ;
-    if(this.sortingPageStatus === 'status') {ascOrDesc = this.statusButtonStatus} ;
-    if(this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus} ;
-    if(this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus} ;
-    
-    if(this.pagePrev >= 0){
-    this.story1ServiceService.getBugsInNextPage(this.pagePrev,this.sortingPageStatus, ascOrDesc).subscribe((data) => {
+    if (this.sortingPageStatus === 'title') {ascOrDesc = this.titleButtonStatus; }
+    if (this.sortingPageStatus === 'priority') {ascOrDesc = this.priorityButtonStatus; }
+    if (this.sortingPageStatus === 'status') {ascOrDesc = this.statusButtonStatus; }
+    if (this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus; }
+    if (this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus; }
+
+    if (this.pagePrev >= 0) {
+    this.story1ServiceService.getBugsInNextPage(this.pagePrev, this.sortingPageStatus, ascOrDesc).subscribe((data) => {
       this.Bugs = data;
-      
+
     });
 
-    this.pageNext = this.pagePrev +1;
-    this.pagePrev -=1 ;
+    this.pageNext = this.pagePrev + 1;
+    this.pagePrev -= 1 ;
 
   }
   }
 
 // show on the list the next 10 bugs on the server which are on next page
-  goToNextPage(){
-    let ascOrDesc: string; 
-    
+  goToNextPage() {
+    let ascOrDesc: string;
 
-    if(this.sortingPageStatus === 'title') {ascOrDesc = this.titleButtonStatus} ;
-    if(this.sortingPageStatus === 'priority') {ascOrDesc = this.priorityButtonStatus} ;
-    if(this.sortingPageStatus === 'status') {ascOrDesc = this.statusButtonStatus} ;
-    if(this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus} ;
-    if(this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus} 
+
+    if (this.sortingPageStatus === 'title') {ascOrDesc = this.titleButtonStatus; }
+    if (this.sortingPageStatus === 'priority') {ascOrDesc = this.priorityButtonStatus; }
+    if (this.sortingPageStatus === 'status') {ascOrDesc = this.statusButtonStatus; }
+    if (this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus; }
+    if (this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus; }
 
     this.story1ServiceService.getBugsInNextPage(this.pageNext, this.sortingPageStatus, ascOrDesc).subscribe((data) => {
       this.Bugs = data;
-      
+
     });
 
-    this.pagePrev = this.pageNext -1;
-    this.pageNext +=1 ;
-   
+    this.pagePrev = this.pageNext - 1;
+    this.pageNext += 1 ;
+
   }
 
 }
