@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Story1ServiceService } from '../story1-service.service';
 import { bug } from 'src/app/mainFolder/models/story1.model';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms'; 
 
 
 @Component({
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
   templateUrl: './story1.component.html',
   styleUrls: ['./story1.component.css']
 })
+
+
 export class Story1Component implements OnInit {
   Bugs: bug[];
 
@@ -19,7 +22,21 @@ export class Story1Component implements OnInit {
   statusButtonStatus = 'desc';
   dateButtonStatus = 'desc' ;
 
-  // // variable for the page number of the server we are in
+  // search model 
+
+  searchModel = {
+   title: '',
+   priority: 0,
+   status: '',
+   reporter : ''
+  }
+
+  //create the values to display in search bug form
+  priorities = ['Minor', 'Major', 'Critical'];
+  reporters = ['QA', 'PO', 'DEV'];
+  statuses = ['Ready for test', 'Done', 'Rejected'];
+
+  // variable for the page number of the server we are in
   pageNext = 1 ;
   pagePrev = 1 ;
 
