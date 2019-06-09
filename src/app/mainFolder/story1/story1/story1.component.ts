@@ -20,8 +20,8 @@ export class Story1Component implements OnInit {
   dateButtonStatus = 'desc' ;
 
   // // variable for the page number of the server we are in
-  pageNext = 0 ;
-  pagePrev = 0 ;
+  pageNext = 1 ;
+  pagePrev = 1 ;
 
   // variable of what is the current sorting of the page
   sortingPageStatus : string = 'title';
@@ -57,6 +57,7 @@ export class Story1Component implements OnInit {
       this.titleButtonStatus = 'desc';
     }
       this.sortingPageStatus= 'title';
+      this.pageNext=this.pagePrev=1;
   }
 
   // Get data sorted by priority Asc or Desc depending on the previous
@@ -76,6 +77,7 @@ export class Story1Component implements OnInit {
     }
 
     this.sortingPageStatus = 'priority';
+    this.pageNext=this.pagePrev=1;
   }
 
   // Get data sorted by Reporter Asc or Desc depending on the previous
@@ -95,6 +97,7 @@ export class Story1Component implements OnInit {
     }
 
     this.sortingPageStatus = 'reporter';
+    this.pageNext=this.pagePrev=1;
   }
 
   // Get data sorted by Status Asc or Desc depending on the previous
@@ -113,6 +116,7 @@ export class Story1Component implements OnInit {
       this.statusButtonStatus = 'desc';
     }
     this.sortingPageStatus= 'status';
+    this.pageNext=this.pagePrev=1;
   }
 
   // Get data sorted by Dat Asc or Desc depending on the previous
@@ -131,6 +135,7 @@ export class Story1Component implements OnInit {
       this.dateButtonStatus = 'desc';
     }
     this.sortingPageStatus= 'createdAt';
+    this.pageNext=this.pagePrev=1;
   }
 
  // navigate to edit page
@@ -155,11 +160,12 @@ export class Story1Component implements OnInit {
     if(this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus} ;
     if(this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus} ;
     
-    if(this.pagePrev >= 1){
+    if(this.pagePrev >= 0){
     this.story1ServiceService.getBugsInNextPage(this.pagePrev,this.sortingPageStatus, ascOrDesc).subscribe((data) => {
       this.Bugs = data;
       
     });
+
     this.pageNext = this.pagePrev +1;
     this.pagePrev -=1 ;
 
@@ -175,12 +181,13 @@ export class Story1Component implements OnInit {
     if(this.sortingPageStatus === 'priority') {ascOrDesc = this.priorityButtonStatus} ;
     if(this.sortingPageStatus === 'status') {ascOrDesc = this.statusButtonStatus} ;
     if(this.sortingPageStatus === 'reporter') {ascOrDesc = this.reporterButtonStatus} ;
-    if(this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus} ;
+    if(this.sortingPageStatus === 'createdAt') {ascOrDesc = this.dateButtonStatus} 
 
     this.story1ServiceService.getBugsInNextPage(this.pageNext, this.sortingPageStatus, ascOrDesc).subscribe((data) => {
       this.Bugs = data;
       
     });
+
     this.pagePrev = this.pageNext -1;
     this.pageNext +=1 ;
    
