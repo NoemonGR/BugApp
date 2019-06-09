@@ -116,7 +116,8 @@
     <!-- the list to show the comments -->
 
     <ul class="list-group">
-      <li class="list-group-item" *ngFor=" let i of commentBug?.comments;" >
+      <li class="list-group-item" *ngFor=" let i of commentBug?.comments; let k = index" >
+        <p><sub>#{{k + 1}}</sub></p>
         reporter: {{i?.reporter}} <br />
         description: {{i?.description}} <br />
       </li>
