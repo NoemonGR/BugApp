@@ -327,7 +327,7 @@ export class Story1Component implements OnInit {
 
     this.searcButtonClicked = true;
 
-    if (form.value.searchTitle == null) { this.searchModel.title = ''; }
+    if (form.value.searchTitle === '') { this.searchModel.title = ''; }
     else { this.searchModel.title = '&title=' + form.value.searchTitle; }
 
     if (form.value.searchReporter == null) { this.searchModel.reporter = ''; }
