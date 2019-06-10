@@ -78,19 +78,24 @@
           <td>{{i.status}}</td>
           <td><button type="button" id="{{tempBug}}" (click)="goToEditPageWithBug(tempBug)">Edit</button></td>
         </tr>
-        <tr>
-          <th></th>
-          <th></th>
-          <th>
-            <button (click)="goToPreviousPage()">prev</button>
-          </th>
-
-            <th>
-              <button (click)="goToNextPage()">next</button>
-            </th>
-            <th></th> <th></th>
-        </tr>
       </tbody>
+      <thead>
+        <tr>
+          <td></td>
+          <td></td>
+
+            <td>
+              <button (click)="goToPreviousPage()">prev</button>
+            </td>
+
+            <td>
+              <button (click)="goToNextPage()">next</button>
+            </td>
+
+            <td></td> 
+            <td></td>
+        </tr>
+      </thead>
       </table>
     </table>
 
