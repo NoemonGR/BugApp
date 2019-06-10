@@ -327,16 +327,16 @@ export class Story1Component implements OnInit {
 
     this.searcButtonClicked = true;
 
-    if (form.value.searchTitle === null) { this.searchModel.title = ''; }
+    if (form.value.searchTitle === null || form.value.searchTitle === '') { this.searchModel.title = ''; }
     else { this.searchModel.title = '&title=' + form.value.searchTitle; }
 
-    if (form.value.searchReporter === null ) { this.searchModel.reporter = ''; }
+    if (form.value.searchReporter === null || form.value.searchReporter === '-Select-' ) { this.searchModel.reporter = ''; }
     else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter; }
 
-    if (form.value.searchStatus === null) { this.searchModel.status = ''; }
+    if (form.value.searchStatus === null || form.value.searchStatus === '-Select-') { this.searchModel.status = ''; }
     else { this.searchModel.status = '&status=' + form.value.searchStatus; }
 
-    if (form.value.searchPriority === null) { this.searchModel.priority = '0' }
+    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-') { this.searchModel.priority = '0' }
     else {
       if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3' }
       if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2' }
