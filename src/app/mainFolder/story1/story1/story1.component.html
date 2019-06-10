@@ -31,7 +31,7 @@
             </th>
             <th>
               <label> Priority Search </label>
-              <select type="text" #searchPriority="ngModel" name="searchPriority" [ngModel]="searchModel.priority">
+              <select type="text" #searchReporter="ngModel" name="searchPriority" [ngModel]="searchModel.priority">
                 <option *ngFor="let pri of priorities">{{pri}}</option>
                 <option hidden="" disabled="disabled" selected="selected" value="">Select...</option>
               </select>
@@ -49,6 +49,9 @@
                 <option *ngFor="let stat of statuses">{{stat}}</option>
                 <option hidden="" disabled="disabled" selected="selected" value="">Select...</option>
               </select>
+            </th>
+            <th>
+              <button (click)="search(searchForm)"><span>Search</span></button>
             </th>
 
           </tr>

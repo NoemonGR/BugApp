@@ -28,10 +28,15 @@ getBugsInNextPage(page: number, OrderByWhat: string, DescOrAsc: string ): Observ
   return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort='+OrderByWhat+','+DescOrAsc+'&page='+page);
 }
 
+getSearchedBugs(title: string, reporter: string, status: string, priority: string,OrderByWhat: string, DescOrAsc: string, page: number ) {
+ 
+ return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort='+OrderByWhat+','+DescOrAsc+'&page='+page+title+priority+reporter+status);
+ 
+
 }
 
 
 
 
 
-
+}
