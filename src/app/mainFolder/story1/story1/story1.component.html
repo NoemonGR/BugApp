@@ -19,8 +19,6 @@
   <div id="ReportBugDiv"> <button id="bugRep" (click)="goToEditPage()">Report a Bug</button></div>
 
   <div class="container">
-    <div class="table-responsive" class="row justify-content-md-center">
-    <div class="row justify-content-md-center">
       <form #searchForm="ngForm">
         <table>
           <tr>
@@ -58,7 +56,7 @@
           </tr>
         </table>
       </form>
-
+      <table class="table-responsive">
       <table class="table table-hover table-dark" cellspacing="0" width="100%">
         <thead>
           <tr>
@@ -70,29 +68,36 @@
           </tr>
         </thead>
 
+        <tbody>
+
         <tr *ngFor="let i of Bugs; let tempBug = index ">
-          <th>{{i.title}}</th>
-          <th>{{i.priority}}</th>
-          <th>{{i.reporter}}</th>
-          <th>{{i.createdAt | date}}</th>
-          <th>{{i.status}}</th>
+          <td>{{i.title}}</td>
+          <td>{{i.priority}}</td>
+          <td>{{i.reporter}}</td>
+          <td>{{i.createdAt | date}}</td>
+          <td>{{i.status}}</td>
           <td><button type="button" id="{{tempBug}}" (click)="goToEditPageWithBug(tempBug)">Edit</button></td>
         </tr>
+      </tbody>
+      <thead>
         <tr>
-          <th></th>
-          <th></th>
-          <th>
-            <button (click)="goToPreviousPage()">prev</button>
-          </th>
+          <td></td>
+          <td></td>
 
-            <th>
+            <td>
+              <button (click)="goToPreviousPage()">prev</button>
+            </td>
+
+            <td>
               <button (click)="goToNextPage()">next</button>
-            </th>
-            <th></th> <th></th>
+            </td>
+
+            <td></td> 
+            <td></td>
         </tr>
+      </thead>
       </table>
-    </div>
-  </div>
+    </table>
 
   </div>
   </body>
