@@ -46,9 +46,12 @@ export class Story1Component implements OnInit {
   ascOrDesc: string = 'desc';
   // variable to check if the Search button is clicked
   searcButtonClicked = false;
+// variable for the page of the 
   page: number = 0;
   priority: string;
 
+  pageNextAscOrDesc: string;
+  pagePrevAscOrDesc: string;
 
 
   constructor(private story1ServiceService: Story1ServiceService,
@@ -98,7 +101,7 @@ export class Story1Component implements OnInit {
         this.titleButtonStatus = 'desc';
       }
 
-      this.sortingPageStatus = 'title';
+
       this.pageNext = this.pagePrev = 1;
     }
   }
@@ -137,7 +140,7 @@ export class Story1Component implements OnInit {
         this.priorityButtonStatus = 'desc';
       }
 
-      this.sortingPageStatus = 'priority';
+
       this.pageNext = this.pagePrev = 1;
     }
   }
@@ -178,7 +181,7 @@ export class Story1Component implements OnInit {
         this.reporterButtonStatus = 'desc';
       }
 
-      this.sortingPageStatus = 'reporter';
+
       this.pageNext = this.pagePrev = 1;
     }
   }
@@ -197,6 +200,7 @@ export class Story1Component implements OnInit {
           this.statusButtonStatus = 'asc';
         });
       } else {
+
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.statusButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.statusButtonStatus = 'desc';
@@ -209,13 +213,14 @@ export class Story1Component implements OnInit {
       if (this.statusButtonStatus === 'desc') {
         this.story1ServiceService.getBugsSorted('asc', 'status').subscribe((data) => {
           this.Bugs = data;
+          this.statusButtonStatus = 'asc';
         });
-        this.statusButtonStatus = 'asc';
+
       } else if (this.statusButtonStatus === 'asc') {
         this.story1ServiceService.getBugsSorted('desc', 'status').subscribe((data) => {
           this.Bugs = data;
+          this.statusButtonStatus = 'desc';
         });
-        this.statusButtonStatus = 'desc';
       }
 
       this.pageNext = this.pagePrev = 1;
@@ -234,13 +239,13 @@ export class Story1Component implements OnInit {
       if (this.dateButtonStatus === 'desc') {
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.dateButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
-          this.dateButtonStatus = 'asc';
         });
-      } else {
+        this.dateButtonStatus = 'asc';
+      } else if (this.dateButtonStatus === 'asc') {
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.dateButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
-          this.dateButtonStatus = 'desc';
         });
+        this.dateButtonStatus = 'desc';
       };
 
     }
@@ -253,7 +258,7 @@ export class Story1Component implements OnInit {
         });
         this.dateButtonStatus = 'asc';
       } else {
-        this.story1ServiceService.getBugsSorted('desc', ' createdAt').subscribe((data) => {
+        this.story1ServiceService.getBugsSorted('desc', 'createdAt').subscribe((data) => {
           this.Bugs = data;
         });
         this.dateButtonStatus = 'desc';
@@ -286,11 +291,13 @@ export class Story1Component implements OnInit {
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
     if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
+    if (this.ascOrDesc === 'asc') {this.pagePrevAscOrDesc = 'desc'}
+    if (this.ascOrDesc === 'desc') {this.pagePrevAscOrDesc = 'asc'}
 
     if (this.searcButtonClicked === true) {
 
       if (this.pagePrev >= 0) {
-        this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.statusButtonStatus, this.pagePrev).subscribe((data) => {
+        this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pagePrevAscOrDesc, this.pagePrev).subscribe((data) => {
           this.Bugs = data;
           this.pageNext = this.pagePrev + 1;
           this.pagePrev -= 1;
@@ -314,16 +321,16 @@ export class Story1Component implements OnInit {
   // show on the list the next 10 bugs on the server which are on next page
   goToNextPage() {
     // let ascOrDesc: string;
-
-
     if (this.sortingPageStatus === 'title') { this.ascOrDesc = this.titleButtonStatus; }
     if (this.sortingPageStatus === 'priority') { this.ascOrDesc = this.priorityButtonStatus; }
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
-    if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
+    if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; } 
+    if(this.ascOrDesc === 'asc') { this.pageNextAscOrDesc = 'desc'}
+    if(this.ascOrDesc === 'desc') { this.pageNextAscOrDesc = 'asc'}
 
     if (this.searcButtonClicked === true) {
-      this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.statusButtonStatus, this.pageNext).subscribe((data) => {
+      this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pageNextAscOrDesc, this.pageNext).subscribe((data) => {
         this.Bugs = data;
         this.pagePrev = this.pageNext - 1;
         this.pageNext += 1;
