@@ -16,11 +16,11 @@ export class Story1Component implements OnInit {
   Bugs: bug[];
 
   // variables for checking the sort status of each button
-  titleButtonStatus = 'desc';
-  priorityButtonStatus = 'desc';
-  reporterButtonStatus = 'desc';
-  statusButtonStatus = 'desc';
-  dateButtonStatus = 'desc';
+  titleButtonStatus = 'asc';
+  priorityButtonStatus = 'asc';
+  reporterButtonStatus = 'asc';
+  statusButtonStatus = 'asc';
+  dateButtonStatus = 'asc';
 
   // search model
 
@@ -43,7 +43,7 @@ export class Story1Component implements OnInit {
   // variable of what is the current sorting of the page
   sortingPageStatus = 'title';
   // variable of if the sorting is asc or desc
-  ascOrDesc: string;
+  ascOrDesc: string = 'desc';
   // variable to check if the Search button is clicked
   searcButtonClicked = false;
   page: number = 0;
@@ -330,13 +330,13 @@ export class Story1Component implements OnInit {
     if (form.value.searchTitle === null || form.value.searchTitle === '') { this.searchModel.title = ''; }
     else { this.searchModel.title = '&title=' + form.value.searchTitle; }
 
-    if (form.value.searchReporter === null || form.value.searchReporter === '-Select-' ) { this.searchModel.reporter = ''; }
+    if (form.value.searchReporter === null || form.value.searchReporter === '-Select-' || form.value.searchReporter === '' ) { this.searchModel.reporter = ''; }
     else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter; }
 
-    if (form.value.searchStatus === null || form.value.searchStatus === '-Select-') { this.searchModel.status = ''; }
+    if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; }
     else { this.searchModel.status = '&status=' + form.value.searchStatus; }
 
-    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-') { this.searchModel.priority = '0' }
+    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = '0' }
     else {
       if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3' }
       if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2' }
