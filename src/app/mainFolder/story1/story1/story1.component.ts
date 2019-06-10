@@ -26,7 +26,7 @@ export class Story1Component implements OnInit {
 
   searchModel = {
     title: '',
-    priority: 0,
+    priority: '',
     status: '',
     reporter: ''
   };
@@ -327,25 +327,27 @@ export class Story1Component implements OnInit {
 
     this.searcButtonClicked = true;
 
-    if (form.value.searchTitle === '') { this.searchModel.title = ''; }
+    if (form.value.searchTitle === null) { this.searchModel.title = ''; }
     else { this.searchModel.title = '&title=' + form.value.searchTitle; }
 
-    if (form.value.searchReporter == null) { this.searchModel.reporter = ''; }
-    else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter;}
+    if (form.value.searchReporter === null ) { this.searchModel.reporter = ''; }
+    else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter; }
 
-    if (form.value.searchStatus == null) { this.searchModel.status = '';}
+    if (form.value.searchStatus === null) { this.searchModel.status = ''; }
     else { this.searchModel.status = '&status=' + form.value.searchStatus; }
 
-    if (form.value.searchPriority == null) { this.searchModel.priority = 0 }
+    if (form.value.searchPriority === null) { this.searchModel.priority = '0' }
     else {
-      if (form.value.searchPriority === 'Minor') { this.searchModel.priority = 3 }
-      if (form.value.searchPriority === 'Major') { this.searchModel.priority = 2 }
-      if (form.value.searchPriority === 'Critical') { this.searchModel.priority = 1 }
+      if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3' }
+      if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2' }
+      if (form.value.searchPriority === 'Critical') { this.searchModel.priority = '1' }
     }
 
-    if (this.searchModel.priority === 1) { this.priority = '&priority=1' }
-    if (this.searchModel.priority === 2) { this.priority = '&priority=2' }
-    if (this.searchModel.priority === 3) { this.priority = '&priority=3' }
+    if (this.searchModel.priority === '1') { this.priority = '&priority=1' }
+    if (this.searchModel.priority === '2') { this.priority = '&priority=2' }
+    if (this.searchModel.priority === '3') { this.priority = '&priority=3' }
+    if (this.searchModel.priority === '0') { this.priority = '' }
+
 
     // if the page is sorted by title put on the ascOrDesc the titleButtonStatus
     if (this.sortingPageStatus === 'title') { this.ascOrDesc = this.titleButtonStatus; }
@@ -356,11 +358,10 @@ export class Story1Component implements OnInit {
 
     this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.page).subscribe((data) => {
       this.Bugs = data;
-      form.resetForm();
-
+      form.reset();
     });
 
-
+    
 
   }
 
