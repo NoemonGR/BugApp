@@ -21,19 +21,24 @@
   <div class="container">
 
     <div class="row">
+        <div id="content">
+            <div class="text_box_main">
+             <div class="body_code_main">
 
         <form #form="ngForm">
 
 
-
-  <button (click)="goToMainPage()"> Go Back </button>
+<div class="btnmain">
+  <button  (click)="goToMainPage()"> Go Back </button>
+</div>
   <br />
 
   <!-- Add a Bug or Edit Form -->
 
+
     <div class="form-group">
       <label for="exampleFormControlInput1" class="tit">Bug Title</label>
-      <input type="text"
+      <input class="simple_large" type="text"
       #bugTitle="ngModel"
       name="bugTitle"
       [ngModel]="model.title"
@@ -45,7 +50,7 @@
 
     <div>
       <label class="des">Bug Description</label>
-      <input type="text"
+      <input class="simple_large" type="text"
       #bugDescription="ngModel"
       name="bugDescription"
       [ngModel]="model.description"
@@ -58,7 +63,7 @@
 
     <div>
       <label for="priority">Priority</label>
-      <select
+      <select class="simple_large"
       #bugPriority="ngModel"
       name="bugPriority"
       [ngModel]="model.priority"
@@ -71,7 +76,7 @@
 
     <div>
       <label for="reporter">Reporter</label>
-      <select
+      <select class="simple_large"
       #bugReporter="ngModel"
       name="bugReporter"
       [ngModel]="model.reporter"
@@ -84,7 +89,7 @@
 
     <div>
       <label for="status">Status</label>
-      <select
+      <select class="simple_large"
       #bugStatus="ngModel"
       name="bugStatus"
       [ngModel]="model.status"
@@ -95,14 +100,18 @@
       <span *ngIf="bugStatus.invalid && bugStatus.dirty">Field is Required</span>
     </div>
 
-    <div>
+    <div class="lastone">
       <button (click)="addBug(form)"> Submit </button>
-      <span *ngIf="(form.invalid)"> All fields are required </span>
+      <span class="messageme" *ngIf="(form.invalid)"> All fields are required </span>
     </div>
   </form>
 
       </div>
   </div>
+  </div>
+  </div>
+  </div>
+  
 
 
 
