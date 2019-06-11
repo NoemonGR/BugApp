@@ -59,10 +59,23 @@ h1 {
 
 input {
   width: 100%;
+  
 }
 
 select {
-  width: 100%
+  width: 50%;
+  margin: 3px;
+}
+
+#pris {
+  margin-left: 17px;
+}
+.aka {
+  text-align: left;
+}
+
+#kla {
+  margin-left: 25px;
 }
 
 
@@ -120,11 +133,6 @@ div {
   overflow:scroll;
   -webkit-overflow-scrolling: touch;
   width: 500px;
-}
-
-.last {
-  padding-left: 280px;
-  padding-bottom: 45px;
 }
 
 
