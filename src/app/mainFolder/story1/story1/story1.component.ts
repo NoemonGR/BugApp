@@ -321,7 +321,8 @@ export class Story1Component implements OnInit {
 
   // show on the list the next 10 bugs on the server which are on next page
   goToNextPage() {
-    // let ascOrDesc: string;
+   
+    
     if (this.sortingPageStatus === 'title') { this.ascOrDesc = this.titleButtonStatus; }
     if (this.sortingPageStatus === 'priority') { this.ascOrDesc = this.priorityButtonStatus; }
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
@@ -389,6 +390,8 @@ export class Story1Component implements OnInit {
       this.Bugs = data;
       form.reset();
     });
+
+    this.pageNext=this.pagePrev=1;
   }
 
 }
