@@ -114,7 +114,6 @@
   
 
 
-
   <!-- if we are on edit page then show the comment form -->
   <div *ngIf="aBugId">
 
@@ -128,11 +127,15 @@
       </li>
     </ul>
 
+
     <!-- the comments form -->
+    <div id="contentr">
+     <div class="text_box_mainr">
+    <div class="body_code_main">
     <form #CommentForm="ngForm" >
       <div id="comment">
         <label>Write your comment here</label>
-        <input type="text"
+        <input input class="simple_large" type="text"
         #commentText="ngModel"
         name="commentText"
         [ngModel]="commentModel.description"
@@ -143,7 +146,7 @@
       </div>
       <div>
         <label>Name of Reporter</label>
-        <input type="text"
+        <input input class="simple_large" type="text"
         #commentReporter="ngModel"
         name="commentReporter"
         [ngModel]="commentModel.reporter"
@@ -159,6 +162,9 @@
       </div>
 
     </form>
+    </div>
+    </div>
+    </div>
 
   </div>
 
