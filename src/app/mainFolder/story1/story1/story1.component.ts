@@ -275,6 +275,7 @@ export class Story1Component implements OnInit {
     this.router.navigate(['editPage']);
   }
 
+
   // navigate to edit page and get the bug id that depends on the button id of the row
   goToEditPageWithBug(buttonId: number) {
     const bugId = this.Bugs[buttonId].id;

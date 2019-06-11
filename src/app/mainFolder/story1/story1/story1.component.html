@@ -16,7 +16,6 @@
 
   <h1>Bug Reporting System</h1>
 
-  <div id="ReportBugDiv"> <button id="bugRep" (click)="goToEditPage()">Report a Bug</button></div>
 
   <div class="container">
       <form #searchForm="ngForm">
@@ -25,7 +24,7 @@
             <th>
               <label>Title Search </label>
               <input type="text" #searchTitle="ngModel" name="searchTitle" [ngModel]="searchModel.title"
-                autocomplete="off">
+                autocomplete="off" placeholder="    What you looking for?">
             </th>
             <th>
               <label> Priority Search </label>

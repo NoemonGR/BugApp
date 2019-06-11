@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Story1Component } from './mainFolder/story1/story1/story1.component';
 import { Story2Component } from './mainFolder/story2/story2/story2.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', component: Story1Component},
   { path: 'editPage', component: Story2Component},
-  { path: 'editPage/:bugId', component: Story2Component}
+  { path: 'editPage/:bugId', component: Story2Component},
+  { path: 'aboutPage', component: AboutComponent}
 ];
 
 @NgModule({

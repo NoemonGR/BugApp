@@ -9,10 +9,6 @@ h1 {
   color : white;
 }
 
-#selectMe {
-  color: red;
-}
-
 
 input {
   width: 100%;
@@ -67,9 +63,5 @@ div {
   padding-top: 40px;
 }
 
-.list-group-item {
-  width: 50%;
-  margin-left: 25%;
-}
 
 

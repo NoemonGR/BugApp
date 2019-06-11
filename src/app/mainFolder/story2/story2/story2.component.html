@@ -31,8 +31,8 @@
 
   <!-- Add a Bug or Edit Form -->
 
-    <div>
-      <label class="tit">Bug Title</label>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" class="tit">Bug Title</label>
       <input type="text"
       #bugTitle="ngModel"
       name="bugTitle"
@@ -54,9 +54,6 @@
       autocomplete="off">
       <span *ngIf="bugDescription.invalid && bugDescription.dirty">Field is Required with at least 5 characters</span>
     </div>
-
-
-    <div class=testme>
 
 
     <div>
@@ -97,10 +94,6 @@
       </select>
       <span *ngIf="bugStatus.invalid && bugStatus.dirty">Field is Required</span>
     </div>
-
-
-    </div>
-
 
     <div>
       <button (click)="addBug(form)"> Submit </button>

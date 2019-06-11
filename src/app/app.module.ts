@@ -11,11 +11,13 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { NavigationModule } from './mainFolder/navigation/navigation.module';
 import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {useHash: false}),
