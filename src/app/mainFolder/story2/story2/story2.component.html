@@ -61,9 +61,9 @@
     </div>
 
 
-    <div>
-      <label for="priority">Priority</label>
-      <select class="simple_large"
+    <div class="aka">
+      <label  for="priority">Priority</label>
+      <select id="pris" class="simple_large"
       #bugPriority="ngModel"
       name="bugPriority"
       [ngModel]="model.priority"
@@ -74,8 +74,8 @@
       <span *ngIf="bugPriority.invalid && bugPriority.dirty">Field is Required</span>
     </div>
 
-    <div>
-      <label for="reporter">Reporter</label>
+    <div class="aka">
+      <label  for="reporter">Reporter</label>
       <select class="simple_large"
       #bugReporter="ngModel"
       name="bugReporter"
@@ -87,9 +87,9 @@
       <span *ngIf="bugReporter.invalid && bugReporter.dirty">Field is Required</span>
     </div>
 
-    <div>
-      <label for="status">Status</label>
-      <select class="simple_large"
+    <div class="aka">
+      <label  for="status">Status</label>
+      <select id="kla" class="simple_large"
       #bugStatus="ngModel"
       name="bugStatus"
       [ngModel]="model.status"
