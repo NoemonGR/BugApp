@@ -109,13 +109,12 @@
       </div>
   </div>
   </div>
-  </div>
-  </div>
+  
+  
   
 
-
   <!-- if we are on edit page then show the comment form -->
-  <div *ngIf="aBugId">
+  <div class="last" *ngIf="aBugId">
 
     <!-- the list to show the comments -->
 
@@ -126,11 +125,12 @@
         description: {{i?.description}} <br />
       </li>
     </ul>
+    </div>
 
 
     <!-- the comments form -->
-    <div id="contentr">
-     <div class="text_box_mainr">
+    <div id="content">
+     <div class="text_box_main">
     <div class="body_code_main">
     <form #CommentForm="ngForm" >
       <div id="comment">
@@ -166,9 +166,10 @@
     </div>
     </div>
 
-  </div>
 
 
+</div>
+</div>
 
 
 

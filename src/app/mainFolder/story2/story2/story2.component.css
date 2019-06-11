@@ -15,13 +15,6 @@ body {
   opacity:1;
 }
 
-#contentr {
-  padding-top: 100px;
-  padding-left: 33.5%;
-  top:200px;
-  text-align:center;
-  opacity:1;
-}
 .text_box_main {
   background-color: white;
   width:500px;
@@ -30,14 +23,6 @@ body {
   padding:10px;
 }
 
-.text_box_mainr {
-  background-color: white;
-  width:500px;
-  margin-right: 300px;
-    margin-bottom:50px;
-  box-shadow:0px 4px 20px rgba(0, 0, 0, 0.15);
-  padding:10px;
-}
 
 
 .body_code_main {
@@ -121,9 +106,6 @@ div {
   color: black;
 }
 
-#comment {
-  padding-top: 40px;
-}
 
 .lastone {
   padding-top: 40px;
@@ -134,14 +116,14 @@ div {
 }
 
 .list-group {
-  overflow-y:auto;
   max-height: 354px;
   overflow:scroll;
   -webkit-overflow-scrolling: touch;
-  padding-left: 0px;
-  border-left-width: 100px;
-  margin-left: 570px;
   width: 500px;
+}
+
+.last {
+  padding-left: 280px;
 }
 
 
