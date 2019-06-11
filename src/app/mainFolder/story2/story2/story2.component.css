@@ -134,6 +134,10 @@ div {
 }
 
 .list-group {
+  overflow-y:auto;
+  max-height: 354px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
   padding-left: 0px;
   border-left-width: 100px;
   margin-left: 570px;
