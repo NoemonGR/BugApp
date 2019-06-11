@@ -46,7 +46,7 @@ export class Story1Component implements OnInit {
   ascOrDesc: string = 'desc';
   // variable to check if the Search button is clicked
   searcButtonClicked = false;
-// variable for the page of the 
+  // variable for the page of the 
   page: number = 0;
   priority: string;
 
@@ -292,8 +292,8 @@ export class Story1Component implements OnInit {
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
     if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
-    if (this.ascOrDesc === 'asc') {this.pagePrevAscOrDesc = 'desc'}
-    if (this.ascOrDesc === 'desc') {this.pagePrevAscOrDesc = 'asc'}
+    if (this.ascOrDesc === 'asc') { this.pagePrevAscOrDesc = 'desc' }
+    if (this.ascOrDesc === 'desc') { this.pagePrevAscOrDesc = 'asc' }
 
     if (this.searcButtonClicked === true) {
 
@@ -326,9 +326,9 @@ export class Story1Component implements OnInit {
     if (this.sortingPageStatus === 'priority') { this.ascOrDesc = this.priorityButtonStatus; }
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
-    if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; } 
-    if(this.ascOrDesc === 'asc') { this.pageNextAscOrDesc = 'desc'}
-    if(this.ascOrDesc === 'desc') { this.pageNextAscOrDesc = 'asc'}
+    if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
+    if (this.ascOrDesc === 'asc') { this.pageNextAscOrDesc = 'desc' }
+    if (this.ascOrDesc === 'desc') { this.pageNextAscOrDesc = 'asc' }
 
     if (this.searcButtonClicked === true) {
       this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pageNextAscOrDesc, this.pageNext).subscribe((data) => {
@@ -389,9 +389,6 @@ export class Story1Component implements OnInit {
       this.Bugs = data;
       form.reset();
     });
-
-
-
   }
 
 }
