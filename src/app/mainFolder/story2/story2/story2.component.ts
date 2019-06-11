@@ -161,7 +161,7 @@ export class Story2Component implements OnInit {
         }
         // uptade the Bug with the new comment on server
         this.story2Service.updateBug(this.commentBug, this.aBugId);
-
+        this.editBug=this.commentBug;
         commentForm.resetForm();
 
       });
