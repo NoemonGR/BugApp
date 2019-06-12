@@ -399,9 +399,8 @@ export class Story1Component implements OnInit {
 
   deleteBug(deletedBugId) {
     deletedBugId = this.Bugs[deletedBugId].id;
-   
+    this.story1ServiceService.delteBugWithId(deletedBugId);
     if (this.searcButtonClicked === true) {
-      this.story1ServiceService.delteBugWithId(deletedBugId).subscribe();
       this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
         this.Bugs = data;
       });
