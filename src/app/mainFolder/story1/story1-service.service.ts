@@ -31,12 +31,14 @@ getBugsInNextPage(page: number, OrderByWhat: string, DescOrAsc: string ): Observ
 getSearchedBugs(title: string, reporter: string, status: string, priority: string,OrderByWhat: string, DescOrAsc: string, page: number ) {
  
  return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort='+OrderByWhat+','+DescOrAsc+'&page='+page+title+priority+reporter+status);
- 
+}
+
+ delteBugWithId(id) {
+ return this.http.delete<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
+} 
+
 
 }
 
 
 
-
-
-}

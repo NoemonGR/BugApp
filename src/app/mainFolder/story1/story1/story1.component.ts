@@ -48,6 +48,7 @@ export class Story1Component implements OnInit {
   searcButtonClicked = false;
   // variable for the page of the 
   page: number = 0;
+  pageForDelete = 0;
   priority: string;
 
   pageNextAscOrDesc: string;
@@ -317,12 +318,13 @@ export class Story1Component implements OnInit {
 
       }
     }
+    this.pageForDelete = this.pagePrev + 1
   }
 
   // show on the list the next 10 bugs on the server which are on next page
   goToNextPage() {
-   
-    
+
+
     if (this.sortingPageStatus === 'title') { this.ascOrDesc = this.titleButtonStatus; }
     if (this.sortingPageStatus === 'priority') { this.ascOrDesc = this.priorityButtonStatus; }
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
@@ -348,6 +350,7 @@ export class Story1Component implements OnInit {
       this.pageNext += 1;
 
     }
+    this.pageForDelete = this.pageNext - 1;
   }
 
 
@@ -391,7 +394,22 @@ export class Story1Component implements OnInit {
       form.reset();
     });
 
-    this.pageNext=this.pagePrev=1;
+    this.pageNext = this.pagePrev = 1;
+  }
+
+  deleteBug(deletedBugId) {
+    deletedBugId = this.Bugs[deletedBugId].id;
+    this.story1ServiceService.delteBugWithId(deletedBugId).subscribe();
+    if (this.searcButtonClicked === true) {
+      this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
+        this.Bugs = data;
+      });
+    }
+    else {
+      this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
+        this.Bugs = data;
+      });
+    }
   }
 
 }

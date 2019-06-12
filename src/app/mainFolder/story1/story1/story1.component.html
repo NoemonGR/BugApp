@@ -78,6 +78,7 @@
           <td>{{i.createdAt | date}}</td>
           <td>{{i.status}}</td>
           <td><button type="button" class="btn" (click)="goToEditPageWithBug(tempBug)"><span class="fa fa-edit"></span></button></td>
+          <td><button type="button" class="btn" (click)="deleteBug(tempBug)"><span class="fa fa-delete"></span></button></td>
         </tr>
       </tbody>
       <thead>
