@@ -21,6 +21,7 @@ export class Story1Component implements OnInit {
   reporterButtonStatus = 'asc';
   statusButtonStatus = 'asc';
   dateButtonStatus = 'asc';
+  deleteBugAscOrDesc = 'asc'
 
   // search model
 
@@ -71,6 +72,8 @@ export class Story1Component implements OnInit {
   sortByTitle() {
 
     this.sortingPageStatus = 'title';
+    if(this.titleButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
+    if(this.titleButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
 
     if (this.searcButtonClicked === true) {
 
@@ -110,6 +113,8 @@ export class Story1Component implements OnInit {
 
   sortByPriority() {
     this.sortingPageStatus = 'priority';
+    if(this.priorityButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
+    if(this.priorityButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
 
     if (this.searcButtonClicked === true) {
 
@@ -151,6 +156,8 @@ export class Story1Component implements OnInit {
   sortByReporter() {
 
     this.sortingPageStatus = 'reporter';
+    if(this.reporterButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
+    if(this.reporterButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
 
     if (this.searcButtonClicked === true) {
 
@@ -192,6 +199,8 @@ export class Story1Component implements OnInit {
   sortByStatus() {
 
     this.sortingPageStatus = 'status';
+    if(this.statusButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
+    if(this.statusButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
 
     if (this.searcButtonClicked === true) {
 
@@ -236,6 +245,8 @@ export class Story1Component implements OnInit {
   sortByDate() {
 
     this.sortingPageStatus = 'createdAt';
+    if(this.dateButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
+    if(this.dateButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
 
     if (this.searcButtonClicked === true) {
 
@@ -401,6 +412,7 @@ export class Story1Component implements OnInit {
     });
 
     this.pageNext = this.pagePrev = 1;
+    this.pageForDelete = 0;
   }
 
   deleteBug(deletedBugId) {
@@ -415,7 +427,7 @@ export class Story1Component implements OnInit {
     }
     else {
       this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(()=> {
-      this.story1ServiceService.getSearchedBugs('', '', '', '', this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
+      this.story1ServiceService.getSearchedBugs('', '', '', '', this.sortingPageStatus,this.deleteBugAscOrDesc, this.pageForDelete).subscribe((data) => {
         this.Bugs = data;
       });
     });
