@@ -19,7 +19,7 @@
 
   <div class="container">
       <form #searchForm="ngForm">
-        <table>
+        <table id="culur" class="table table-dark">
           <tr>
             <th>
               <label>Title Search </label>
@@ -28,14 +28,14 @@
             </th>
             <th>
               <label> Priority Search </label>
-              <select type="text" #searchPriority="ngModel" name="searchPriority" [ngModel]="searchModel.priority">
+              <select id="widd" type="text" #searchPriority="ngModel" name="searchPriority" [ngModel]="searchModel.priority">
                 <option selected="selected" value="">-Select-</option>
                 <option *ngFor="let pri of priorities">{{pri}}</option>
               </select>
             </th>
             <th>
               <label> Reporter Search </label>
-              <select type="text" #searchReporter="ngModel" name="searchReporter" [ngModel]="searchModel.reporter">
+              <select id="widd" type="text" #searchReporter="ngModel" name="searchReporter" [ngModel]="searchModel.reporter">
                 <option selected="selected" value="">-Select-</option>
                 <option *ngFor="let rep of reporters">{{rep}}</option>
                 <!-- <option hidden="" disabled="disabled" selected="selected" value="">Select...</option> -->
@@ -43,16 +43,16 @@
             </th>
             <th>
               <label> Status Search </label>
-              <select type="text" #searchStatus="ngModel" name="searchStatus" [ngModel]="searchModel.status">
+              <select id="widd" type="text" #searchStatus="ngModel" name="searchStatus" [ngModel]="searchModel.status">
                 <option selected="selected" value="">-Select-</option>
                 <option *ngFor="let stat of statuses">{{stat}}</option>
               </select>
             </th>
             <th>
-              <button (click)="search(searchForm)"><span>Search</span></button>
+              <button class="gfor" (click)="search(searchForm)"><span class="fas fa-search"></span></button>
             </th>
             <th>
-              <button (click)="resetButton()"><span>Reset</span></button>
+              <button class="gfor" (click)="resetButton()"><span class="fa fa-refresh"></span></button>
             </th>
 
           </tr>

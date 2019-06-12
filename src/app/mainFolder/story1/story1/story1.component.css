@@ -10,8 +10,21 @@ h1 {
   color : white;
 }
 
+#culur {
+  background-color: #192733;
+}
+
+#widd{
+  width: 100px;
+}
+
 .strdown {
-  width: 150px;
+  width: 100px;
+}
+
+.gfor {
+  margin-right: 35px;
+  margin-top: 20px;
 }
 
 .container {
