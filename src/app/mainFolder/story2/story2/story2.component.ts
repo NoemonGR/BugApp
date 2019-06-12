@@ -14,8 +14,8 @@ import { NgForm } from '@angular/forms';
 export class Story2Component implements OnInit {
 
   constructor(private story2Service: Story2Service,
-              private router: Router,
-              private route: ActivatedRoute) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
 
   // create a model to use in the edit/create bug form
@@ -89,9 +89,9 @@ export class Story2Component implements OnInit {
       this.model.reporter = form.value.bugReporter;
       this.model.status = form.value.bugStatus;
       // connect the values minor-major-critical with numbers of priority
-      if (form.value.bugPriority === 'Minor') { this.model.priority = '3';}
-      if (form.value.bugPriority === 'Major') {this.model.priority = '2';}
-      if (form.value.bugPriority === 'Critical') {this.model.priority = '1';}
+      if (form.value.bugPriority === 'Minor') { this.model.priority = '3'; }
+      if (form.value.bugPriority === 'Major') { this.model.priority = '2'; }
+      if (form.value.bugPriority === 'Critical') { this.model.priority = '1'; }
 
       // put the info of the model in the newBug temp and then post this newBug
       this.newBug.title = this.model.title;
@@ -101,9 +101,9 @@ export class Story2Component implements OnInit {
       this.newBug.status = this.model.status;
       this.newBug.createdAt = this.model.createdAt;
 
-      if (this.model.priority === '3') {this.newBug.priority = 3;}
-      if (this.model.priority === '2') {this.newBug.priority = 2;}
-      if (this.model.priority === '1') {this.newBug.priority = 1;}
+      if (this.model.priority === '3') { this.newBug.priority = 3; }
+      if (this.model.priority === '2') { this.newBug.priority = 2; }
+      if (this.model.priority === '1') { this.newBug.priority = 1; }
 
       // post or put a bug depending on which page we are
       const whatIsthePreviousPage = this.route.snapshot.params.bugId;
@@ -120,7 +120,7 @@ export class Story2Component implements OnInit {
       this.goToMainPage();
 
     }
-    
+
   }
 
   // function that navigates you to the home page
@@ -135,9 +135,9 @@ export class Story2Component implements OnInit {
     this.model.description = editBug.description;
     this.model.reporter = editBug.reporter;
     this.model.status = editBug.status;
-    if (editBug.priority === 1) {this.model.priority = this.priorities[2];}
-    if (editBug.priority === 2) {this.model.priority = this.priorities[1];}
-    if (editBug.priority === 3) {this.model.priority = this.priorities[0];}
+    if (editBug.priority === 1) { this.model.priority = this.priorities[2]; }
+    if (editBug.priority === 2) { this.model.priority = this.priorities[1]; }
+    if (editBug.priority === 3) { this.model.priority = this.priorities[0]; }
 
   }
   // ---------------- form about comments --------------------------
@@ -155,14 +155,18 @@ export class Story2Component implements OnInit {
         if (this.commentBug.comments) {
           // if  there are already comments in a Bug push one more
           this.commentBug.comments.push(this.commentModel);
+          this.story2Service.updateBug(this.commentBug, this.aBugId);
+          this.editBug = this.commentBug;
+          commentForm.resetForm();
           // if this is the first comment of a Bug then create one
         } else {
           this.commentBug.comments = [this.commentModel];
+          this.story2Service.updateBug(this.commentBug, this.aBugId);
+          this.editBug = this.commentBug;
+          commentForm.resetForm();
         }
         // uptade the Bug with the new comment on server
-        this.story2Service.updateBug(this.commentBug, this.aBugId);
-        this.editBug=this.commentBug;
-        commentForm.resetForm();
+
 
       });
 
