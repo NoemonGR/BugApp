@@ -109,26 +109,27 @@
       </div>
   </div>
   </div>
-  
-  
-  
+
+
+
 
   <!-- if we are on edit page then show the comment form -->
-  <div class="last" *ngIf="aBugId">
+  <div *ngIf="aBugId">
 
     <!-- the list to show the comments -->
-
+<div class=vcom>
     <ul class="list-group">
       <li class="list-group-item" *ngFor=" let i of editBug?.comments; let k = index" >
         <p><sub>#{{k + 1}}</sub></p>
-        reporter: {{i?.reporter}} <br />  
+        reporter: {{i?.reporter}} <br />
         description: {{i?.description}} <br />
       </li>
     </ul>
-    
+  </div>
 
 
     <!-- the comments form -->
+    <div class=eskere>
     <div id="content">
      <div class="text_box_main">
     <div class="body_code_main">
@@ -162,6 +163,7 @@
       </div>
 
     </form>
+    </div>
     </div>
     </div>
     </div>

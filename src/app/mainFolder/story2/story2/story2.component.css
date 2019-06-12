@@ -3,6 +3,16 @@ body {
   font-family: 'Baloo Bhai', cursive;
 }
 
+.vcom {
+  padding-left: 270px;
+  width: 780px;
+}
+
+.eskere {
+  padding-top: 50px;
+  padding-left: 105px;
+}
+
 .btnmain{
   padding-right: 300px;
 }
@@ -59,7 +69,7 @@ h1 {
 
 input {
   width: 100%;
-  
+
 }
 
 select {
@@ -118,21 +128,15 @@ div {
   padding: 10px;
   color: black;
 }
-
-
+/*
+submit */
 .lastone {
   padding-top: 40px;
 }
 
+/* all fields are required */
 .messageme {
   padding-left: 60px;
-}
-
-.list-group {
-  max-height: 354px;
-  overflow:scroll;
-  -webkit-overflow-scrolling: touch;
-  width: 500px;
 }
 
 
