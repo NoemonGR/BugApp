@@ -101,10 +101,9 @@ export class Story1Component implements OnInit {
         });
         this.titleButtonStatus = 'desc';
       }
-
-
-      this.pageNext = this.pagePrev = 1;
     }
+    this.pageNext = this.pagePrev = 1;
+    this.pageForDelete = 0;
   }
   // Get data sorted by priority Asc or Desc depending on the previous
   // value of the sort Status  varaiable of the button
@@ -141,9 +140,9 @@ export class Story1Component implements OnInit {
         this.priorityButtonStatus = 'desc';
       }
 
-
-      this.pageNext = this.pagePrev = 1;
     }
+    this.pageNext = this.pagePrev = 1;
+    this.pageForDelete = 0;
   }
 
   // Get data sorted by Reporter Asc or Desc depending on the previous
@@ -182,9 +181,10 @@ export class Story1Component implements OnInit {
         this.reporterButtonStatus = 'desc';
       }
 
-
-      this.pageNext = this.pagePrev = 1;
+      
     }
+    this.pageNext = this.pagePrev = 1;
+    this.pageForDelete = 0;
   }
   // Get data sorted by Status Asc or Desc depending on the previous
   // value of the sort Status  varaiable of the button
@@ -224,8 +224,10 @@ export class Story1Component implements OnInit {
         });
       }
 
-      this.pageNext = this.pagePrev = 1;
+     
     }
+    this.pageNext = this.pagePrev = 1;
+    this.pageForDelete = 0;
   }
 
   // Get data sorted by Dat Asc or Desc depending on the previous
@@ -267,7 +269,7 @@ export class Story1Component implements OnInit {
 
     }
 
-
+    this.pageForDelete = 0;
     this.pageNext = this.pagePrev = 1;
   }
 
@@ -302,6 +304,7 @@ export class Story1Component implements OnInit {
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pagePrevAscOrDesc, this.pagePrev).subscribe((data) => {
           this.Bugs = data;
           this.pageNext = this.pagePrev + 1;
+          this.pageForDelete = this.pagePrev;
           this.pagePrev -= 1;
         });
       }
@@ -314,11 +317,12 @@ export class Story1Component implements OnInit {
         });
 
         this.pageNext = this.pagePrev + 1;
+        this.pageForDelete = this.pagePrev;
         this.pagePrev -= 1;
 
       }
     }
-    this.pageForDelete = this.pagePrev + 1
+    
   }
 
   // show on the list the next 10 bugs on the server which are on next page
@@ -337,6 +341,7 @@ export class Story1Component implements OnInit {
       this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pageNextAscOrDesc, this.pageNext).subscribe((data) => {
         this.Bugs = data;
         this.pagePrev = this.pageNext - 1;
+        this.pageForDelete = this.pageNext;
         this.pageNext += 1;
       });
     } else {
@@ -347,10 +352,11 @@ export class Story1Component implements OnInit {
       });
 
       this.pagePrev = this.pageNext - 1;
+      this.pageForDelete = this.pageNext;
       this.pageNext += 1;
 
     }
-    this.pageForDelete = this.pageNext - 1;
+    
   }
 
 
@@ -399,18 +405,23 @@ export class Story1Component implements OnInit {
 
   deleteBug(deletedBugId) {
     deletedBugId = this.Bugs[deletedBugId].id;
-    this.story1ServiceService.delteBugWithId(deletedBugId);
     if (this.searcButtonClicked === true) {
-      this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
-        this.Bugs = data;
+      this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(()=> {
+        this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
+          this.Bugs = data;
+        });
       });
+      
     }
     else {
+      this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(()=> {
       this.story1ServiceService.getSearchedBugs('', '', '', '', this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
         this.Bugs = data;
       });
-    }
+    });
+    
   }
+}
 
   resetButton(){
     this.ngOnInit();
