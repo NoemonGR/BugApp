@@ -36,9 +36,9 @@
               <option>Critical</option>
             </select>
           </th>
-          <th>
+          <th class="jukas">
             <label> Reporter Search </label>
-            <select id="widd" type="text" #searchReporter="ngModel" name="searchReporter"
+            <select id="widl" type="text" #searchReporter="ngModel" name="searchReporter"
               [ngModel]="searchModel.reporter">
               <option selected="selected" value="">-Select-</option>
               <option>QA</option>
@@ -47,9 +47,9 @@
 
             </select>
           </th>
-          <th>
+          <th id="widk">
             <label> Status Search </label>
-            <select id="widd" type="text" #searchStatus="ngModel" name="searchStatus" [(ngModel)]="searchModel.status">
+            <select  type="text" #searchStatus="ngModel" name="searchStatus" [(ngModel)]="searchModel.status">
                 <option selected="selected" value="">-Select-</option>
                 <option>Ready for test</option>
                 <option>Done</option>
@@ -57,10 +57,10 @@
             </select>
           </th>
           <th>
-            <button class="gfor" (click)="search(searchForm)"><span class="fas fa-search"></span></button>
+            <button class="btn" id="tut" (click)="search(searchForm)"><span class="fas fa-search"></span></button>
           </th>
           <th>
-            <button class="gfor" (click)="resetButton(searchForm)"><span class="fa fa-refresh"></span></button>
+            <button class="btn" id="tut" (click)="resetButton(searchForm)"><span class="fa fa-refresh"></span></button>
           </th>
 
         </tr>
@@ -69,8 +69,8 @@
     <table class="table table-hover table-dark" cellspacing="0" width="100%" height="100%">
       <thead>
         <tr>
-          <th width="20%"><button (click)="sortByTitle()"><span>Title</span></button></th>
-          <th><button (click)="sortByPriority()"><span>Priority</span></button></th>
+          <th width="27.5%"><button (click)="sortByTitle()"><span>Title</span></button></th>
+          <th width="19%"><button (click)="sortByPriority()"><span>Priority</span></button></th>
           <th><button (click)="sortByReporter()"><span>Reporter</span></button></th>
           <th><button (click)="sortByDate()"><span>Date Created</span></button></th>
           <th><button (click)="sortByStatus()"><span>Status</span></button></th>

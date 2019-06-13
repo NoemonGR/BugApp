@@ -10,12 +10,29 @@ h1 {
   color : white;
 }
 
-#culur {
-  background-color: #192733;
+.jukas {
+  padding-right: 72px;
 }
+
+#tut {
+  margin-top: 10px;
+  margin-right: 6px;
+}
+
 
 #widd{
   width: 100px;
+  margin-right: 11.5px;
+}
+
+#widl{
+  width: 100px;
+  margin-right: 35px;
+}
+
+#widk{
+  width: 100px;
+  margin-left: 50px;
 }
 
 .strdown {
@@ -23,8 +40,12 @@ h1 {
 }
 
 .gfor {
-  margin-right: 35px;
   margin-top: 20px;
+  margin-right: 20px;
+}
+.lfor {
+  margin-top: 20px;
+  margin-left: 102px;
 }
 
 .container {
