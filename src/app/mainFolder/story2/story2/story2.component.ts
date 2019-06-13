@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-story2',
-  templateUrl: './story2.component.html',  
+  templateUrl: './story2.component.html',
   styleUrls: ['./story2.component.css']
 })
 export class Story2Component implements OnInit {
@@ -151,22 +151,18 @@ export class Story2Component implements OnInit {
       this.commentModel.description = commentForm.value.commentText;
       this.commentModel.reporter = commentForm.value.commentReporter;
       this.story2Service.getBugWithId(this.aBugId).subscribe((wantedBug) => {
-        this.commentBug = wantedBug;
-        if (this.commentBug.comments) {
+        this.editBug = wantedBug;
+        if (this.editBug.comments) {
           // if  there are already comments in a Bug push one more
-          this.commentBug.comments.push(this.commentModel);
-          this.story2Service.updateBug(this.commentBug, this.aBugId);
-          this.editBug = this.commentBug;
-          commentForm.resetForm();
+          this.editBug.comments.push(this.commentModel);
           // if this is the first comment of a Bug then create one
         } else {
-          this.commentBug.comments = [this.commentModel];
-          this.story2Service.updateBug(this.commentBug, this.aBugId);
-          this.editBug = this.commentBug;
-          commentForm.resetForm();
+          this.editBug.comments = [this.commentModel];
         }
-        // uptade the Bug with the new comment on server
-
+        this.story2Service.updateBug(this.editBug, this.aBugId).subscribe((editBug) =>{
+          this.editBug= editBug;
+        }); 
+        commentForm.resetForm();
 
       });
 

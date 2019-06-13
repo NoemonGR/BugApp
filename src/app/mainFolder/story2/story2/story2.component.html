@@ -43,9 +43,9 @@
       name="bugTitle"
       [ngModel]="model.title"
       required
-      minlength="1"
+      minlength="5"
       autocomplete="off">
-      <span *ngIf="bugTitle.invalid && bugTitle.dirty">Field is Required</span>
+      <span *ngIf="bugTitle.invalid && bugTitle.dirty">Field is Required with at least 5 characters</span>
     </div>
 
     <div>

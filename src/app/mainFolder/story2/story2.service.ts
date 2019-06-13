@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class Story2Service {
 
   constructor(private http: HttpClient) { }
@@ -25,10 +25,8 @@ export class Story2Service {
     return this.http.get<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
   }
 // TODO : without subscribe 
-  updateBug(updateBug: bug, id) {
-    this.http.put<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id, updateBug ).subscribe(responseData => {
-      console.log(responseData);
-  }) ;
+  updateBug(updateBug: bug, id) : Observable<bug>{
+    return this.http.put<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id, updateBug );
 }
 
 
