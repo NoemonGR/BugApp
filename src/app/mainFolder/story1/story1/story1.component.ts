@@ -408,11 +408,20 @@ export class Story1Component implements OnInit {
 
     this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.page).subscribe((data) => {
       this.Bugs = data;
-      form.reset();
     });
-
+    this.searchModel.title = form.value.searchTitle ;
     this.pageNext = this.pagePrev = 1;
     this.pageForDelete = 0;
+    if(form.value.searchReporter === 'QA'){ this.searchModel.reporter = this.reporters[0]}
+    if(form.value.searchReporter === 'PO'){ this.searchModel.reporter = this.reporters[1]}
+    if(form.value.searchReporter === 'DEV'){ this.searchModel.reporter = this.reporters[2]}
+    if(form.value.searchPriority === 'Minor'){ this.searchModel.priority = this.priorities[0]}
+    if(form.value.searchPriority === 'Major'){ this.searchModel.priority = this.priorities[1]}
+    if(form.value.searchPriority === 'Critical'){ this.searchModel.priority = this.priorities[2]}
+    if(form.value.searchStatus === 'Ready for test'){ this.searchModel.status = this.statuses[0]}
+    if(form.value.searchStatus === 'Done'){ this.searchModel.status = this.statuses[1]}
+    if(form.value.searchStatus === 'Rejected'){ this.searchModel.status = this.statuses[2]}
+
   }
 
   deleteBug(deletedBugId) {
@@ -435,9 +444,12 @@ export class Story1Component implements OnInit {
   }
 }
 
-  resetButton(){
+  resetButton(form: NgForm){
+    this.searcButtonClicked = false;
+    // this.searchModel.priority = '-Select-';
+    // this.searchModel.status = '-Select-';
+    // this.searchModel.reporter = '-Select-';
     this.ngOnInit();
-    this.searcButtonClicked=false;
   }
 
 }

@@ -18,58 +18,66 @@
 
 
   <div class="container">
-      <form #searchForm="ngForm">
-        <table id="culur" class="table table-dark">
-          <tr>
-            <th>
-              <label>Title Search </label>
-              <input type="text" #searchTitle="ngModel" name="searchTitle" [ngModel]="searchModel.title"
-                autocomplete="off" placeholder="    What you looking for?">
-            </th>
-            <th>
-              <label> Priority Search </label>
-              <select id="widd" type="text" #searchPriority="ngModel" name="searchPriority" [ngModel]="searchModel.priority">
-                <option selected="selected" value="">-Select-</option>
-                <option *ngFor="let pri of priorities">{{pri}}</option>
-              </select>
-            </th>
-            <th>
-              <label> Reporter Search </label>
-              <select id="widd" type="text" #searchReporter="ngModel" name="searchReporter" [ngModel]="searchModel.reporter">
-                <option selected="selected" value="">-Select-</option>
-                <option *ngFor="let rep of reporters">{{rep}}</option>
-                <!-- <option hidden="" disabled="disabled" selected="selected" value="">Select...</option> -->
-              </select>
-            </th>
-            <th>
-              <label> Status Search </label>
-              <select id="widd" type="text" #searchStatus="ngModel" name="searchStatus" [ngModel]="searchModel.status">
-                <option selected="selected" value="">-Select-</option>
-                <option *ngFor="let stat of statuses">{{stat}}</option>
-              </select>
-            </th>
-            <th>
-              <button class="gfor" (click)="search(searchForm)"><span class="fas fa-search"></span></button>
-            </th>
-            <th>
-              <button class="gfor" (click)="resetButton()"><span class="fa fa-refresh"></span></button>
-            </th>
+    <form #searchForm="ngForm">
+      <table id="culur" class="table table-dark">
+        <tr>
+          <th>
+            <label>Title Search </label>
+            <input type="text" #searchTitle="ngModel" name="searchTitle" [ngModel]="searchModel.title"
+              autocomplete="off" placeholder="    What you looking for?">
+          </th>
+          <th>
+            <label> Priority Search </label>
+            <select id="widd" type="text" #searchPriority="ngModel" name="searchPriority"
+              [(ngModel)]="searchModel.priority">
+              <option selected="selected" value="">-Select-</option>
+              <option>Minor</option>
+              <option>Major</option>
+              <option>Critical</option>
+            </select>
+          </th>
+          <th>
+            <label> Reporter Search </label>
+            <select id="widd" type="text" #searchReporter="ngModel" name="searchReporter"
+              [ngModel]="searchModel.reporter">
+              <option selected="selected" value="">-Select-</option>
+              <option>QA</option>
+              <option>PO</option>
+              <option>DEV</option>
 
-          </tr>
-        </table>
-      </form>
-      <table class="table table-hover table-dark" cellspacing="0" width="100%" height="100%">
-        <thead>
-          <tr>
-            <th width="20%"><button (click)="sortByTitle()"><span>Title</span></button></th>
-            <th><button (click)="sortByPriority()"><span>Priority</span></button></th>
-            <th><button (click)="sortByReporter()"><span>Reporter</span></button></th>
-            <th><button (click)="sortByDate()"><span>Date Created</span></button></th>
-            <th><button (click)="sortByStatus()"><span>Status</span></button></th>
-          </tr>
-        </thead>
+            </select>
+          </th>
+          <th>
+            <label> Status Search </label>
+            <select id="widd" type="text" #searchStatus="ngModel" name="searchStatus" [(ngModel)]="searchModel.status">
+                <option selected="selected" value="">-Select-</option>
+                <option>Ready for test</option>
+                <option>Done</option>
+                <option>Rejected</option>
+            </select>
+          </th>
+          <th>
+            <button class="gfor" (click)="search(searchForm)"><span class="fas fa-search"></span></button>
+          </th>
+          <th>
+            <button class="gfor" (click)="resetButton(searchForm)"><span class="fa fa-refresh"></span></button>
+          </th>
 
-        <tbody>
+        </tr>
+      </table>
+    </form>
+    <table class="table table-hover table-dark" cellspacing="0" width="100%" height="100%">
+      <thead>
+        <tr>
+          <th width="20%"><button (click)="sortByTitle()"><span>Title</span></button></th>
+          <th><button (click)="sortByPriority()"><span>Priority</span></button></th>
+          <th><button (click)="sortByReporter()"><span>Reporter</span></button></th>
+          <th><button (click)="sortByDate()"><span>Date Created</span></button></th>
+          <th><button (click)="sortByStatus()"><span>Status</span></button></th>
+        </tr>
+      </thead>
+
+      <tbody>
 
         <tr *ngFor="let i of Bugs; let tempBug = index ">
           <td>{{i.title}}</td>
@@ -77,8 +85,10 @@
           <td>{{i.reporter}}</td>
           <td>{{i.createdAt | date}}</td>
           <td>{{i.status}}</td>
-          <td><button type="button" class="btn" (click)="goToEditPageWithBug(tempBug)"><span class="fa fa-edit"></span></button></td>
-          <td><button type="button" class="btn" (click)="deleteBug(tempBug)"><span class="fas fa-trash"></span></button></td>
+          <td><button type="button" class="btn" (click)="goToEditPageWithBug(tempBug)"><span
+                class="fa fa-edit"></span></button></td>
+          <td><button type="button" class="btn" (click)="deleteBug(tempBug)"><span class="fas fa-trash"></span></button>
+          </td>
         </tr>
       </tbody>
       <thead>
@@ -86,20 +96,21 @@
           <td></td>
           <td></td>
 
-            <td>
-              <button class= strdown (click)="goToPreviousPage()"><span class="fas fa-arrow-left"></span></button>
-            </td>
+          <td>
+            <button class=strdown (click)="goToPreviousPage()"><span class="fas fa-arrow-left"></span></button>
+          </td>
 
-            <td>
-              <button class= strdown (click)="goToNextPage()"><span class="fas fa-arrow-right"></span></button>
-            </td>
+          <td>
+            <button class=strdown (click)="goToNextPage()"><span class="fas fa-arrow-right"></span></button>
+          </td>
 
-            <td></td>
-            <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </thead>
-      </table>
+    </table>
 
   </div>
-  </body>
-  </html>
+</body>
+
+</html>
