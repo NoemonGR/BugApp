@@ -13,6 +13,7 @@ import { NavigationModule } from './mainFolder/navigation/navigation.module';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { bugInterceptor } from './bugInterceptor.service';
+import { NavigationComponent } from './mainFolder/navigation/navigation/navigation/navigation.component';
 
 
 @NgModule({
@@ -24,12 +25,12 @@ import { bugInterceptor } from './bugInterceptor.service';
   imports: [
     RouterModule.forRoot(routes, {useHash: false}),
     BrowserModule,
+    NavigationModule,
     HttpClientModule,
     AppRoutingModule,
     Story1Module,
     Story2Module,
-    FormsModule,
-    NavigationModule
+    FormsModule
   ],
   providers: [
     {
