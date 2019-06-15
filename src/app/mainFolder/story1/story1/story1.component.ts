@@ -450,9 +450,9 @@ export class Story1Component implements OnInit {
 
   resetButton(form: NgForm) {
     this.searcButtonClicked = false;
-    // this.searchModel.priority = '-Select-';
-    // this.searchModel.status = '-Select-';
-    // this.searchModel.reporter = '-Select-';
+    form.controls['searchPriority'].setValue('');
+    form.controls['searchReporter'].setValue('');
+    form.controls['searchStatus'].setValue('');
     this.ngOnInit();
   }
 
