@@ -21,7 +21,7 @@ export class Story1Component implements OnInit {
   reporterButtonStatus = 'asc';
   statusButtonStatus = 'asc';
   dateButtonStatus = 'asc';
-  deleteBugAscOrDesc = 'asc'
+  deleteBugAscOrDesc = 'asc';
 
   // search model
 
@@ -44,11 +44,11 @@ export class Story1Component implements OnInit {
   // variable of what is the current sorting of the page
   sortingPageStatus = 'title';
   // variable of if the sorting is asc or desc
-  ascOrDesc: string = 'desc';
+  ascOrDesc = 'desc';
   // variable to check if the Search button is clicked
   searcButtonClicked = false;
-  // variable for the page of the 
-  page: number = 0;
+  // variable for the page of the
+  page = 0;
   pageForDelete = 0;
   priority: string;
 
@@ -57,7 +57,7 @@ export class Story1Component implements OnInit {
 
 
   constructor(private story1ServiceService: Story1ServiceService,
-    private router: Router
+              private router: Router
   ) { }
 
   // on Init get data to Arraey of Bugs and display them
@@ -72,26 +72,26 @@ export class Story1Component implements OnInit {
   sortByTitle() {
 
     this.sortingPageStatus = 'title';
-    if(this.titleButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
-    if(this.titleButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
+    if (this.titleButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
+    if (this.titleButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
 
       if (this.titleButtonStatus === 'desc') {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.titleButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.titleButtonStatus = 'asc';
         });
       } else {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.titleButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.titleButtonStatus = 'desc';
         });
-      };
+      }
 
-    }
-
-    else {
+    } else {
       if (this.titleButtonStatus === 'desc') {
         this.story1ServiceService.getBugsSorted('asc', 'title').subscribe((data) => {
           this.Bugs = data;
@@ -113,26 +113,26 @@ export class Story1Component implements OnInit {
 
   sortByPriority() {
     this.sortingPageStatus = 'priority';
-    if(this.priorityButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
-    if(this.priorityButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
+    if (this.priorityButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
+    if (this.priorityButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
 
       if (this.priorityButtonStatus === 'desc') {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.priorityButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.priorityButtonStatus = 'asc';
         });
       } else {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.priorityButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.priorityButtonStatus = 'desc';
         });
-      };
+      }
 
-    }
-
-    else {
+    } else {
       if (this.priorityButtonStatus === 'desc') {
         this.story1ServiceService.getBugsSorted('asc', 'priority').subscribe((data) => {
           this.Bugs = data;
@@ -156,26 +156,26 @@ export class Story1Component implements OnInit {
   sortByReporter() {
 
     this.sortingPageStatus = 'reporter';
-    if(this.reporterButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
-    if(this.reporterButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
+    if (this.reporterButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
+    if (this.reporterButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
 
       if (this.reporterButtonStatus === 'desc') {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.reporterButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.reporterButtonStatus = 'asc';
         });
       } else {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.reporterButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.reporterButtonStatus = 'desc';
         });
-      };
+      }
 
-    }
-
-    else {
+    } else {
       if (this.reporterButtonStatus === 'desc') {
         this.story1ServiceService.getBugsSorted('asc', 'reporter').subscribe((data) => {
           this.Bugs = data;
@@ -188,7 +188,7 @@ export class Story1Component implements OnInit {
         this.reporterButtonStatus = 'desc';
       }
 
-      
+
     }
     this.pageNext = this.pagePrev = 1;
     this.pageForDelete = 0;
@@ -199,27 +199,27 @@ export class Story1Component implements OnInit {
   sortByStatus() {
 
     this.sortingPageStatus = 'status';
-    if(this.statusButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
-    if(this.statusButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
+    if (this.statusButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
+    if (this.statusButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
 
       if (this.statusButtonStatus === 'desc') {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.statusButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.statusButtonStatus = 'asc';
         });
       } else {
 
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.statusButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.statusButtonStatus = 'desc';
         });
-      };
+      }
 
-    }
-
-    else {
+    } else {
       if (this.statusButtonStatus === 'desc') {
         this.story1ServiceService.getBugsSorted('asc', 'status').subscribe((data) => {
           this.Bugs = data;
@@ -233,7 +233,7 @@ export class Story1Component implements OnInit {
         });
       }
 
-     
+
     }
     this.pageNext = this.pagePrev = 1;
     this.pageForDelete = 0;
@@ -245,26 +245,26 @@ export class Story1Component implements OnInit {
   sortByDate() {
 
     this.sortingPageStatus = 'createdAt';
-    if(this.dateButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'}
-    if(this.dateButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'}
+    if (this.dateButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
+    if (this.dateButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
 
       if (this.dateButtonStatus === 'desc') {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.dateButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
         });
         this.dateButtonStatus = 'asc';
       } else if (this.dateButtonStatus === 'asc') {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.dateButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
         });
         this.dateButtonStatus = 'desc';
-      };
+      }
 
-    }
-
-    else {
+    } else {
 
       if (this.dateButtonStatus === 'desc') {
         this.story1ServiceService.getBugsSorted('asc', 'createdAt').subscribe((data) => {
@@ -306,12 +306,13 @@ export class Story1Component implements OnInit {
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
     if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
-    if (this.ascOrDesc === 'asc') { this.pagePrevAscOrDesc = 'desc' }
-    if (this.ascOrDesc === 'desc') { this.pagePrevAscOrDesc = 'asc' }
+    if (this.ascOrDesc === 'asc') { this.pagePrevAscOrDesc = 'desc'; }
+    if (this.ascOrDesc === 'desc') { this.pagePrevAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
 
       if (this.pagePrev >= 0) {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pagePrevAscOrDesc, this.pagePrev).subscribe((data) => {
           this.Bugs = data;
           this.pageNext = this.pagePrev + 1;
@@ -333,7 +334,7 @@ export class Story1Component implements OnInit {
 
       }
     }
-    
+
   }
 
   // show on the list the next 10 bugs on the server which are on next page
@@ -345,10 +346,11 @@ export class Story1Component implements OnInit {
     if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
     if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
-    if (this.ascOrDesc === 'asc') { this.pageNextAscOrDesc = 'desc' }
-    if (this.ascOrDesc === 'desc') { this.pageNextAscOrDesc = 'asc' }
+    if (this.ascOrDesc === 'asc') { this.pageNextAscOrDesc = 'desc'; }
+    if (this.ascOrDesc === 'desc') { this.pageNextAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
+// tslint:disable-next-line: max-line-length
       this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pageNextAscOrDesc, this.pageNext).subscribe((data) => {
         this.Bugs = data;
         this.pagePrev = this.pageNext - 1;
@@ -367,36 +369,36 @@ export class Story1Component implements OnInit {
       this.pageNext += 1;
 
     }
-    
+
   }
 
 
-  //search bugs with certain information from the searchForm
+  // search bugs with certain information from the searchForm
 
   search(form: NgForm) {
 
     this.searcButtonClicked = true;
 
-    if (form.value.searchTitle === null || form.value.searchTitle === '') { this.searchModel.title = ''; }
-    else { this.searchModel.title = '&title=' + form.value.searchTitle; }
+// tslint:disable-next-line: max-line-length
+    if (form.value.searchTitle === null || form.value.searchTitle === '') { this.searchModel.title = ''; } else { this.searchModel.title = '&title=' + form.value.searchTitle; }
 
-    if (form.value.searchReporter === null || form.value.searchReporter === '-Select-' || form.value.searchReporter === '') { this.searchModel.reporter = ''; }
-    else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter; }
+// tslint:disable-next-line: max-line-length
+    if (form.value.searchReporter === null || form.value.searchReporter === '-Select-' || form.value.searchReporter === '') { this.searchModel.reporter = ''; } else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter; }
 
-    if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; }
-    else { this.searchModel.status = '&status=' + form.value.searchStatus; }
+// tslint:disable-next-line: max-line-length
+    if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; } else { this.searchModel.status = '&status=' + form.value.searchStatus; }
 
-    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = '0' }
-    else {
-      if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3' }
-      if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2' }
-      if (form.value.searchPriority === 'Critical') { this.searchModel.priority = '1' }
+// tslint:disable-next-line: max-line-length
+    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = '0'; } else {
+      if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3'; }
+      if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2'; }
+      if (form.value.searchPriority === 'Critical') { this.searchModel.priority = '1'; }
     }
 
-    if (this.searchModel.priority === '1') { this.priority = '&priority=1' }
-    if (this.searchModel.priority === '2') { this.priority = '&priority=2' }
-    if (this.searchModel.priority === '3') { this.priority = '&priority=3' }
-    if (this.searchModel.priority === '0') { this.priority = '' }
+    if (this.searchModel.priority === '1') { this.priority = '&priority=1'; }
+    if (this.searchModel.priority === '2') { this.priority = '&priority=2'; }
+    if (this.searchModel.priority === '3') { this.priority = '&priority=3'; }
+    if (this.searchModel.priority === '0') { this.priority = ''; }
 
 
     // if the page is sorted by title put on the ascOrDesc the titleButtonStatus
@@ -406,45 +408,47 @@ export class Story1Component implements OnInit {
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
     if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
 
+// tslint:disable-next-line: max-line-length
     this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.page).subscribe((data) => {
       this.Bugs = data;
     });
     this.searchModel.title = form.value.searchTitle ;
     this.pageNext = this.pagePrev = 1;
     this.pageForDelete = 0;
-    if(form.value.searchReporter === 'QA'){ this.searchModel.reporter = this.reporters[0]}
-    if(form.value.searchReporter === 'PO'){ this.searchModel.reporter = this.reporters[1]}
-    if(form.value.searchReporter === 'DEV'){ this.searchModel.reporter = this.reporters[2]}
-    if(form.value.searchPriority === 'Minor'){ this.searchModel.priority = this.priorities[0]}
-    if(form.value.searchPriority === 'Major'){ this.searchModel.priority = this.priorities[1]}
-    if(form.value.searchPriority === 'Critical'){ this.searchModel.priority = this.priorities[2]}
-    if(form.value.searchStatus === 'Ready for test'){ this.searchModel.status = this.statuses[0]}
-    if(form.value.searchStatus === 'Done'){ this.searchModel.status = this.statuses[1]}
-    if(form.value.searchStatus === 'Rejected'){ this.searchModel.status = this.statuses[2]}
+    if (form.value.searchReporter === 'QA') { this.searchModel.reporter = this.reporters[0]; }
+    if (form.value.searchReporter === 'PO') { this.searchModel.reporter = this.reporters[1]; }
+    if (form.value.searchReporter === 'DEV') { this.searchModel.reporter = this.reporters[2]; }
+    if (form.value.searchPriority === 'Minor') { this.searchModel.priority = this.priorities[0]; }
+    if (form.value.searchPriority === 'Major') { this.searchModel.priority = this.priorities[1]; }
+    if (form.value.searchPriority === 'Critical') { this.searchModel.priority = this.priorities[2]; }
+    if (form.value.searchStatus === 'Ready for test') { this.searchModel.status = this.statuses[0]; }
+    if (form.value.searchStatus === 'Done') { this.searchModel.status = this.statuses[1]; }
+    if (form.value.searchStatus === 'Rejected') { this.searchModel.status = this.statuses[2]; }
 
   }
 
   deleteBug(deletedBugId) {
     deletedBugId = this.Bugs[deletedBugId].id;
     if (this.searcButtonClicked === true) {
-      this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(()=> {
+      this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(() => {
+// tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
           this.Bugs = data;
         });
       });
-      
-    }
-    else {
-      this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(()=> {
-      this.story1ServiceService.getSearchedBugs('', '', '', '', this.sortingPageStatus,this.deleteBugAscOrDesc, this.pageForDelete).subscribe((data) => {
+
+    } else {
+      this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(() => {
+// tslint:disable-next-line: max-line-length
+      this.story1ServiceService.getSearchedBugs('', '', '', '', this.sortingPageStatus, this.deleteBugAscOrDesc, this.pageForDelete).subscribe((data) => {
         this.Bugs = data;
       });
     });
-    
+
   }
 }
 
-  resetButton(form: NgForm){
+  resetButton(form: NgForm) {
     this.searcButtonClicked = false;
     // this.searchModel.priority = '-Select-';
     // this.searchModel.status = '-Select-';

@@ -7,7 +7,7 @@ import { Story2Component } from './story2/story2.component';
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 
 describe('Story2Service', () => {
-  let component: Story2Component
+  let component: Story2Component;
   let fixture: ComponentFixture<Story2Component>;
 
   beforeEach(async(() => {
@@ -64,4 +64,4 @@ describe('Story2Service', () => {
   // });
 
 
-}); 
+});
