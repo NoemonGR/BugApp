@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Story2Service } from './story2.service';
 import { Story2Component } from './story2/story2.component';
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
+import { Story2Module } from './story2/story2.module';
 
 describe('Story2Service', () => {
   let component: Story2Component;
@@ -13,6 +14,8 @@ describe('Story2Service', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
+      declarations: [
+      ]
     })
       .compileComponents();
   }));
