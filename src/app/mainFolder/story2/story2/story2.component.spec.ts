@@ -32,7 +32,7 @@ describe('Story2Component', () => {
 
   it('Validate that the form is invalid if no data entered', () => {
     component.ngOnInit();
-    component.newBug.description = 'x';
+    component.newBug.description = '';
     expect(component.newBug.description).toBeFalsy();
   });
 
