@@ -14,8 +14,8 @@ import { NgForm } from '@angular/forms';
 export class Story2Component implements OnInit {
 
   constructor(private story2Service: Story2Service,
-    private router: Router,
-    private route: ActivatedRoute) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
 
 
   // create a model to use in the edit/create bug form
@@ -159,9 +159,9 @@ export class Story2Component implements OnInit {
         } else {
           this.editBug.comments = [this.commentModel];
         }
-        this.story2Service.updateBug(this.editBug, this.aBugId).subscribe((editBug) =>{
-          this.editBug= editBug;
-        }); 
+        this.story2Service.updateBug(this.editBug, this.aBugId).subscribe((editBug) => {
+          this.editBug = editBug;
+        });
         commentForm.resetForm();
 
       });

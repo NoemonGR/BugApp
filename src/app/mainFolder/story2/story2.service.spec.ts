@@ -6,27 +6,27 @@ import { Story2Service } from './story2.service';
 import { Story2Component } from './story2/story2.component';
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 
-describe('Story2Service', () => {
-  let component: Story2Component
-  let fixture: ComponentFixture<Story2Component>;
+// describe('Story2Service', () => {
+//   let component: Story2Component;
+//   let fixture: ComponentFixture<Story2Component>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [FormsModule],
-    })
-      .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       imports: [FormsModule],
+//     })
+//       .compileComponents();
+//   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(Story2Component);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(Story2Component);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should be created', () => {
-    const service: Story2Service = TestBed.get(Story2Service);
-    expect(service).toBeTruthy();
-  });
+//   it('should be created', () => {
+//     const service: Story2Service = TestBed.get(Story2Service);
+//     expect(service).toBeTruthy();
+//   });
 
   // it('form should be Invalid if no data entered ', () => {
 
@@ -64,4 +64,4 @@ describe('Story2Service', () => {
   // });
 
 
-}); 
+// });

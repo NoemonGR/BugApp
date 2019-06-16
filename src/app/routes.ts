@@ -7,4 +7,4 @@ import { Story2Component } from './mainFolder/story2/story2/story2.component';
 export const routes: Routes = [
   { path: '', component: Story1Component },
   { path: 'post', component: Story2Component }
-   ];
+];
