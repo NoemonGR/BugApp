@@ -6,8 +6,6 @@ import { Router } from '@angular/router';
 
 // den 3erw giati moy emfanizei autes tis malakies
 
-<<<<<<< HEAD
-=======
 describe('AboutComponent', () => {
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
@@ -36,4 +34,3 @@ describe('AboutComponent', () => {
     expect(component).toBeTruthy();
   });
 });
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726

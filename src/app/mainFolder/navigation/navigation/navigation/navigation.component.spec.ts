@@ -4,9 +4,7 @@ import { NavigationComponent } from './navigation.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 
-<<<<<<< HEAD
-=======
-  beforeEach(async(() => {
+beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -16,14 +14,13 @@ import { RouterTestingModule } from '@angular/router/testing';
     .compileComponents();
   }));
 
-  beforeEach(() => {
+beforeEach(() => {
     fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
+
