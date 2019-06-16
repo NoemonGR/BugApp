@@ -36,7 +36,9 @@ h1 {
 }
 
 .strdown {
-  width: 100px;
+  width: 45px;
+  height: 40px;
+  COLOR: #7333d8;
 }
 
 .gfor {
@@ -71,10 +73,10 @@ button {
   display: inline-block;
 }
 
-button:hover {background-color: #003c66}
+button:hover {background-color: #7333d8}
 
 button:active {
-  background-color: #005a99;
+  background-color: #3600ff;
   transform: translateY(4px);
 }
 
