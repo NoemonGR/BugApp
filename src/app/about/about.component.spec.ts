@@ -4,6 +4,8 @@ import { AboutComponent } from './about.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 
+// den 3erw giati moy emfanizei autes tis malakies
+
 <<<<<<< HEAD
 =======
 describe('AboutComponent', () => {

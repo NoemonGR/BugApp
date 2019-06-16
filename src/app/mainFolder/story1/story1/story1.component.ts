@@ -72,33 +72,19 @@ export class Story1Component implements OnInit {
   sortByTitle() {
 
     this.sortingPageStatus = 'title';
-<<<<<<< HEAD
-    if (this.titleButtonStatus === 'asc') { this.deleteBugAscOrDesc = 'desc'; }
-    if (this.titleButtonStatus === 'desc') { this.deleteBugAscOrDesc = 'asc'; }
-=======
     if (this.titleButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
     if (this.titleButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
 
     if (this.searcButtonClicked === true) {
 
       if (this.titleButtonStatus === 'desc') {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.titleButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.titleButtonStatus = 'asc';
         });
       } else {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.titleButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.titleButtonStatus = 'desc';
@@ -127,32 +113,19 @@ export class Story1Component implements OnInit {
 
   sortByPriority() {
     this.sortingPageStatus = 'priority';
-<<<<<<< HEAD
-    if (this.priorityButtonStatus === 'asc') { this.deleteBugAscOrDesc = 'desc'; }
-    if (this.priorityButtonStatus === 'desc') { this.deleteBugAscOrDesc = 'asc'; }
-=======
     if (this.priorityButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
     if (this.priorityButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
 
     if (this.searcButtonClicked === true) {
 
       if (this.priorityButtonStatus === 'desc') {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.priorityButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.priorityButtonStatus = 'asc';
         });
       } else {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.priorityButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.priorityButtonStatus = 'desc';
@@ -183,32 +156,19 @@ export class Story1Component implements OnInit {
   sortByReporter() {
 
     this.sortingPageStatus = 'reporter';
-<<<<<<< HEAD
-    if (this.reporterButtonStatus === 'asc') { this.deleteBugAscOrDesc = 'desc'; }
-    if (this.reporterButtonStatus === 'desc') { this.deleteBugAscOrDesc = 'asc'; }
-=======
     if (this.reporterButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
     if (this.reporterButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
 
     if (this.searcButtonClicked === true) {
 
       if (this.reporterButtonStatus === 'desc') {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.reporterButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.reporterButtonStatus = 'asc';
         });
       } else {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.reporterButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.reporterButtonStatus = 'desc';
@@ -239,33 +199,20 @@ export class Story1Component implements OnInit {
   sortByStatus() {
 
     this.sortingPageStatus = 'status';
-<<<<<<< HEAD
-    if (this.statusButtonStatus === 'asc') { this.deleteBugAscOrDesc = 'desc'; }
-    if (this.statusButtonStatus === 'desc') { this.deleteBugAscOrDesc = 'asc'; }
-=======
     if (this.statusButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
     if (this.statusButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
 
     if (this.searcButtonClicked === true) {
 
       if (this.statusButtonStatus === 'desc') {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.statusButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.statusButtonStatus = 'asc';
         });
       } else {
 
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.statusButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
           this.statusButtonStatus = 'desc';
@@ -298,32 +245,19 @@ export class Story1Component implements OnInit {
   sortByDate() {
 
     this.sortingPageStatus = 'createdAt';
-<<<<<<< HEAD
-    if (this.dateButtonStatus === 'asc') { this.deleteBugAscOrDesc = 'desc'; }
-    if (this.dateButtonStatus === 'desc') { this.deleteBugAscOrDesc = 'asc'; }
-=======
     if (this.dateButtonStatus === 'asc') {this.deleteBugAscOrDesc = 'desc'; }
     if (this.dateButtonStatus === 'desc') {this.deleteBugAscOrDesc = 'asc'; }
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
 
     if (this.searcButtonClicked === true) {
 
       if (this.dateButtonStatus === 'desc') {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.dateButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
         });
         this.dateButtonStatus = 'asc';
       } else if (this.dateButtonStatus === 'asc') {
-<<<<<<< HEAD
-        // tslint:disable-next-line: max-line-length
-=======
 // tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.dateButtonStatus, this.page).subscribe((data) => {
           this.Bugs = data;
         });
@@ -378,11 +312,7 @@ export class Story1Component implements OnInit {
     if (this.searcButtonClicked === true) {
 
       if (this.pagePrev >= 0) {
-<<<<<<< HEAD
         // tslint:disable-next-line: max-line-length
-=======
-// tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pagePrevAscOrDesc, this.pagePrev).subscribe((data) => {
           this.Bugs = data;
           this.pageNext = this.pagePrev + 1;
@@ -420,11 +350,7 @@ export class Story1Component implements OnInit {
     if (this.ascOrDesc === 'desc') { this.pageNextAscOrDesc = 'asc'; }
 
     if (this.searcButtonClicked === true) {
-<<<<<<< HEAD
       // tslint:disable-next-line: max-line-length
-=======
-// tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
       this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.pageNextAscOrDesc, this.pageNext).subscribe((data) => {
         this.Bugs = data;
         this.pagePrev = this.pageNext - 1;
@@ -453,7 +379,6 @@ export class Story1Component implements OnInit {
 
     this.searcButtonClicked = true;
 
-<<<<<<< HEAD
     // tslint:disable-next-line: max-line-length
     if (form.value.searchTitle === null || form.value.searchTitle === '') { this.searchModel.title = ''; } else { this.searchModel.title = '&title=' + form.value.searchTitle; }
 
@@ -464,18 +389,6 @@ export class Story1Component implements OnInit {
     if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; } else { this.searchModel.status = '&status=' + form.value.searchStatus; }
 
     // tslint:disable-next-line: max-line-length
-=======
-// tslint:disable-next-line: max-line-length
-    if (form.value.searchTitle === null || form.value.searchTitle === '') { this.searchModel.title = ''; } else { this.searchModel.title = '&title=' + form.value.searchTitle; }
-
-// tslint:disable-next-line: max-line-length
-    if (form.value.searchReporter === null || form.value.searchReporter === '-Select-' || form.value.searchReporter === '') { this.searchModel.reporter = ''; } else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter; }
-
-// tslint:disable-next-line: max-line-length
-    if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; } else { this.searchModel.status = '&status=' + form.value.searchStatus; }
-
-// tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
     if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = '0'; } else {
       if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3'; }
       if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2'; }
@@ -495,11 +408,7 @@ export class Story1Component implements OnInit {
     if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
     if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
 
-<<<<<<< HEAD
     // tslint:disable-next-line: max-line-length
-=======
-// tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
     this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.page).subscribe((data) => {
       this.Bugs = data;
     });
@@ -522,11 +431,7 @@ export class Story1Component implements OnInit {
     deletedBugId = this.Bugs[deletedBugId].id;
     if (this.searcButtonClicked === true) {
       this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(() => {
-<<<<<<< HEAD
         // tslint:disable-next-line: max-line-length
-=======
-// tslint:disable-next-line: max-line-length
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.ascOrDesc, this.pageForDelete).subscribe((data) => {
           this.Bugs = data;
         });
@@ -534,7 +439,6 @@ export class Story1Component implements OnInit {
 
     } else {
       this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(() => {
-<<<<<<< HEAD
         // tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs('', '', '', '', this.sortingPageStatus, this.deleteBugAscOrDesc, this.pageForDelete).subscribe((data) => {
           this.Bugs = data;
@@ -542,14 +446,6 @@ export class Story1Component implements OnInit {
       });
 
     }
-=======
-// tslint:disable-next-line: max-line-length
-      this.story1ServiceService.getSearchedBugs('', '', '', '', this.sortingPageStatus, this.deleteBugAscOrDesc, this.pageForDelete).subscribe((data) => {
-        this.Bugs = data;
-      });
-    });
-
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
   }
 
   resetButton(form: NgForm) {

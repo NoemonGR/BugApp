@@ -24,17 +24,10 @@ export class Story2Service {
   getBugWithId(id): Observable<bug> {
     return this.http.get<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
   }
-<<<<<<< HEAD
   // TODO : without subscribe
   updateBug(updateBug: bug, id): Observable<bug> {
     return this.http.put<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id, updateBug);
   }
-=======
-// TODO : without subscribe
-  updateBug(updateBug: bug, id): Observable<bug> {
-    return this.http.put<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id, updateBug );
-}
->>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
 
 
 }
