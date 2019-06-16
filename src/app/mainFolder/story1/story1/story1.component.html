@@ -29,7 +29,7 @@
           <th>
             <label> Priority Search </label>
             <select id="widd" type="text" #searchPriority="ngModel" name="searchPriority"
-              [(ngModel)]="searchModel.priority">
+              [ngModel]="searchModel.priority">
               <option selected="selected" value="">-Select-</option>
               <option>Minor</option>
               <option>Major</option>
@@ -49,11 +49,19 @@
           </th>
           <th id="widk">
             <label> Status Search </label>
+<<<<<<< HEAD
             <select type="text" #searchStatus="ngModel" name="searchStatus" [(ngModel)]="searchModel.status">
               <option selected="selected" value="">-Select-</option>
               <option>Ready for test</option>
               <option>Done</option>
               <option>Rejected</option>
+=======
+            <select  type="text" #searchStatus="ngModel" name="searchStatus" [ngModel]="searchModel.status">
+                <option selected="selected" value="">-Select-</option>
+                <option>Ready for test</option>
+                <option>Done</option>
+                <option>Rejected</option>
+>>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
             </select>
           </th>
           <th>

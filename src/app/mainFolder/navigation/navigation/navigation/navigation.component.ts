@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+  goToRoute(path: string) {
+    this.router.navigate([path]);
   }
 
   }

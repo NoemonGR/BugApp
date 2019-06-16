@@ -24,6 +24,7 @@ export class Story1ServiceService {
   }
 
 
+<<<<<<< HEAD
   getBugsInNextPage(page: number, OrderByWhat: string, DescOrAsc: string): Observable<bug[]> {
     // tslint:disable-next-line: max-line-length
     return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + OrderByWhat + ',' + DescOrAsc + '&page=' + page);
@@ -38,6 +39,22 @@ export class Story1ServiceService {
   delteBugWithId(id) {
     return this.http.delete<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
   }
+=======
+getBugsInNextPage(page: number, OrderByWhat: string, DescOrAsc: string ): Observable<bug[]> {
+// tslint:disable-next-line: max-line-length
+  return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + OrderByWhat + ',' + DescOrAsc + '&page=' + page);
+}
+
+getSearchedBugs(title: string, reporter: string, status: string, priority: string, OrderByWhat: string, DescOrAsc: string, page: number ) {
+
+// tslint:disable-next-line: max-line-length
+ return this.http.get<bug[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + OrderByWhat + ',' + DescOrAsc + '&page=' + page + title + priority + reporter + status);
+}
+
+ delteBugWithId(id) {
+ return this.http.delete<bug>('https://bug-report-system-server.herokuapp.com/bugs' + '/' + id);
+}
+>>>>>>> 196c7c2f57d3884e8cf23677ac27da8154800726
 
 
 }
