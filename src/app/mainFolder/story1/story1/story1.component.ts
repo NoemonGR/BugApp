@@ -564,9 +564,36 @@ export class Story1Component implements OnInit {
 
   }
 
-  deleteBug(deletedBugId) {
+  deleteBug(deletedBugId, form: NgForm ) {
     deletedBugId = this.Bugs[deletedBugId].id;
     if (this.searcButtonClicked === true) {
+      if (form.value.searchTitle === null || form.value.searchTitle === '') { this.searchModel.title = ''; } else { this.searchModel.title = '&title=' + form.value.searchTitle; }
+
+      // tslint:disable-next-line: max-line-length
+      if (form.value.searchReporter === null || form.value.searchReporter === '-Select-' || form.value.searchReporter === '') { this.searchModel.reporter = ''; } else { this.searchModel.reporter = '&reporter=' + form.value.searchReporter; }
+  
+      // tslint:disable-next-line: max-line-length
+      if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; } else { this.searchModel.status = '&status=' + form.value.searchStatus; }
+  
+      // tslint:disable-next-line: max-line-length
+      if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = '0'; } else {
+        if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3'; }
+        if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2'; }
+        if (form.value.searchPriority === 'Critical') { this.searchModel.priority = '1'; }
+      }
+  
+      if (this.searchModel.priority === '1') { this.priority = '&priority=1'; }
+      if (this.searchModel.priority === '2') { this.priority = '&priority=2'; }
+      if (this.searchModel.priority === '3') { this.priority = '&priority=3'; }
+      if (this.searchModel.priority === '0') { this.priority = ''; }
+  
+  
+      // if the page is sorted by title put on the ascOrDesc the titleButtonStatus
+      if (this.sortingPageStatus === 'title') { this.ascOrDesc = this.titleButtonStatus; }
+      if (this.sortingPageStatus === 'priority') { this.ascOrDesc = this.priorityButtonStatus; }
+      if (this.sortingPageStatus === 'status') { this.ascOrDesc = this.statusButtonStatus; }
+      if (this.sortingPageStatus === 'reporter') { this.ascOrDesc = this.reporterButtonStatus; }
+      if (this.sortingPageStatus === 'createdAt') { this.ascOrDesc = this.dateButtonStatus; }
       this.story1ServiceService.delteBugWithId(deletedBugId).subscribe(() => {
         // tslint:disable-next-line: max-line-length
         this.story1ServiceService.getSearchedBugs(this.searchModel.title, this.searchModel.reporter, this.searchModel.status, this.priority, this.sortingPageStatus, this.deleteBugAscOrDesc, this.pageForDelete).subscribe((data) => {
@@ -583,6 +610,9 @@ export class Story1Component implements OnInit {
       });
 
     }
+    form.controls['searchPriority'].setValue('');
+    form.controls['searchReporter'].setValue('');
+    form.controls['searchStatus'].setValue('');
   }
 
   resetButton(form: NgForm) {
