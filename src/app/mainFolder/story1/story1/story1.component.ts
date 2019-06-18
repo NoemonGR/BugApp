@@ -367,7 +367,7 @@ export class Story1Component implements OnInit {
     if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; } else { this.searchModel.status = '&status=' + form.value.searchStatus; }
 
     // tslint:disable-next-line: max-line-length
-    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = '0'; } else {
+    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = ''; } else {
       if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3'; }
       if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2'; }
       if (form.value.searchPriority === 'Critical') { this.searchModel.priority = '1'; }
@@ -400,6 +400,7 @@ export class Story1Component implements OnInit {
         });
         this.dateButtonStatus = 'desc';
       }
+
 
     } else {
 
@@ -526,7 +527,7 @@ export class Story1Component implements OnInit {
     if (form.value.searchStatus === null || form.value.searchStatus === '-Select-' || form.value.searchStatus === '') { this.searchModel.status = ''; } else { this.searchModel.status = '&status=' + form.value.searchStatus; }
 
     // tslint:disable-next-line: max-line-length
-    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = '0'; } else {
+    if (form.value.searchPriority === null || form.value.searchPriority === '-Select-' || form.value.searchPriority === '') { this.searchModel.priority = ''; } else {
       if (form.value.searchPriority === 'Minor') { this.searchModel.priority = '3'; }
       if (form.value.searchPriority === 'Major') { this.searchModel.priority = '2'; }
       if (form.value.searchPriority === 'Critical') { this.searchModel.priority = '1'; }
