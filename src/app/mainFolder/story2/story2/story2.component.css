@@ -3,6 +3,12 @@ body {
   font-family: 'Baloo Bhai', cursive;
 }
 
+.fukz {
+  text-align: center;
+  padding-top: 40px;
+  padding-right: 50px;
+}
+
 .vcom {
   padding-left: 270px;
   width: 780px;
