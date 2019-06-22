@@ -1,148 +1,142 @@
 body {
-  background-color: #c0c0c0 ;
-  font-family: 'Baloo Bhai', cursive;
+    background-color: #c0c0c0;
+    font-family: 'Baloo Bhai', cursive;
 }
 
 .fukz {
-  text-align: center;
-  padding-top: 40px;
-  padding-right: 50px;
+    text-align: center;
+    padding-top: 40px;
+    padding-right: 50px;
 }
 
 .vcom {
-  padding-left: 270px;
-  width: 780px;
+    padding-left: 270px;
+    width: 780px;
 }
 
 .eskere {
-  padding-top: 50px;
-  padding-left: 105px;
+    padding-top: 50px;
+    padding-left: 105px;
 }
 
-.btnmain{
-  padding-right: 300px;
+.btnmain {
+    padding-right: 300px;
 }
-
 
 #content {
-  padding-left: 25%;
-  top:200px;
-  text-align:center;
-  opacity:1;
+    padding-left: 25%;
+    top: 200px;
+    text-align: center;
+    opacity: 1;
 }
 
 .text_box_main {
-  background-color: white;
-  width:500px;
-  margin-bottom:50px;
-  box-shadow:0px 4px 20px rgba(0, 0, 0, 0.15);
-  padding:10px;
-  border-radius: 25px;
+    background-color: white;
+    width: 500px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    border-radius: 25px;
 }
 
-
-
 .body_code_main {
-  padding:10px;
-  margin:10px;
-  display:inline-block; 
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
 }
 
 input[class|="simple_large"] {
-  border-radius:5px;
-  padding:10px;
-  width:240px;
-  overflow:hidden;
-  border-style:groove;
-  opacity:0.5;
-  font-family:'Lato';
-  font-weight:400;
-  font-size:16px;
-  position:relative;
-  margin:5px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 240px;
+    overflow: hidden;
+    border-style: groove;
+    opacity: 0.5;
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
+    margin: 5px;
 }
 input[class|="simple_large"]:focus {
-  outline:none;
-  opacity:0.7;
+    outline: none;
+    opacity: 0.7;
 }
-
 
 h1 {
-  padding-top: 40px;
-  text-align: center;
-  color : white;
+    padding-top: 40px;
+    text-align: center;
+    color: white;
 }
 
-
 input {
-  width: 100%;
+    width: 100%;
 
 }
 
 select {
-  width: 50%;
-  margin: 3px;
+    width: 50%;
+    margin: 3px;
 }
 
 #pris {
-  margin-left: 17px;
+    margin-left: 17px;
 }
 .aka {
-  text-align: left;
+    text-align: left;
 }
 
 #kla {
-  margin-left: 25px;
+    margin-left: 25px;
 }
-
-
 
 button {
-  background-color: #A9A9A9	;
-  border-radius: 4px;
-  line-height: 32px;
-  outline:0;
-  border: none;
-  display: inline-block;
-  text-align: center;
-  font-size: 22px;
-  padding: 5px 15px;
-  cursor: pointer;
-  display: inline-block;
+    background-color: #A9A9A9;
+    border-radius: 4px;
+    line-height: 32px;
+    outline: 0;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    padding: 5px 15px;
+    cursor: pointer;
+    display: inline-block;
 }
 
-button:hover {background-color: #7333d8;}
+button:hover {
+    background-color: #7333d8;
+}
 
 button:active {
-  background-color: #7333d8;;
-  transform: translateY(4px);
+    background-color: #7333d8;
+    transform: translateY(4px);
 }
 
 label {
-  margin-top: 20px;
-  color: black;
-  font-family: 'Baloo Bhai', cursive;
-  font-size: 22px;
+    margin-top: 20px;
+    color: black;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 22px;
 }
 
 span {
-  color: red;
-  font-family: 'Baloo Bhai', cursive;
-  font-size: 22px;
+    color: red;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 22px;
 }
 
 div {
-  padding: 10px;
-  color: black;
+    padding: 10px;
+    color: black;
 }
 /*
 submit */
 .lastone {
-  padding-top: 40px;
+    padding-top: 40px;
 }
 
 /* all fields are required */
 .messageme {
-  padding-left: 60px;
+    padding-left: 60px;
 }
-
